@@ -1,0 +1,54 @@
+.mainbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.loginbtn {
+  border-radius: 20px;
+  width: 80px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  margin-right: 30px;
+}
+
+.maintitle {
+  display: flex;
+  height: 500px;
+  background-color: rgb(250, 250, 245);
+}
+
+.mainfont {
+  font-size: 60px;
+  margin-bottom: 0;
+  padding-left: 300px;
+  margin-top: 80px;
+}
+
+.mainfontsecond {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.maintitle_second {
+  height: 250px;
+  background-color: rgb(247, 247, 225);
+}
+
+.maintitle_second_title {
+  display: flex;
+
+  padding-top: 150px;
+  margin-left: 300px;
+}
+
+.millieicon2 {
+  font-size: 30px;
+}
+
+.mainimg {
+  position: absolute;
+  top: 180px;
+  left: 700px;
+}
