@@ -1,0 +1,350 @@
+:root {
+  /* color */
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --gray-color: #5d5d5d;
+  /* padding */
+  --padding-L-size: 36px;
+  --padding-M-size: 24px;
+  --padding-S-size: 12px;
+
+  /* avatar Size */
+  --avatar-L-size: 32px;
+  --avatar-M-size: 23px;
+  --avatar-S-size: 15px;
+
+  /* font-size */
+  --font-L-size: 20px;
+  --font-M-size: 16px;
+  --font-S-size: 13px;
+  --font-XS-size: 9px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+  position: relative;
+}
+
+/* head navi bar */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: whitesmoke;
+}
+#HeadNaviContainer {
+  margin-top: 2.5px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+#naviBar {
+  max-width: 1280px;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24;
+  margin: 0 200;
+}
+#navi-log {
+  flex: 1 1 15%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+section #naviBar #navi-log .navi-i01 {
+  width: 30px;
+  height: 30px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+#navi-text {
+  flex: 1 1 55%;
+  display: flex;
+  align-items: center;
+}
+section #naviBar #navi-text .navi-text01 {
+  padding: 12 24;
+  font-size: var(--font-L-size);
+  font-weight: bold;
+  cursor: pointer;
+}
+section #naviBar #navi-text .navi-text {
+  padding: 12 24;
+  font-size: var(--font-L-size);
+  cursor: pointer;
+}
+#navi-logOut {
+  flex: 1 1 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+section #navi-logOut .navi-i02 {
+  flex: 0.3;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#logOut-btn {
+  width: 80px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: rgb(62, 62, 62);
+  color: whitesmoke;
+  cursor: pointer;
+  font-size: var(--font-S-size);
+}
+
+/* head sub navi */
+
+#HeadNaviSubContainer {
+  max-width: 1280px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 200;
+}
+#HeadNaviSubtextBox {
+  flex: 1;
+  padding-left: 212px;
+}
+section #HeadNaviSubtextBox .navi-text02 {
+  padding: 12 0;
+  padding-bottom: 9px;
+  font-size: var(--font-M-size);
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+section #HeadNaviSubtextBox .navi-text03 {
+  padding: 12 14;
+  font-size: var(--font-M-size);
+  cursor: pointer;
+}
+
+/* main slide  */
+#mainSlide {
+  width: 100%;
+  margin-top: 112px;
+}
+#ColorSlide {
+  background: linear-gradient(
+    90deg,
+    rgb(213, 223, 233) 0%,
+    rgb(217, 207, 228) 100%
+  );
+  height: 388px;
+  cursor: pointer;
+}
+#itemSlide {
+  border-radius: 1px solid var(--black-color);
+  height: 364px;
+}
+
+/* main user text box */
+#mainUserContainer {
+  padding: 32px;
+}
+#mainUserBox {
+  padding: 32 0;
+  height: 98px;
+  margin: 0 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+#UserNickName {
+  flex: 1;
+  font-size: var(--font-L-size);
+  font-weight: bold;
+}
+
+#UserBox {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 16 16;
+}
+
+#UserBox .UserText {
+  flex: 1 1 80%;
+  font-size: var(--font-S-size);
+  color: var(--gray-color);
+}
+
+#UserBox .UserIcon {
+  width: var(--avatar-S-size);
+  height: var(--avatar-S-size);
+  color: var(--gray-color);
+}
+
+/* obj slide 001 */
+.padding {
+  padding: 32 0;
+}
+
+#obj-slide-001 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 32;
+  margin: 0 200;
+  height: 450px;
+}
+
+.text001 {
+  margin: 0 0 2;
+  font-size: var(--font-S-size);
+  color: var(--gray-color);
+  font-weight: 400;
+}
+.text002 {
+  margin: 0 0 16;
+  font-size: var(--font-L-size);
+  color: var(--black-color);
+  font-weight: 550;
+}
+.text003 {
+  padding-top: 12px;
+  margin: 0 0 3;
+  font-size: var(--font-M-size);
+  color: var(--black-color);
+  font-weight: 550;
+}
+
+#obj-slide-box-001 {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+#obj-slide-box-001 #obj-BoxItem-001 {
+  flex: 1 1 33.34%;
+}
+#obj-slide-box-001 .obj-slide-item-001 {
+  width: 100%;
+  height: 242px;
+  background: linear-gradient(
+    90deg,
+    rgb(213, 223, 233) 0%,
+    rgb(217, 207, 228) 100%
+  );
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+.obj-slide-item-001 img {
+  flex: 1;
+  height: 90%;
+  object-fit: contain;
+}
+#obj-slide-btn-001 {
+  position: relative;
+  margin-top: 25px;
+  align-self: center;
+  width: 325px;
+  height: 47px;
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#obj-slide-btn-001 .icon001 {
+  position: relative;
+  left: 50px;
+  flex: 0.68;
+  width: var(--avatar-S-size);
+  height: var(--avatar-S-size);
+}
+#obj-slide-btn-001 .text003 {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: var(--font-M-size);
+  width: var(--avatar-M-size);
+  height: var(--avatar-M-size);
+  color: var(--gray-color);
+}
+
+/* obj slide 001 */
+#obj-slide-002 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 32;
+  margin: 0 200;
+  height: 450px;
+}
+
+#obj-slide-002 .text002 {
+  padding: 0;
+  margin-bottom: 2px;
+}
+
+#obj-slide-box-002 {
+  margin-top: 13px;
+  display: flex;
+  flex-direction: column;
+}
+
+#obj-BoxItem-002 {
+  width: 296px;
+  height: 165px;
+}
+#obj-BoxItem-002 .img001 {
+  width: 296px;
+  height: 165px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+#obj-BoxItem-002-1 {
+  width: 296px;
+  height: 130px;
+  padding: 16px;
+  background-color: rgb(74, 182, 146);
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+#obj-BoxItem-002-1 .text004 {
+  font-size: 16px;
+  margin: 0;
+}
+#obj-BoxItem-002-1 .text005 {
+  font-size: 14px;
+  margin: 0;
+}
+#obj-BoxItem-002-1 .text006 {
+  margin-top: 38px;
+  align-self: flex-end;
+  font-size: 12px;
+}
