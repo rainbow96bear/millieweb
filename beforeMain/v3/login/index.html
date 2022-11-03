@@ -1,52 +1,79 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>로그인</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
+    <!-- 로그인 -->
     <div class="login-all-wrap">
         <div class="login-background"></div>
         <div id="loginContainer">
             <div class="login-info-text">
-                <p><span>독서와 무제한 친해지리</span><br/>12만 권 속에서 인생책을 찾아보세요</p>
+                <p><span>독서와 무제한 친해지리</span><br />12만 권 속에서 인생책을 찾아보세요</p>
             </div>
             <div id="loginForm">
-                <input type="text" name="userId" id="userId" placeholder="아이디">
-                <input type="password" name="userPw" id="userPw" placeholder="비밀번호 입력">
+                <div class="input-design">
+                    <input type="text" name="userId" id="userId" placeholder="아이디" autocomplete="off">
+                    <span>회원 아이디</span>
+                </div>
+                <div class="input-design">
+                    <input type="password" name="userPw" id="userPw" placeholder="비밀번호 입력" autocomplete="off">
+                    <span>비밀번호</span>
+                </div>
                 <div id="loginBtn"><span>로그인</span></div>
                 <!-- 로그인 끝 -->
                 <div class="login-another">
-                    <!-- 회원가입
-                    비밀번호 찾기
-                    기업회원 로그인 -->
-                    <div id=""></div>
+                    <!-- 회원가입 페이지로 이동(a태그 사용) -->
+                    <div id="authorSignInPage">
+                        <!-- 이 부분 나중에 뭔가 라우터 관련해서 수정해야 할 듯 -->
+                        <a href="../join/index.html" style="text-decoration: none; color: #555555;">회원가입</a>
+                    </div>
+                    <div>|</div>
+                    <div id="authorLoginPage">작가회원 로그인</div>
                 </div>
             </div>
-        </div><!--//#loginContainer end-->
-
-
-
-
+        </div>
+        <!--//#loginContainer end-->
 
         <div id="authorLoginContainer" style="display: none;">
             <div class="login-info-text">
-                <p class="author-login-info">밀리의 서재<br/>작가회원 로그인</p>
+                <p class="author-login-info">밀리의 서재<br />작가회원 로그인</p>
             </div>
             <div id="authorLoginForm">
-                <input type="text" name="authorId" id="authorId" placeholder="아이디">
-                <input type="password" name="authorId" id="authorPw" placeholder="비밀번호 입력">
+                <div class="input-design">
+                    <input type="text" name="authorId" id="authorId" placeholder="아이디" autocomplete="off">
+                    <span>작가 아이디</span>
+                </div>
+                <div class="input-design">
+                    <input type="password" name="authorPw" id="authorPw" placeholder="비밀번호 입력" autocomplete="off">
+                    <span>비밀번호</span>
+                </div>
                 <div id="authorLoginBtn"><span>로그인</span></div>
-                <!-- <div ><span>나는작가^^</span></div> -->
+                <div class="login-another">
+                    <!-- 작가 회원가입 페이지로 이동(a태그 사용) -->
+                    <div id="authorSignInPage">
+                        <!-- 이 부분 나중에 뭔가 라우터 관련해서 수정해야 할 듯 -->
+                        <a href="../join/index.html" style="text-decoration: none; color: #555555;">작가 회원가입</a>
+                    </div>
+                    <div>|</div>
+                    <div id="loginPage">일반회원 로그인</div>
+                </div>
             </div>
         </div>
-    </div>
+        <!--//#authorLoginContainer end-->
+    </div><!--//.login-all-wrap end-->
 
-    <script>
-        
 
-    </script>
+    
+
+
+
+    <script src="index.js"></script>
 </body>
+
 </html>

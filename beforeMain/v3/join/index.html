@@ -1,0 +1,149 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- 회원가입 -->
+    <div class="join-all-wrap">
+        <div class="join-background"></div>
+        <!-- 일반 회원가입 -->
+        <div id="joinContainer">
+            <div class="join-info-text">
+                <p><span>회원 가입</span><br />12만 권 속에서 인생책을 찾아보세요.</p>
+            </div>
+            <div id="joinForm">
+                <div class="input-design">
+                    <input type="text" name="userName" id="userName" placeholder="이름 입력" autocomplete="off">
+                    <span>이름</span>
+                </div>
+                <div class="input-design">
+                    <input type="text" name="userId" id="userId" placeholder="아이디 입력" autocomplete="off">
+                    <span>아이디</span>
+                </div>
+                <div class="input-design">
+                    <input type="text" name="email" id="email" placeholder="이메일 입력" autocomplete="off">
+                    <span>이메일</span>
+                </div>
+                <div class="input-design">
+                    <input type="password" name="userPw" id="userPw" placeholder="비밀번호 입력" autocomplete="off">
+                    <span>비밀번호</span>
+                </div>
+                <div class="input-design">
+                    <!-- 인풋 데이터 보낼때 확인은 안 보낸다. -->
+                    <input type="password" id="userPwCheck" placeholder="비밀번호 확인" autocomplete="off">
+                    <span>비밀번호 확인</span>
+                </div>
+                <!-- 생년월일 년도 수정 -->
+                <div class="input-design">
+                    <input type="date" name="birthday" id="birthday" value="xxx" min="0000-1-1" max="9999-12-31" placeholder="생년월일" autocomplete="off">
+                    <span>생년월일</span>
+                </div>
+                <!-- 서비스 이용 약관 동의 추가 -->
+                <!-- 5개 전부 입력했을 시 회원가입 버튼 활성화 -->
+                <div id="joinBtn"><span>회원가입</span></div>
+                <!-- 회원가입 끝 -->
+            </div>
+        </div>
+        <!--//#joinContainer end-->
+
+
+        <!-- author join -->
+        <!-- 작가 회원가입 -->
+        <div id="authorJoinContainer" style="display: none;">
+            <div class="join-info-text">
+                <!-- <p><span>작가 회원가입</span><br />12만 권 속에서 인생책을 찾아보세요.</p> -->
+                <p><span>작가 회원가입</span><br /></p>
+            </div>
+            <div id="authorJoinForm">
+                <div class="input-design">
+                    <input type="text" name="authorName" id="authorName" placeholder="이름 입력" autocomplete="off">
+                    <span>이름</span>
+                </div>
+                <div class="input-design">
+                    <input type="text" name="authorUserId" id="authorUserId" placeholder="아이디 입력" autocomplete="off">
+                    <span>아이디</span>
+                </div>
+                <div class="input-design">
+                    <input type="text" name="authorEmail" id="authorEmail" placeholder="이메일 입력" autocomplete="off">
+                    <span>이메일</span>
+                </div>
+                <div class="input-design">
+                    <input type="password" name="authorUserPw" id="authorUserPw" placeholder="비밀번호 입력" autocomplete="off">
+                    <span>비밀번호</span>
+                </div>
+                <div class="input-design">
+                    <!-- 인풋 데이터 보낼때 확인은 안 보낸다. -->
+                    <input type="password" id="authorUserPwCheck" placeholder="비밀번호 확인" autocomplete="off">
+                    <span>비밀번호 확인</span>
+                </div>
+                <!-- 생년월일 년도 수정 -->
+                <div class="input-design">
+                    <input type="date" name="authorBirthday" id="authorBirthday" value="xxx" min="0000-1-1" max="9999-12-31" placeholder="생년월일" autocomplete="off">
+                    <span>생년월일</span>
+                </div>
+                <div style="margin-top: 18px;">
+                    <div class="input-design">
+                        <input type="text" name="nickname" id="nickname" placeholder="작가명 입력" autocomplete="off">
+                        <span>작가명</span>
+                    </div>
+                    <div class="input-design">
+                        <input type="text" name="publish" id="publish" placeholder="출판사 입력" autocomplete="off">
+                        <span>출판사</span>
+                    </div>
+                </div>
+                
+                <!-- 서비스 이용 약관 동의 추가 -->
+                <!-- 5개 전부 입력했을 시 회원가입 버튼 활성화 -->
+                <div id="authorJoinBtn"><span>회원가입</span></div>
+                <!-- 회원가입 끝 -->
+            </div>
+        </div>
+        <!--//#authorJoinContainer end-->        
+
+
+
+
+
+
+        <!-- 이 아래 수정 안함 -->
+        <div id="authorJoinContainer" style="display: none;">
+            <div class="join-info-text">
+                <p class="author-login-info">밀리의 서재<br />작가회원 로그인</p>
+            </div>
+            <div id="authorLoginForm">
+                <input type="text" name="authorId" id="authorId" placeholder="아이디">
+                <input type="password" name="authorId" id="authorPw" placeholder="비밀번호 입력">
+                <div id="authorLoginBtn"><span>로그인</span></div>
+                <div class="login-another">
+                    <!-- 작가 회원가입 페이지로 이동(a태그 사용) -->
+                    <div id="authorSignInPage">
+                        <!-- 이 부분 나중에 뭔가 라우터 관련해서 수정해야 할 듯 -->
+                        <a href="../join/index.html" style="text-decoration: none; color: #555555;">작가 회원가입</a>
+                    </div>
+                    <div>|</div>
+                    <div id="loginPage">일반회원 로그인</div>
+                </div>
+            </div>
+        </div>
+        <!--//#authorJoinContainer end-->
+
+
+
+
+    </div><!--//.join-all-wrap end-->
+
+
+    
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
