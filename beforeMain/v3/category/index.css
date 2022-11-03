@@ -17,7 +17,7 @@ body {
 
   width: 100%;
 }
-#category_box span {
+#category_box h2 {
   width: 100%;
   margin: 10px;
 }
@@ -27,7 +27,6 @@ body {
   width: calc(50% - 20px);
   height: 130px;
   margin: 5px;
-  /* padding: 20px; */
   border-radius: 5px;
   border: 1px solid lightslategray;
 }
