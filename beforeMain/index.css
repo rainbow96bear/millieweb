@@ -120,3 +120,120 @@
   flex-direction: column;
   padding: 80px;
 }
+
+.second_slide_main {
+  margin: 0 400px;
+}
+
+.second_slide_main_content {
+  display: flex;
+  justify-content: center;
+}
+
+.second_slide_main_content_name {
+  width: 200px;
+}
+
+.second_slide {
+  width: 1050px;
+}
+
+.second_slide2 {
+  width: 1050px;
+  padding-top: 50px;
+}
+
+.second_slide_img {
+  padding-top: 20px;
+}
+
+.second_slide_button {
+  display: flex;
+  width: 400px;
+  justify-content: space-around;
+}
+
+.second_slide_button_click {
+  border-radius: 10px;
+  width: 70px;
+  padding: 5px;
+  background-color: white;
+  border-color: black;
+}
+
+.millie_pick {
+  width: 400px;
+  /* position: relative; */
+  bottom: 250px;
+  right: 5px;
+}
+
+.main_info_four {
+  margin-top: 80px;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+  padding: 80px;
+  background-color: #f7f3f2;
+  width: 1730px;
+  height: 650px;
+}
+
+.millie_pick_title {
+  position: relative;
+  left: 350px;
+  bottom: 40px;
+}
+
+.millie_pick {
+  position: relative;
+  left: 340px;
+  bottom: 300px;
+}
+
+.millie_pick_box_one {
+  position: relative;
+  width: 180px;
+  bottom: 270px;
+  right: 300px;
+}
+
+.millie_pick_box_two {
+  position: relative;
+  width: 180px;
+  bottom: 450px;
+  right: 400px;
+}
+
+.millie_pick_box_three {
+  position: relative;
+  width: 180px;
+  bottom: 450px;
+  right: 60px;
+}
+
+.millie_pick_box_four {
+  position: relative;
+  width: 180px;
+  bottom: 280px;
+  right: 160px;
+}
+
+.main_info_five {
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+  padding: 80px;
+  background-color: rgb(250, 250, 96);
+  width: 1730px;
+  height: 550px;
+}
+
+.main_info_content_img {
+  display: flex;
+  align-items: center;
+}

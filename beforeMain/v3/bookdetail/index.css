@@ -162,3 +162,47 @@
 .character_img_two {
   padding-left: 20px;
 }
+
+.category {
+  width: 150px;
+  background-color: rgb(243, 231, 231);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  justify-content: space-around;
+}
+.publish {
+  width: 150px;
+  background-color: rgb(243, 231, 231);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: 50px;
+  justify-content: space-around;
+}
+
+.book_button {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.category_title {
+  color: gray;
+}
+
+.publish_title {
+  color: gray;
+}
+
+.category_content {
+  text-decoration: underline;
+}
+
+.publish_content {
+  text-decoration: underline;
+}
