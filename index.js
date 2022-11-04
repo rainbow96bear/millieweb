@@ -37,7 +37,7 @@ app.use(
     name: "session",
   })
 );
-app.use("/api", routes);
+app.use("/v3", routes);
 sequelize
   .sync({ force: false })
   .then(() => {

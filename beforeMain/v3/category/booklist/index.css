@@ -24,9 +24,48 @@ body {
   padding: 15px 0;
   background-color: linen;
 }
+.arrow_img {
+  width: 25px;
+}
 .content_center {
   display: flex;
   justify-content: center;
+}
+.direction_col {
+  display: flex;
+  flex-direction: column;
+}
+#item_container {
+  width: 1000px;
+  display: flex;
+  overflow: hidden;
+}
+.item {
+  height: 300px;
+  padding: 10px;
+}
+.img_box {
+  width: 145px;
+  height: 75%;
+  position: relative;
+}
+.img_box img {
+  box-shadow: 1px 1px 2px 2px gray;
+  position: absolute;
+  bottom: 0;
+}
+.book_info {
+  margin-top: 7px;
+}
+.book_title {
+  font-weight: bolder;
+}
+.author_info {
+  width: 145px;
+  color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .content_case {
   width: 1000px;

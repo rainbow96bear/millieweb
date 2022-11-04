@@ -21,6 +21,11 @@ const category = [
   "로맨스 BL",
 ];
 let temp = location.href.split("?");
+// 페이지에 도착하면 정보를 불러오는 함수 구현과 실행
+
+async function getBooks() {
+  // const data = await axios.post("/getData", { category: category[temp[1]] });
+}
 
 firstBannerTitle.innerText = category[temp[1]];
 secondBannerTitle.innerText = category[temp[1]] + " 전체보기";
