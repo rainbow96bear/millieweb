@@ -1,0 +1,110 @@
+/* obj-slide-004 */
+
+#obj-slide-004 {
+  margin: 0 200;
+  cursor: pointer;
+}
+
+#obj-slide-box-004 {
+  padding: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  padding-bottom: calc(var(--padding) * 1);
+}
+#obj-slide-box-004 img {
+  width: calc(var(--avatar-L-size) * 5);
+  height: calc(var(--avatar-L-size) * 5);
+  margin: 0 13px;
+  object-fit: contain;
+  position: relative;
+}
+#obj-slide-box-004 img:hover {
+  width: calc(var(--avatar-L-size) * 8.5);
+  height: calc(var(--avatar-L-size) * 8.5);
+  position: relative;
+  top: -15px;
+  transition: 1s ease-in-out;
+}
+
+#obj-slide-box-005 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  padding-bottom: calc(var(--padding) * 1);
+  position: relative;
+}
+#obj-slide-box-005 img {
+  width: calc(var(--avatar-L-size) * 5);
+  height: calc(var(--avatar-L-size) * 5);
+  margin: 0 13px;
+  object-fit: contain;
+  position: relative;
+  top: 7.5px;
+  bottom: 7.5px;
+}
+#obj-slide-box-005 img:hover {
+  width: calc(var(--avatar-L-size) * 8.5);
+  height: calc(var(--avatar-L-size) * 8.5);
+  position: relative;
+  top: -7.5px;
+  bottom: -7.5px;
+  transition: 1s ease-in-out;
+}
+
+#obj-slide-box-006 {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  padding-bottom: calc(var(--padding) * 1);
+}
+#obj-slide-box-006 img {
+  width: calc(var(--avatar-L-size) * 5);
+  height: calc(var(--avatar-L-size) * 5);
+  margin: 0 13px;
+  object-fit: contain;
+  position: relative;
+}
+#obj-slide-box-006 img:hover {
+  width: calc(var(--avatar-L-size) * 8.5);
+  height: calc(var(--avatar-L-size) * 8.5);
+  position: relative;
+  bottom: -15px;
+  transition: 1s ease-in-out;
+}
+
+@keyframes effect1 {
+  0% {
+    transform: translateX(-70%);
+  }
+
+  100% {
+    transform: translateX(-20%);
+  }
+}
+@keyframes effect2 {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(-70%);
+  }
+}
+#obj-slide-box-004.animate1 {
+  animation: effect1 25s linear infinite;
+}
+#obj-slide-box-005.animate2 {
+  animation: effect2 25s linear infinite;
+}
+#obj-slide-box-006.animate3 {
+  animation: effect1 25s linear infinite;
+}
+
+/* obj-slide-005 */
