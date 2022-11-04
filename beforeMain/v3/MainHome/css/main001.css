@@ -34,7 +34,7 @@ main {
 }
 /* #navi-log {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
 } */
 section #naviBar #navi-log .navi-i01 {
@@ -65,10 +65,6 @@ section #naviBar #navi-text .navi-text {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-<<<<<<< HEAD
-
-=======
->>>>>>> 687bd6a (221108)
 } */
 section #navi-logOut .navi-i02 {
   /* flex: 0.3; */
@@ -196,6 +192,9 @@ section #HeadNaviSubtextBox .navi-text03 {
   /* white-space: nowarp;
   scroll-snap-type: x mandatory;
   overflow-x: auto; */
+  white-space: nowarp;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
 }
 
 .text001 {
@@ -227,6 +226,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   gap: 15px;
   transform: translate(0, 0);
 }
+
 #obj-slide-box-001 #obj-BoxItem-001 {
   flex: 1 1 33.34%;
   min-height: 245px;
@@ -236,7 +236,6 @@ section #HeadNaviSubtextBox .navi-text03 {
 #obj-slide-box-001 .obj-slide-item-001 {
   width: 100%;
   height: 245px;
-
   background: linear-gradient(
     90deg,
     rgb(213, 223, 233) 0%,
