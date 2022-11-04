@@ -18,7 +18,8 @@
 .mybook {
   background-color: white;
   width: 250px;
-  height: 50px;
+
+  padding: 10px;
   display: flex;
   align-items: center;
   border-color: black;
@@ -45,6 +46,11 @@
   margin-left: 50px;
 }
 
+.bookname_title_second {
+  color: grey;
+  font-size: 10px;
+}
+
 .book_info {
   width: 1280px;
   height: 150px;
@@ -57,6 +63,14 @@
   padding-left: 30px;
   padding-right: 30px;
 }
+.bookdetail-info-title {
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.bookdetail-info-content {
+  font-size: 12px;
+}
 
 .buttondetail {
   background-color: white;
@@ -68,11 +82,83 @@
 .book_review {
   border-style: solid;
   width: 1280px;
-  height: 340px;
-  border-color: black;
+  height: 400px;
+  border-color: beige;
 }
 
 .book_review_side {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+
+  align-items: center;
+
+  width: 1240px;
+}
+
+.review_one {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* display: flex;
+  align-items: center; */
+}
+
+.review_one_first {
+  display: flex;
+  align-items: center;
+}
+
+.input_review {
+  width: 500px;
+}
+
+.review_add {
+  color: white;
+  margin-left: 20px;
+  width: 70px;
+  background-color: gray;
+  border-radius: 10px;
+  border-color: white;
+}
+
+.mainbar_img {
+  padding-left: 20px;
+}
+
+.character_img_one {
+  margin-left: 1100px;
+}
+
+.review_id {
+  font-size: 12px;
+}
+
+.review_count {
+  color: rgb(216, 216, 18);
+}
+
+.threedot {
+  margin-left: 1140px;
+}
+
+.review_content {
+  margin-left: 30px;
+}
+
+.review_content_detail {
+  font-size: 14px;
+}
+
+.review_content_like {
+  color: grey;
+  font-size: 10px;
+  display: flex;
+}
+
+.review_coment {
+  display: flex;
+}
+
+.character_img_two {
+  padding-left: 20px;
 }
