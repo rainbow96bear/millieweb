@@ -1,0 +1,53 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1156px;
+}
+
+section .img001 {
+  flex: 1 1 70%;
+  object-fit: contain;
+}
+
+section #login {
+  padding: 30px;
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#login input {
+  height: 50px;
+  padding: 11px;
+  font-size: var(--font-S-size);
+}
+
+#login #img {
+  text-align: center;
+  align-self: center;
+  width: 250px;
+  height: 250px;
+  padding: 11px;
+}
+#login #category {
+  height: 45px;
+  padding: 11px;
+}
+#login #introduce {
+  height: 250px;
+  font-size: var(--font-L-size);
+}
+#login #login-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#login #login-btn button {
+  flex: 1;
+  height: 50px;
+  font-size: var(--font-M-size);
+  font-weight: 500;
+}

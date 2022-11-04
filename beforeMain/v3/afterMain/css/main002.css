@@ -58,6 +58,7 @@
 }
 
 #obj-slide-box-006 {
+  position: relative;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
