@@ -1,0 +1,208 @@
+.mainbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-left: 300px;
+}
+
+.logoutbtn {
+  border-radius: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  margin-right: 30px;
+  margin-right: 300px;
+}
+
+.mybook {
+  background-color: white;
+  width: 250px;
+
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-color: black;
+
+  margin-left: 50px;
+}
+
+.bookdetail_main {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.bookdetail {
+  display: flex;
+  padding-top: 50px;
+  border-style: solid;
+  border-color: beige;
+  padding-left: 30px;
+  padding-bottom: 20px;
+}
+
+.bookname_title {
+  margin-top: 0px;
+  margin-left: 50px;
+}
+
+.bookname_title_second {
+  color: grey;
+  font-size: 10px;
+}
+
+.book_info {
+  width: 1280px;
+  height: 150px;
+  border-style: solid;
+  border-color: beige;
+}
+
+.bookdetail-info {
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.bookdetail-info-title {
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.bookdetail-info-content {
+  font-size: 12px;
+}
+
+.buttondetail {
+  background-color: white;
+  border-color: white;
+  color: blue;
+  font-size: 15px;
+}
+
+.book_review {
+  border-style: solid;
+  width: 1280px;
+  height: 400px;
+  border-color: beige;
+}
+
+.book_review_side {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+
+  align-items: center;
+
+  width: 1240px;
+}
+
+.review_one {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* display: flex;
+  align-items: center; */
+}
+
+.review_one_first {
+  display: flex;
+  align-items: center;
+}
+
+.input_review {
+  width: 500px;
+}
+
+.review_add {
+  color: white;
+  margin-left: 20px;
+  width: 70px;
+  background-color: gray;
+  border-radius: 10px;
+  border-color: white;
+}
+
+.mainbar_img {
+  padding-left: 20px;
+}
+
+.character_img_one {
+  margin-left: 1100px;
+}
+
+.review_id {
+  font-size: 12px;
+}
+
+.review_count {
+  color: rgb(216, 216, 18);
+}
+
+.threedot {
+  margin-left: 1140px;
+}
+
+.review_content {
+  margin-left: 30px;
+}
+
+.review_content_detail {
+  font-size: 14px;
+}
+
+.review_content_like {
+  color: grey;
+  font-size: 10px;
+  display: flex;
+}
+
+.review_coment {
+  display: flex;
+}
+
+.character_img_two {
+  padding-left: 20px;
+}
+
+.category {
+  width: 150px;
+  background-color: rgb(243, 231, 231);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  justify-content: space-around;
+}
+.publish {
+  width: 150px;
+  background-color: rgb(243, 231, 231);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: 50px;
+  justify-content: space-around;
+}
+
+.book_button {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.category_title {
+  color: gray;
+}
+
+.publish_title {
+  color: gray;
+}
+
+.category_content {
+  text-decoration: underline;
+}
+
+.publish_content {
+  text-decoration: underline;
+}
