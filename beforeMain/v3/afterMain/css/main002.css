@@ -3,6 +3,7 @@
 #obj-slide-004 {
   margin: 0 200;
   cursor: pointer;
+  overflow: hidden;
 }
 
 #obj-slide-box-004 {
@@ -20,6 +21,7 @@
   margin: 0 13px;
   object-fit: contain;
   position: relative;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 #obj-slide-box-004 img:hover {
   width: calc(var(--avatar-L-size) * 8.5);
@@ -27,6 +29,7 @@
   position: relative;
   top: -15px;
   transition: 1s ease-in-out;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
 #obj-slide-box-005 {
@@ -47,6 +50,7 @@
   position: relative;
   top: 7.5px;
   bottom: 7.5px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 #obj-slide-box-005 img:hover {
   width: calc(var(--avatar-L-size) * 8.5);
@@ -55,10 +59,10 @@
   top: -7.5px;
   bottom: -7.5px;
   transition: 1s ease-in-out;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
 #obj-slide-box-006 {
-  position: relative;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
@@ -72,6 +76,7 @@
   margin: 0 13px;
   object-fit: contain;
   position: relative;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 #obj-slide-box-006 img:hover {
   width: calc(var(--avatar-L-size) * 8.5);
@@ -79,6 +84,7 @@
   position: relative;
   bottom: -15px;
   transition: 1s ease-in-out;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
 @keyframes effect1 {
@@ -109,3 +115,34 @@
 }
 
 /* obj-slide-005 */
+
+#obj-slide-006 {
+  display: flex;
+  flex-direction: column;
+  height: 671px;
+  margin: 0 200;
+}
+#obj-slide-006 .text002 {
+  margin-bottom: 1px;
+}
+
+#obj-slide-list-006 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#obj-slideBox-006 {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 335px;
+  height: 539px;
+  border-radius: 10px;
+  background-color: white;
+}
+#obj-slideBox-006 .obj-slide-item-006-1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
