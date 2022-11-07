@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    height: 120px;
+    background-color: rgb(245, 245, 245);
+    line-height: 120px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.all-wrap {
+    min-height: 120%;
+    height: 200px;
+    text-align: center;
+}
+
+.header-all-wrap{
+    /* background-color: black; */
+    background-image: url("my-library-background3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.library-header-wrap {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 280px;
+    border-bottom: 2px solid rgb(187, 180, 180);
+
+}
+
+.user-info-wrap {
+    width: 1400px;
+    height: 40%;
+    background-color: aliceblue;
+    padding-top: 10px;
+    margin-bottom: 36px;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+.user-info{
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+.other-info{
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    margin-top: 25px;
+
+}
+
+.user-life-book {
+    width: 1400px;
+    padding-top: 10px;
+    height: 40%;
+    background-color: rgb(245, 245, 245);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.life-book-info{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+
+}
+
+.life-book-img{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+}
+
+
+.library-content-wrap {
+    width: 1400px;
+    display: inline-block;
+    /* height: 800px; */
+    /* background-color: rgba(51, 148, 148, 0.24); */
+    height: 120px;
+    box-sizing: border-box;
+    /* padding: 10px 0; */
+}
+
+.content-top{
+    height: 60px;
+    background-color: rgba(165, 42, 42, 0.295);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content-top-left{
+    width: 200px;
+    height: 40px;
+    background-color: rebeccapurple;
+}
+.content-top-right{
+    width: 40px;
+    height: 40px;
+    background-color: green;
+
+}
+
+.content-bottom{
+    height: 60px;
+    background-color: rgba(85, 42, 165, 0.295);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.content-bottom-left{
+    width: 40px;
+    height: 40px;
+    background-color: green;
+
+}
+.content-bottom-right{
+    width: 160px;
+    height: 40px;
+    background-color: rebeccapurple;
+
+}
+
+.library-books{
+    width: 1400px;
+    display: inline-block;
+    /* height: 260px; */
+    height: auto;
+    background-color: rgba(0, 255, 255, 0.24);
+    margin-top: 10px;
+    text-align: left !important; 
+}
+.library-book{
+    /* flex로 정렬해야 할 것 같긴 하다. */
+    /* 아니면 이미지 크기를 딱 맞추던가. */
+    /* 호버 했을때 나올 것도 만들어야 한다. */
+    /* height: inherit; */
+    height: 260px;
+    width: 193.1px;
+    display: inline-block;
+    border: 1px solid black;
+}

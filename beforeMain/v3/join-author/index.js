@@ -23,7 +23,7 @@ const publishElem = document.getElementById("publish");
 // 일반 회원가입 입력 값 체크 ok
 function valueCheck() {
     // 전부 값이 있으면
-    if (!!userName.value && !!userId.value && !!userEmail.value && !!userPw.value && !!userPwCheck.value && !!userBirthday.value) {
+    if (userName.value && userId.value && userEmail.value && userPw.value && userPwCheck.value && userBirthday.value) {
         joinBtnElem.classList.add("on");
     } else {
         joinBtnElem.classList.remove("on");
@@ -33,8 +33,8 @@ function valueCheck() {
 // 작가 회원가입 입력 값 체크 ok (수정 추가 여기) 
 function authorValueCheck() {
     // 전부 값이 있으면 (작가명, 출판사 추가하기)
-    if (!!authorName.value && !!authorUserId.value && !!authorEmail.value && !!authorUserPw.value && !!authorUserPwCheck.value && !!authorBirthday.value && !!nickname.value && !!publish.value) {
-        // if(!!authorName.value && !!authorUserId.value && !!authorEmail.value && !!authorUserPw.value && !!authorUserPwCheck.value && !!authorBirthday.value && !!nickname.value !!publish.value){
+    if (authorName.value && authorUserId.value && authorEmail.value && authorUserPw.value && authorUserPwCheck.value && authorBirthday.value && nickname.value && publish.value) {
+        // if(authorName.value && authorUserId.value && authorEmail.value && authorUserPw.value && authorUserPwCheck.value && authorBirthday.value && nickname.value publish.value){
         // 버튼 활성화
         authorJoinBtnElem.classList.add("on");
     } else {
@@ -240,11 +240,19 @@ authorEmailElem.addEventListener("focusout", e => {
 // 비밀번호 값, 비밀번호 확인 값 체크 함수 ok
 function pwValueCheck(au) {
 
+    // if(!authorUserPwElem.value){
+    //     document.getElementById("Apw2GoodMsg").style.display = "none";
+    // }
+
     if (au == "user") {
         // 만약 비밀번호가 같으면 같다는 표시, 다르면 다르다는 표시..
         if (userPwElem.value === userPwCheckElem.value) {
             document.getElementById("pw2GoodMsg").style.display = "block";
             document.getElementById("pw2Msg").style.display = "none";
+            // 진짜 중요 !!!
+            if (!userPwElem.value) {
+                document.getElementById("pw2GoodMsg").style.display = "none";
+            }
         } else {
             document.getElementById("pw2Msg").style.display = "block";
             document.getElementById("pw2GoodMsg").style.display = "none";
@@ -253,6 +261,10 @@ function pwValueCheck(au) {
         if (authorUserPwElem.value === authorUserPwCheckElem.value) {
             document.getElementById("Apw2GoodMsg").style.display = "block";
             document.getElementById("Apw2Msg").style.display = "none";
+            // 진짜 중요 !!!
+            if (!authorUserPwElem.value) {
+                document.getElementById("Apw2GoodMsg").style.display = "none";
+            }
         } else {
             document.getElementById("Apw2Msg").style.display = "block";
             document.getElementById("Apw2GoodMsg").style.display = "none";
@@ -540,7 +552,7 @@ function authorJoinCheck() {
     const p2 = pwCheck2("author", authorUserPwCheckElem.value);
     const b = birthCheck("author", authorBirthdayElem.value);
 
-    // 닉네임 확인과 출판사 확인 추가
+    // 닉네임 확인 및 출판사 확인
     const nic = nickCheck(nicknameElem.value);
     const pub = pubCheck(publishElem.value);
 
@@ -549,7 +561,7 @@ function authorJoinCheck() {
 
 
 // 일반 회원가입 버튼 클릭 
-joinBtnElem.onclick = () => {
+joinBtnElem.onclick = async () => {
     // 값들을 가져온다. -> DB 연결 -> DB에 보낸다.
     const userName = userNameElem.value;
     const userId = userIdElem.value;
@@ -569,10 +581,28 @@ joinBtnElem.onclick = () => {
         console.log(`userPwCheck : ${userPwCheck}`);
         console.log(`userBirthday : ${userBirthday}`);
 
-        alert("회원가입이 완료되었습니다.");
 
-        // 메인 페이지로 리다이렉트
-        window.location.href = 'https://www.millie.co.kr/';
+        // v3/join/signup 이 된다.
+        const data = await axios.post("/v3/join/signup", {
+            // 이렇게 값을 보내면 상대편에서는 req.body.name로 값을 받을 수 있다.
+            name: userName, userId: userId, email: userEmail,
+            userPw: userPw, birthday: userBirthday
+
+            // 암호화는 여기서 ㄴㄴ 서버쪽에서 한다.
+            // data를 찍으면 서버에서 보낸 res값이 나온다.
+        });
+        console.log(data.data.status);
+
+        // status가 200일때 띄운다.
+        if (data.data.status == 200) {
+            alert("회원가입이 완료되었습니다.");
+
+            // 메인 페이지로 리다이렉트
+            window.location.href = 'https://www.millie.co.kr/';
+        } else if (data.data.status == 401) {
+            alert("이미 있는 아이디입니다.");
+        }
+
 
     } else {
         alert("아직임~~");
@@ -581,7 +611,7 @@ joinBtnElem.onclick = () => {
 }
 
 // 작가 회원가입 버튼 클릭
-authorJoinBtnElem.onclick = () => {
+authorJoinBtnElem.onclick = async () => {
     const authorName = authorNameElem.value;
     const authorUserId = authorUserIdElem.value;
     const authorEmail = authorEmailElem.value;
@@ -604,13 +634,34 @@ authorJoinBtnElem.onclick = () => {
         console.log(`nickname : ${nickname}`);
         console.log(`publish : ${publish}`);
 
-        alert("작가 회원가입이 완료되었습니다.");
-        console.log("오~~");
 
-        window.location.href = 'https://www.millie.co.kr/';
+        // 여기에 회원가입 post 추가하면 됨
+        // v3/join/authorSignup 이 된다.
+        const data = await axios.post("/v3/join/authorSignup", {
+            // 이렇게 값을 보내면 상대편에서는 req.body.name로 값을 받을 수 있다.
+            name: authorName, userId: authorUserId, email: authorEmail,
+            userPw: authorUserPw, birthday: authorBirthday, nickname: nickname,
+            publish: publish
+
+            // 암호화는 여기서 ㄴㄴ 서버쪽에서 한다.
+            // data를 찍으면 서버에서 보낸 res값이 나온다.
+        });
+        console.log(data.data.status);
+
+        // status가 200일때 띄운다.
+        if (data.data.status == 200) {
+            alert("작가 회원가입이 완료되었습니다.");
+            console.log("오~~");
+
+            // 메인 페이지로 리다이렉트
+            window.location.href = 'https://www.millie.co.kr/';
+        } else if (data.data.status == 401) {
+            alert("이미 있는 아이디입니다.");
+        }
+
     } else {
-        alert("아직임~~");
-        console.log("아님~~");
+        alert("값을 제대로 입력해라.");
+        console.log("아직임~~");
     }
 
 }
@@ -624,6 +675,6 @@ authorJoinBtnElem.onclick = () => {
 // 비밀번호 확인 시 위의 비밀번호와 같아야 하며, 아니면 빨간 불이 뜨게 해준다.
 // 만약 유효성 검사를 통과하지 않으면 회원가입 버튼을 클릭했을 때
 // alert창과 리턴을 해주어야 한다.
-// 
+//
 // 작가명은 중복되지 않게 해준다.
 // 만약 전부다 입력이 되었다면 회원가입 버튼을 활성화해준다.
