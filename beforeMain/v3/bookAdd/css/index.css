@@ -1,7 +1,4 @@
 @import url("./main001.css");
-@import url("./main002.css");
-@import url("./slide001.css");
-@import url("./_variables.scss");
 
 :root {
   /* color */
@@ -36,6 +33,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #fafaf6;
+  background-color: whitesmoke;
   position: relative;
 }

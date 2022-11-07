@@ -3,211 +3,223 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>검색 | 밀리의 서재</title>
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div>
-      <div id="main_box">
-        <div id="category_box">
-          <span>카테고리</span>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+    <div id="first_banner">
+      <div id="button_container">
+        <div id="left_button_box">
+          <img
+            id="logo"
+            class="pointer"
+            src="https://d3udu241ivsax2.cloudfront.net/v3/images/common/millie-logo.3884f0c52e69f1f7322c2fd4778f4830.png"
+            alt="" />
+          <div id="search_btn" class="button_text select pointer">
+            <h4>검색</h4>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>소설</strong>
-              <p>추리, 스릴러, 킬러 스파이, 법의학 스릴러, SF, 판타지</p>
-            </div>
-            <img src="" alt="" />
+          <div id="my_book_btn" class="button_text pointer">
+            <h4>내 서재</h4>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>에세이</strong>
-              <p>
-                시, 일상, 위로, 직업, 관계, 여행, 예술, 자영, 사랑, 가족, 나이듦
-              </p>
-            </div>
-            <img src="" alt="" />
+        </div>
+        <div id="log_out" class="pointer">로그아웃</div>
+      </div>
+    </div>
+    <div id="main_box">
+      <h2>카테고리</h2>
+      <div id="category_box">
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>경제경영</strong>
+            <p>
+              4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학, 기업&CEO,
+              경영, 부자, 재테크
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>자기 계발</strong>
-              <p>
-                성공, 말하기, 협상, 프레젠테이션, 시간 관리, 습관, 글쓰기, 독서,
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179573824/3d106f9cfd3143df91e818509e41afc9.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>소설</strong>
+            <p>추리, 스릴러, 킬러 스파이, 법의학 스릴러, SF, 판타지</p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179572960/de64957b6baa45fd8501d98efb14dfdf.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>에세이</strong>
+            <p>
+              시, 일상, 위로, 직업, 관계, 여행, 예술, 자영, 사랑, 가족, 나이듦
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179572925/3ee34bfc088b4d7d99551364533e1963.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>자기 계발</strong>
+            <p>
+              성공, 말하기, 협상, 프레젠테이션, 시간 관리, 습관, 글쓰기, 독서,
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179572920/3032ba8f9052448caeaa9768044f62e1.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>IT</strong>
+            <p>개발, 프로그래밍, IT 교양, 그래픽, 멀티미디어, e비즈니스</p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179572111/c07701e6c2cf4e3e952c8fe5af445918.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>외국어</strong>
+            <p>
+              영어독해, 문법, 작문, 영어어휘, 영어회화, 영어일반, 수험영어,
+              일본어
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179551393/6eb29836e75c45dfba29bb4d50eacead.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>라이프스타일</strong>
+            <p>
+              음식, 술, 음료, 스포츠, 헬스, 요가, 뷰티, 인테리어, 미니멀라이프
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179574238/27a90a0b388e459b91b77ae88562857e.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>인문</strong>
+            <p>
+              인문학, 문명, 문화, 심리학, 독서, 공부, 강의, 글쓰기, 인간, 인류,
+              신화, 언어, 사랑
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/15906133/2496d9a2e26d4571a4ff8e6393d8654c.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>철학</strong>
+            <p>동양, 서양, 예술, 문화, 정치, 경제</p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/15901370/c4af0864bef348cb90b1cd1bed96465e.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>사회</strong>
+            <p>
+              사회학, 정치, 국내 정치인, 법, 젠더, 페미니즘, 노동, 국가, 교육,
+              범죄, 환경, 세계
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179573956/133c9564859446a7bfafcf44603bf013.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>과학</strong>
+            <p>
+              물리학, 공학, 생명과학, 천문학, 지구과학, 인체, 뇌, 화학, 수학,
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179574209/35112f8bdc9f48868f4cbc2480dcf40a.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>역사</strong>
+            <p>한국 고대사, 조선사, 한국 근현대사, 세계사, 역사 소설</p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179524977/84945586f71f472f8324b6ece95040b6.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>여행</strong>
+            <p>
+              여행 에세이, 한국, 제주도, 중국, 일본, 대만, 홍콩, 유럽, 동남아,
+              미국, 호주
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179573934/1cb742140fda4038832e2e382aa9dcec.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>종교</strong>
+            <p>기독교, 학술연구, 손안의 성경, 기도, 묵상, 불교, 카톨릭</p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179462616/ef584775af754ca5b2a619f1832974cd.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>판타지.무협</strong>
+            <p>
+              무협, 퓨전 판타지, 현대 판타지, 게임 판타지, 전쟁, 대체역사,
+              라이트노벨
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179574062/13fafac9fe684312a7dc84068658e21e.jpg?w=125&q=80"
+            alt="" />
+        </div>
+        <div class="item pointer">
+          <div class="text_box">
+            <strong>로맨스 BL</strong>
+            <p>
+              밀리 오리지널 로멘스, 현대물, 역사, 시대물, 해외 로멘스, 로멘스
+              판타지, BL, GL
+            </p>
           </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
-          </div>
-          <div class="item">
-            <div class="text_box">
-              <strong>경제경영</strong>
-              <p>
-                4차 산업혁명, IT, 마케팅, 세계 경제, 한국 경제, 경제학,
-                기업&CEO, 경영, 부자, 재테크
-              </p>
-            </div>
-            <img src="" alt="" />
-          </div>
+          <img
+            class="img_style"
+            src="https://cover.millie.co.kr/service/cover/179573657/a6b5d8f5b58d424aa8b4d762a5638e84.jpg?w=125&q=80"
+            alt="" />
         </div>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
