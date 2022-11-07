@@ -1,23 +1,26 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
+    "password": "rainbowbear",
+    "database": "booktest",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "8088"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "rainbowbear",
+    "database": "booktest",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "8088"
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
+    "password": "rainbowbear",
+    "database": "booktest",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "8088"
   }
 }

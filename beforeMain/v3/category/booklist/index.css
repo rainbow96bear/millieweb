@@ -35,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-#item_container {
+.item_container {
   width: 1000px;
   display: flex;
   overflow: hidden;
@@ -51,6 +51,7 @@ body {
 }
 .img_box img {
   box-shadow: 1px 1px 2px 2px gray;
+  width: 145px;
   position: absolute;
   bottom: 0;
 }
@@ -58,7 +59,11 @@ body {
   margin-top: 7px;
 }
 .book_title {
+  width: 145px;
   font-weight: bolder;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .author_info {
   width: 145px;
@@ -67,7 +72,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
-.content_case {
+.title_case {
   width: 1000px;
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,38 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <section class="flex">
+      <img src="./assets/lo.jpg" alt="a" class="img001" />
+      <form id="login">
+        <input type="text" id="img" placeholder="이미지 추가" />
+        <input type="text" id="title" placeholder="제목을 입력하세요." />
+        <input type="text" id="title-sub" placeholder="부제목을 입력하세요." />
+        <input type="text" id="introduce" placeholder="소개를 입력하세요." />
+        <select name="order" form="login" id="category">
+          <option value="book">오디오북</option>
+          <option value="book">챗북</option>
+          <option value="book">소설</option>
+          <option value="book">인문학</option>
+          <option value="book">고전</option>
+        </select>
+        <input type="text" id="publisher" placeholder="출판사를 입력하세요." />
+        <div id="login-btn">
+          <button id="join">작가 회원가입</button>
+          <button id="cancle">취소</button>
+        </div>
+      </form>
+    </section>
+    <script src="index.js"></script>
+  </body>
+</html>

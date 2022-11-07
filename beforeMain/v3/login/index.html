@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 | 밀리의 서재</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="millie-logo.png" />
+</head>
+
+<body>
+    <!-- 로그인 -->
+    <div class="login-all-wrap">
+        <div class="login-background"></div>
+
+        <!-- 일반 로그인 -->
+        <div id="loginContainer">
+            <div class="login-info-text">
+                <p><span>독서와 무제한 친해지리</span><br />12만 권 속에서 인생책을 찾아보세요</p>
+            </div>
+            <div id="loginForm">
+                <div class="input-design">
+                    <input type="text" name="userId" id="userId" placeholder="아이디" autocomplete="off" onkeyup="valueCheck()" onchange="valueCheck()">
+                    <span>회원 아이디</span>
+                </div>
+                <div class="input-design">
+                    <input type="password" name="userPw" id="userPw" placeholder="비밀번호 입력" autocomplete="off" onkeyup="valueCheck(); if(window.event.keyCode==13){loginBtnElem.onclick()};" onchange="valueCheck()">
+                    <span>비밀번호</span>
+                </div>
+                <div id="loginBtn"><span>로그인</span></div>
+                <!-- 로그인 끝 -->
+                <div class="login-another">
+                    <!-- 회원가입 페이지로 이동(a태그 사용) -->
+                    <div id="authorSignInPage">
+                        <!-- 이 부분 나중에 뭔가 라우터 관련해서 수정해야 할 듯 -->
+                        <!-- <a href="../join/index.html" style="text-decoration: none; color: #555555;"> -->
+                        <a href="../category/index.html" style="text-decoration: none; color: #555555;">
+                            <span>회원가입</span>
+                        </a>
+                    </div>
+                    <div>|</div>
+                    <div id="authorLoginPage">작가회원 로그인</div>
+                </div>
+            </div>
+        </div>
+        <!--//#loginContainer end-->
+
+        <div id="authorLoginContainer" style="display: none;">
+            <div class="login-info-text">
+                <p class="author-login-info">밀리의 서재<br />작가회원 로그인</p>
+            </div>
+            <div id="authorLoginForm">
+                <div class="input-design">
+                    <input type="text" name="authorId" id="authorId" placeholder="아이디" autocomplete="off" onkeyup="authorValueCheck()" onchange="authorValueCheck()">
+                    <span>작가 아이디</span>
+                </div>
+                <div class="input-design">
+                    <input type="password" name="authorPw" id="authorPw" placeholder="비밀번호 입력" autocomplete="off" onkeyup="authorValueCheck(); if(window.event.keyCode==13){authorLoginBtnElem.onclick()};" onchange="authorValueCheck()">
+                    <span>비밀번호</span>
+                </div>
+                <div id="authorLoginBtn"><span>로그인</span></div>
+                <div class="login-another">
+                    <!-- 작가 회원가입 페이지로 이동(a태그 사용) -->
+                    <div id="authorSignInPage">
+                        <!-- 이 부분 나중에 뭔가 라우터 관련해서 수정해야 할 듯 -->
+                        <a href="../join/index.html" style="text-decoration: none; color: #555555;">작가 회원가입</a>
+                    </div>
+                    <div>|</div>
+                    <div id="loginPage">일반회원 로그인</div>
+                </div>
+            </div>
+        </div>
+        <!--//#authorLoginContainer end-->
+    </div><!--//.login-all-wrap end-->
+
+
+    
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
