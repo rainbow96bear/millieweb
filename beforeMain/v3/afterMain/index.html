@@ -4,31 +4,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>afterMain</title>
-    <link
-      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <!-- navi bar -->
     <header>
       <!-- main navi bar-->
-      <section id="HeadNaviContainer">
-        <div id="naviBar">
-          <div id="navi-log">
+      <section id="HeadNaviContainer" class="container-fluid">
+        <div id="naviBar" class="d-flex-col">
+          <div id="navi-log" class="col-md-1-">
             <img src="./assets/react.svg " alt="gg" class="navi-i01" />
           </div>
-          <div id="navi-text">
+          <div id="navi-text" class="col-md-9">
             <span class="navi-text01">투데이</span>
             <span class="navi-text">완독지수</span>
             <span class="navi-text">검색</span>
             <span class="navi-text">내서재</span>
             <span class="navi-text">관리</span>
           </div>
-          <div id="navi-logOut">
-            <img src="./assets/react.svg " alt="gg" class="navi-i02" />
+          <div id="navi-logOut" class="col-md-2">
+            <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02" />
             <button id="logOut-btn">로그아웃</button>
           </div>
         </div>
@@ -45,7 +42,29 @@
     <!-- main slide -->
     <section id="mainSlide">
       <div id="ColorSlide">
-        <div id="itemSlide"></div>
+        <div id="colorM">
+          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../MainHome/assets/25.jpg" class="d-block w-100" alt="..." />
+              </div>
+              <div class="carousel-item">
+                <img src="../MainHome/assets/11.jpg" class="d-block w-100" alt="..." />
+              </div>
+              <div class="carousel-item">
+                <img src="../MainHome/assets/30.jpg" class="d-block w-100" alt="..." />
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
     <!-- main user text box -->
@@ -54,14 +73,8 @@
         <div id="mainUserBox">
           <div id="UserNickName">유저누구_662356님,</div>
           <div id="UserBox">
-            <div class="UserText">
-              독서가 습관이 되는 시작, 나만의 독서 목표를 세워보세요.
-            </div>
-            <img
-              src="./assets/angle-right-solid.svg"
-              alt="a"
-              class="UserIcon"
-            />
+            <div class="UserText">독서가 습관이 되는 시작, 나만의 독서 목표를 세워보세요.</div>
+            <img src="./assets/angle-right-solid.svg" alt="a" class="UserIcon" />
           </div>
         </div>
       </section>
@@ -69,10 +82,8 @@
       <div class="padding">
         <section id="obj-slide-001">
           <p class="text001">당신을 위한 추천</p>
-          <p class="text002">
-            어떤 책을 읽을지 고민이라면? 밀리에서 꼭 봐야하는 책
-          </p>
-          <div id="obj-slide-box-001">
+          <p class="text002">어떤 책을 읽을지 고민이라면? 밀리에서 꼭 봐야하는 책</p>
+          <div id="obj-slide-box-001" class="list">
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
                 <img src="./assets/02.jpg" alt="a" class="img001" />
@@ -117,11 +128,7 @@
             </div>
           </div>
           <div id="obj-slide-btn-001">
-            <img
-              src="./assets/rotate-right-solid.svg"
-              alt="a"
-              class="icon001"
-            />
+            <img src="./assets/rotate-right-solid.svg" alt="a" class="icon001" />
             <span class="text003">더 많이 발견하기</span>
           </div>
         </section>
@@ -131,7 +138,7 @@
         <section id="obj-slide-002">
           <p class="text002">위로 받는 느낌, 오디오 드라마</p>
           <p class="text001">오연서X이수혁이 만나다</p>
-          <div id="obj-slide-list-002">
+          <div id="obj-slide-list-002" class="list">
             <div id="obj-slide-box-002">
               <div id="obj-BoxItem-002">
                 <img src="./assets/03.jpg" alt="a" class="img001" />
@@ -205,14 +212,10 @@
         <section id="obj-slide-003">
           <div class="iconflex">
             <div class="text002">밀리의 선택</div>
-            <img
-              src="./assets/angle-right-solid.svg"
-              alt="a"
-              class="UserIcon"
-            />
+            <img src="./assets/angle-right-solid.svg" alt="a" class="UserIcon" />
           </div>
           <p class="text001">밀리의 직원들이 고르고 고른 책을 추천합니다.</p>
-          <div id="obj-slide-list-003">
+          <div id="obj-slide-list-003" class="list">
             <div id="obj-slide-box-003">
               <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
               <div class="obj-slide-item-001">
@@ -285,11 +288,7 @@
             </div>
           </div>
           <div id="obj-slide-btn-003">
-            <img
-              src="./assets/rotate-right-solid.svg"
-              alt="a"
-              class="icon003"
-            />
+            <img src="./assets/bell-regular.svg" alt="a" class="icon003" />
             <span class="text003"> 독서 루틴 알림 만들기</span>
           </div>
         </section>
@@ -398,15 +397,40 @@
         </section>
       </div>
       <!-- obj slide 005 -->
-      <div class="padding">
+      <!-- <div class="padding">
         <section id="obj-slide-005">
           <div id="obj-slide-list-005">
             <div id="obj-slide-box-005"></div>
           </div>
         </section>
-      </div>
+      </div> -->
       <!-- obj slide 006 -->
+      <div class="padding">
+        <section id="obj-slide-006">
+          <p class="text002">지금! 서점 베스트</p>
+          <p class="text001">서점3사 100위 내, 79권을 밀리에서 만나보세요</p>
+          <div id="obj-slide-list-006">
+            <div id="obj-slideBox-006">
+              <img src="./assets/39.jpg" alt="a" class="obj-slide-item-006-1" />
+              <div class="obj-slide-item-006-2"></div>
+              <div class="obj-slide-item-006-3"></div>
+            </div>
+          </div>
+        </section>
+      </div>
       <!-- obj slide 007 -->
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">col</div>
+          <div class="col">col</div>
+          <div class="col">col</div>
+          <div class="col">col</div>
+        </div>
+        <div class="row">
+          <div class="col-8">col-8</div>
+          <div class="col-4">col-4</div>
+        </div>
+      </div>
       <!-- obj slide 008 -->
       <!-- obj slide 009 -->
       <!-- obj slide 010 -->
@@ -426,5 +450,8 @@
       <!-- footer -->
     </main>
     <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
