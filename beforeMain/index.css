@@ -89,44 +89,45 @@
 
 @keyframes effect1 {
   0% {
-    transform: translateX(-66.6%);
+    transform: translateX(-70%);
   }
-  33% {
-    transform: translateX(-33.3%);
-  }
-
   100% {
-    transform: translateX(-0%);
+    transform: translateX(-20%);
   }
 }
 @keyframes effect2 {
   0% {
-    transform: translateX(-0%);
-  }
-  33% {
-    transform: translateX(-33.3%);
-  }
-  100% {
-    transform: translateX(-66.6%);
+    transform: translateX(33%);
   }
 }
 
 .main_slide {
   /* overflow: hidden; */
+  overflow-x: hidden;
   display: flex;
+  justify-content: space-between;
+  width: 4000px;
   animation: effect1 15s linear infinite;
+  padding: 20px;
 }
 
 .main_slide2 {
-  /* overflow: hidden; */
+  overflow: hidden;
+  justify-content: space-between;
+  width: 1887px;
+  /* width: fit-content; */
   display: flex;
   animation: effect2 15s linear infinite;
+  padding: 20px;
 }
 
 .main_slide3 {
-  /* overflow: hidden; */
+  overflow: hidden;
+  justify-content: space-between;
+  width: 1887px;
   display: flex;
   animation: effect1 15s linear infinite;
+  padding: 20px;
 }
 
 .main_info_two {
