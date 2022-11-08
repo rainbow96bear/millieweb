@@ -2,6 +2,32 @@ const Sequelize = require("sequelize");
 
 module.exports = class BookInfo extends Sequelize.Model {
   static init(sequelize) {
-    return super.init({}, {});
+    return super.init(
+      {
+        book_img: {
+          type: Sequelize.STRING(255),
+        },
+        title: {
+          type: Sequelize.STRING(255),
+        },
+        title_sub: {
+          type: Sequelize.STRING(255),
+        },
+        introduce: {
+          type: Sequelize.STRING(255),
+        },
+        category: {
+          type: Sequelize.STRING(255),
+        },
+      },
+      {
+        sequelize,
+        modelName: "Book_info",
+        tableName: "book_info",
+        charset: "utf8mb4",
+        collate: "utf8mb4_general_ci",
+        timestamps: true,
+      }
+    );
   }
 };

@@ -4,10 +4,12 @@ const Sequelize = require("sequelize");
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 
-const UserInfo = require("./join.js");  // module.exports 를 해줘야함
+const UserInfo = require("./join.js"); // module.exports 를 해줘야함
+const BookInfo = require("./bookInfo.js");
+
 // const Login = require("./login.js"); // 파일 만들기
 
-const db = {UserInfo};
+const db = { UserInfo, BookInfo };
 // const db = {UserInfo, Login};
 
 let sequelize = new Sequelize(
@@ -18,6 +20,7 @@ let sequelize = new Sequelize(
 );
 
 UserInfo.init(sequelize);
+BookInfo.init(sequelize);
 // Login.init(sequelize);
 
 Object.keys(db).forEach((modelName) => {

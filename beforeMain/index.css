@@ -30,6 +30,10 @@
   }
 }
 
+.effect {
+  animation: fadeinLeft 2s;
+}
+
 .maintitle {
   display: flex;
   height: 500px;
@@ -87,8 +91,13 @@
   animation: fadeinLeft 2s;
 }
 
+.on {
+  opacity: 0;
+}
+
 .main_info {
   display: flex;
+
   justify-content: center;
   align-items: center;
   flex-direction: column;

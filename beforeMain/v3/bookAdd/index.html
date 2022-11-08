@@ -15,23 +15,39 @@
   <body>
     <section class="flex">
       <img src="./assets/lo.jpg" alt="a" class="img001" />
-      <form enctype="multipart/form-data">
-        <input type="file" id="img" name="userfile" placeholder="이미지 추가" />
+      <form id="fileadd" enctype="multipart/form-data">
+        <input
+          type="file"
+          id="book_img"
+          name="book_img"
+          placeholder="이미지 추가"
+        />
 
         <input type="text" id="title" placeholder="제목을 입력하세요." />
-        <input type="text" id="title-sub" placeholder="부제목을 입력하세요." />
+        <input type="text" id="title_sub" placeholder="부제목을 입력하세요." />
         <input type="text" id="introduce" placeholder="소개를 입력하세요." />
-        <select name="order" form="login" id="category">
-          <option value="book">오디오북</option>
-          <option value="book">챗북</option>
-          <option value="book">소설</option>
-          <option value="book">인문학</option>
-          <option value="book">고전</option>
+        <select name="order" form="login" id="category" onchange="getValue()">
+          <option value="경제경영">경제경영</option>
+          <option value="소설">소설</option>
+          <option value="에세이">에세이</option>
+          <option value="자기">자기 계발</option>
+          <option value="IT">IT</option>
+          <option value="외국어">외국어</option>
+          <option value="라이프스타일">라이프스타일</option>
+          <option value="인문">인문</option>
+          <option value="철학">철학</option>
+          <option value="사회">사회</option>
+          <option value="과학">과학</option>
+          <option value="역사">역사</option>
+          <option value="여행">여행</option>
+          <option value="종교">종교</option>
+          <option value="판타지,무협">판타지,무협</option>
+          <option value="로맨스BL">로맨스BL</option>
         </select>
         <input type="text" id="publisher" placeholder="출판사를 입력하세요." />
-        <input type="submit" />
+
         <div id="login-btn">
-          <button id="save">저장</button>
+          <input type="submit" id="save" value="저장" />
           <button id="cancle">취소</button>
         </div>
       </form>

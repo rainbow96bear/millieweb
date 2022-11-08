@@ -1,13 +1,20 @@
 const saveBtn = document.getElementById("save");
 
-saveBtn.onclick = async () => {
-  const data = await axios.post("/upload", {
-    imgData: document.getElementById("img").value,
-    title: document.getElementById("title").value,
-    title_sub: document.getElementById("title_sub").value,
-    introduce: document.getElementById("introduce").value,
-    category: document.getElementById("category").value,
-    publisher: document.getElementById("publisher").value,
-  });
-  console.log(data.data);
+document.getElementById("fileadd").onsubmit = async (e) => {
+  e.preventDefault();
+  const { book_img, title, title_sub, introduce, publisher } = e.target;
+  let formData = new FormData();
+  formData.append("book_img", book_img.files[0]);
+  formData.append("title", title.value);
+  formData.append("title_sub", title_sub.value);
+  formData.append("introduce", introduce.value);
+  formData.append("category", getValue());
+  formData.append("publisher", publisher.value);
+  const data = await axios.post("/v3/boodAdd/upload", formData);
+  console.log(data.data.status);
 };
+
+function getValue() {
+  const category = document.getElementById("category");
+  return category.options[category.selectedIndex].value;
+}
