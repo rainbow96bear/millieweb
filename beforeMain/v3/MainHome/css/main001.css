@@ -65,7 +65,10 @@ section #naviBar #navi-text .navi-text {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 687bd6a (221108)
 } */
 section #navi-logOut .navi-i02 {
   /* flex: 0.3; */
@@ -119,7 +122,6 @@ section #HeadNaviSubtextBox .navi-text03 {
   margin-top: 112px;
 }
 #ColorSlide {
-
   background: linear-gradient(
     90deg,
     rgb(213, 223, 233) 0%,
@@ -427,7 +429,6 @@ section #HeadNaviSubtextBox .navi-text03 {
   min-height: 466px;
   min-width: 327px;
   border-radius: 13px;
-
   background: linear-gradient(
     90deg,
     rgb(213, 223, 233) 0%,
@@ -467,7 +468,6 @@ section #HeadNaviSubtextBox .navi-text03 {
   align-items: center;
 }
 #obj-slide-box-003 .obj-slide-item-002 .abc {
-
   background: linear-gradient(
     90deg,
     rgba(199, 193, 190, 0.734) 0%,

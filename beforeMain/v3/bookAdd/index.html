@@ -15,8 +15,9 @@
   <body>
     <section class="flex">
       <img src="./assets/lo.jpg" alt="a" class="img001" />
-      <form id="login">
-        <input type="text" id="img" placeholder="이미지 추가" />
+      <form enctype="multipart/form-data">
+        <input type="file" id="img" name="userfile" placeholder="이미지 추가" />
+
         <input type="text" id="title" placeholder="제목을 입력하세요." />
         <input type="text" id="title-sub" placeholder="부제목을 입력하세요." />
         <input type="text" id="introduce" placeholder="소개를 입력하세요." />
@@ -28,8 +29,9 @@
           <option value="book">고전</option>
         </select>
         <input type="text" id="publisher" placeholder="출판사를 입력하세요." />
+        <input type="submit" />
         <div id="login-btn">
-          <button id="join">작가 회원가입</button>
+          <button id="save">저장</button>
           <button id="cancle">취소</button>
         </div>
       </form>
