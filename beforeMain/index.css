@@ -1,10 +1,12 @@
 .mainbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
 }
 .mainbarimg {
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .loginbtn {
@@ -14,6 +16,7 @@
   background-color: black;
   color: white;
   margin-right: 30px;
+  cursor: pointer;
 }
 
 .maintitle {
