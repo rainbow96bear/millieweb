@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+const { BookInfo } = require("../models/index.js");
+
 const category = [
   "경제경영",
   "novel",
@@ -15,9 +17,16 @@ const category = [
   "역사",
   "여행",
   "종교",
-  "판타지.무협",
+  "판타지,무협",
   "로맨스 BL",
 ];
+
+router.post("/booklist/bookAdd", async (req, res) => {
+  const book_info = await BookInfo.findAll();
+  console.log(book_info);
+  res.send(book_info);
+});
+
 const fs = require("fs");
 router.post("/booklist/test", async (req, res) => {
   const booklist = JSON.parse(fs.readFileSync("books.json", "utf-8"));
