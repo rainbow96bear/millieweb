@@ -19,7 +19,7 @@ const category = [
   "역사",
   "여행",
   "종교",
-  "판타지.무협",
+  "판타지,무협",
   "로맨스 BL",
 ];
 let temp = location.href.split("?");
@@ -27,11 +27,44 @@ let temp = location.href.split("?");
 
 firstBannerTitle.innerText = category[temp[1]];
 secondBannerTitle.innerText = category[temp[1]] + " 전체보기";
-thirdBannerTitle.innerText = category[temp[1]] + " 인기 도서";
-fourthBannerTitle.innerText = "AI " + category[temp[1]];
+thirdBannerTitle.innerText = "신규" + category[temp[1]];
+fourthBannerTitle.innerText = category[temp[1]] + " 인기 도서";
 
 const fourthBanner = document.getElementById("fourthBanner");
 makeList("확인용", category[temp[1]]);
+makeList("확인용", category[5]);
+makeList("확인용", category[7]);
+
+newbooks();
+
+async function newbooks() {
+  const data = await axios.post("/v3/category/booklist/bookAdd", {
+    category: category[temp[1]],
+  });
+  for (let i = 0; i < data.data.length; i++) {
+    const temp_item = document.createElement("div");
+    temp_item.classList.add("item");
+    const temp_img_box = document.createElement("div");
+    temp_img_box.classList.add("img_box");
+    const temp_book_info = document.createElement("div");
+    temp_book_info.classList.add("book_info");
+    temp_item.append(temp_img_box);
+    temp_item.append(temp_book_info);
+    const img = document.createElement("img");
+    img.src = "http://localhost:8080/uploads/" + data.data[i].book_img;
+
+    const temp_book_title = document.createElement("div");
+    temp_book_title.classList.add("book_title");
+    temp_book_title.innerText = data.data[i].title;
+    const temp_author_info = document.createElement("div");
+    temp_author_info.classList.add("author_info");
+    temp_book_info.append(temp_book_title);
+    temp_book_info.append(temp_author_info);
+    temp_author_info.innerText = data.data[i].introduce;
+    document.getElementById("new_books").append(temp_item);
+  }
+}
+
 async function makeList(bannerName, category) {
   const temp_banner = document.createElement("div");
   temp_banner.classList.add("content_center");
@@ -44,7 +77,7 @@ async function makeList(bannerName, category) {
   temp_col.classList.add("direction_col");
   temp_case.classList.add("title_case");
   temp_h3.id = bannerName + "Title";
-  temp_h3.innerText = "신간 도서";
+  temp_h3.innerText = "추천 도서";
   temp_container.classList.add("item_container");
   const data = await axios.post("/v3/category/booklist/test", {
     category: category,
