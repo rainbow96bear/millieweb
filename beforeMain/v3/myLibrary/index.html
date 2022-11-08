@@ -6,6 +6,7 @@
     <title>내 서재 | 밀리의 서재</title>
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" type="image/x-icon" href="millie-logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <!-- 여기에 다른 분이 만든 헤더 있어야 함 -->
@@ -17,7 +18,7 @@
                 <div class="user-info-wrap">
                     <div class="user-info">
                         <div class="user-img"><img src="millie-logo.png" alt="회원 이미지" style="width: 60px; heigit: 60px; border-radius: 50px;"></div>
-                        <div class="user-name"><span id="userName">여기에이름넣어</span>의 서재</div>
+                        <div class="user-name" id="userName"><span class="nameBold"></span></div>의 서재
                     </div>
                     <!-- <div class="other-info">...</div> -->
                     <div class="other-info"><img id="otherInfoBar" src="other-info-bar.png" alt="다른 정보 더보기"  style="width: 25px; heigit: 25px;"></div>
