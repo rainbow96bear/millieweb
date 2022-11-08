@@ -244,7 +244,7 @@ function pwValueCheck(au) {
     //     document.getElementById("Apw2GoodMsg").style.display = "none";
     // }
 
-    if (au == "user") {
+    if (au == "user" || !au) {
         // 만약 비밀번호가 같으면 같다는 표시, 다르면 다르다는 표시..
         if (userPwElem.value === userPwCheckElem.value) {
             document.getElementById("pw2GoodMsg").style.display = "block";
@@ -598,7 +598,7 @@ joinBtnElem.onclick = async () => {
             alert("회원가입이 완료되었습니다.");
 
             // 메인 페이지로 리다이렉트
-            window.location.href = 'https://www.millie.co.kr/';
+            window.location.href = '/';
         } else if (data.data.status == 401) {
             alert("이미 있는 아이디입니다.");
         }
@@ -654,7 +654,7 @@ authorJoinBtnElem.onclick = async () => {
             console.log("오~~");
 
             // 메인 페이지로 리다이렉트
-            window.location.href = 'https://www.millie.co.kr/';
+            window.location.href = '/';
         } else if (data.data.status == 401) {
             alert("이미 있는 아이디입니다.");
         }

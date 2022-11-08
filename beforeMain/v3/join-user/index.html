@@ -54,7 +54,7 @@
                 <div class="input-design">
                     <!-- 인풋 데이터 보낼때 확인은 안 보낸다. -->
                     <!-- 변경될때를 인식해서 확인한다. -->
-                    <input type="password" id="userPwCheck" placeholder="비밀번호 확인" autocomplete="off" onkeyup="valueCheck()">
+                    <input type="password" id="userPwCheck" placeholder="비밀번호 확인" autocomplete="off" onkeyup="valueCheck(); pwValueCheck();">
                     <span>비밀번호 확인</span>
                 </div>
                 <span class="join-error-msg" id="pw2LessMsg" style="display: none;">필수 정보입니다.</span>
