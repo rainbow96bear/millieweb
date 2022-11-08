@@ -160,5 +160,9 @@ document.getElementById("logOut-btn").onclick = async() =>{
   }
 }
 
+// 여기서부터 혜림 2022.11.8.
+const myLibraryBtn = document.getElementById("myLibraryBtn");
 
-
+myLibraryBtn.onclick = () =>{
+  location.href = "../myLibrary";
+}
