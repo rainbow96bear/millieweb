@@ -185,6 +185,15 @@
   background-color: #f7f3f2;
 }
 
+.main_info_two_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #f7f3f2;
+}
+
 .main_info_three {
   display: flex;
   justify-content: center;

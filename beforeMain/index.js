@@ -20,17 +20,20 @@ console.log(window.scrollY);
 document.addEventListener("scroll", () => {
   if (window.scrollY > 0) {
     first_text.classList.add("effect");
+    first_text.classList.remove("on");
   }
 });
 
 document.addEventListener("scroll", () => {
   if (window.scrollY > 1001) {
     second_text.classList.add("effect");
+    second_text.classList.remove("on");
   }
 });
 
 document.addEventListener("scroll", () => {
   if (window.scrollY > 1901) {
     third_text.classList.add("effect");
+    second_text.classList.remove("on");
   }
 });
