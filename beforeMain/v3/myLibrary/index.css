@@ -35,7 +35,7 @@ body {
 .user-info-wrap {
     width: 1400px;
     height: 40%;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     padding-top: 10px;
     margin-bottom: 36px;
 
@@ -44,17 +44,36 @@ body {
 
 }
 .user-info{
-    width: 200px;
     height: 100px;
-    background-color: red;
+
+    display: flex;
+    align-items: center;
 }
+.user-img{
+    display: inline-block;
+}
+.user-name{
+    margin-left: 10px;
+}
+#userName{
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .other-info{
     line-height: 50px;
     width: 50px;
     height: 50px;
-    background-color: blue;
     margin-top: 25px;
 
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+}
+#otherInfoBar{
+    cursor: pointer;
+    color: black;
 }
 
 .user-life-book {

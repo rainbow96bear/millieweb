@@ -14,7 +14,9 @@ const app = express();
 
 app.set("port", process.env.PORT || 8080);
 
-app.use("/", express.static(path.join(__dirname, "beforeMain/v3/login")));
+app.use("/", express.static(path.join(__dirname, "beforeMain")));
+// app.use("/", express.static(path.join(__dirname, "beforeMain/v3/login")));
+// app.use("/", express.static(path.join(__dirname, "beforeMain/v3/login")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));

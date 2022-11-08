@@ -1,0 +1,49 @@
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1000px,
+  xl: 1280px,
+  xxl: 1560px,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1000px,
+);
+
+// min width
+
+@include media-breakpoint-up(sm) {
+  .a {
+    display: none;
+  }
+}
+@include media-breakpoint-up(md) {
+  .a {
+    display: none;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .a {
+    display: none;
+  }
+}
+
+// max width
+@include media-breakpoint-down(sm) {
+  .a {
+    display: none;
+  }
+}
+@include media-breakpoint-down(md) {
+  .a {
+    display: none;
+  }
+}
+@include media-breakpoint-down(lg) {
+  .dsn {
+    display: none;
+  }
+}

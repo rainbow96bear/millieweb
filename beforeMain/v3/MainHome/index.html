@@ -1,0 +1,504 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>afterMain</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="hihihihi2.jpg" />
+  </head>
+  <body>
+    <!-- navi bar -->
+    <header>
+      <!-- main navi bar-->
+      <section id="HeadNaviContainer" class="container-fluid ">
+        <div id="naviBar" class="d-flex justify-content-start align-items-center bp-0">
+          <div id="navi-log" class="col-md-1">
+            <img src="./assets/react.svg " alt="gg" class="navi-i01" />
+          </div>
+          <div id="navi-text" class="col-md-10 dsn">
+            <span class="navi-text01">투데이</span>
+            <span class="navi-text">완독지수</span>
+            <span class="navi-text" id="searchBtn">검색</span>
+            <span class="navi-text">내서재</span>
+            <span class="navi-text">관리</span>
+          </div>
+          <div id="navi-logOut" class="col-md-2">
+            <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02 dsn" />
+            <button id="logOut-btn" class="dsn">로그아웃</button>
+          </div>
+        </div>
+      </section>
+      <!-- sub navi -->
+      <section id="HeadNaviSubContainer">
+        <div id="HeadNaviSubtextBox">
+          <span class="navi-text02">NOW</span>
+          <span class="navi-text03">오디오.챗북</span>
+          <span class="navi-text03">스토리</span>
+        </div>
+      </section>
+    </header>
+    <!-- main slide -->
+    <section id="mainSlide">
+      <div id="ColorSlide">
+        <div id="colorM">
+          <div
+            id="carouselExampleFade"
+            class="carousel slide carousel-fade"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="../MainHome/assets/25.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="../MainHome/assets/11.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="../MainHome/assets/30.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- main user text box -->
+    <main>
+      <section id="mainUserContainer">
+        <div id="mainUserBox">
+          <div id="UserNickName"><span id="nickname" style="font-size: 22px;"></span>님,</div>
+          <div id="UserBox">
+            <div class="UserText">
+              독서가 습관이 되는 시작, 나만의 독서 목표를 세워보세요.
+            </div>
+            <img
+              src="./assets/angle-right-solid.svg"
+              alt="a"
+              class="UserIcon"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- obj slide 001 -->
+      <div class="padding">
+        <section id="obj-slide-001">
+          <p class="text001">당신을 위한 추천</p>
+          <p class="text002">
+            어떤 책을 읽을지 고민이라면? 밀리에서 꼭 봐야하는 책
+          </p>
+          <div id="obj-slide-box-001" class="list">
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/02.jpg" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/02.jpg" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/02.jpg" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/02.jpg" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/02.jpg" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/02.jpg" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+          </div>
+          <div id="obj-slide-btn-001">
+            <img
+              src="./assets/rotate-right-solid.svg"
+              alt="a"
+              class="icon001"
+            />
+            <span class="text003">더 많이 발견하기</span>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 002 -->
+      <div class="padding">
+        <section id="obj-slide-002">
+          <p class="text002">위로 받는 느낌, 오디오 드라마</p>
+          <p class="text001">오연서X이수혁이 만나다</p>
+          <div id="obj-slide-list-002" class="list">
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/11.jpg" alt="a" class="img002" />
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 003 -->
+      <div class="padding">
+        <section id="obj-slide-003">
+          <div class="iconflex">
+            <div class="text002">밀리의 선택</div>
+            <img
+              src="./assets/angle-right-solid.svg"
+              alt="a"
+              class="UserIcon"
+            />
+          </div>
+          <p class="text001">밀리의 직원들이 고르고 고른 책을 추천합니다.</p>
+          <div id="obj-slide-list-003" class="list">
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/05.jpg" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/05.jpg" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/05.jpg" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/05.jpg" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/05.jpg" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="obj-slide-btn-003">
+            <img src="./assets/bell-regular.svg" alt="a" class="icon003" />
+            <span class="text003"> 독서 루틴 알림 만들기</span>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 004 -->
+      <div class="padding">
+        <section id="obj-slide-004">
+          <div id="obj-slide-list-004">
+            <div id="obj-slide-box-004" class="loop animate1">
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+            </div>
+            <div id="obj-slide-box-005" class="loop animate2">
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+            </div>
+            <div id="obj-slide-box-006" class="loop animate3">
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 005 -->
+      <!-- <div class="padding">
+        <section id="obj-slide-005">
+          <div id="obj-slide-list-005">
+            <div id="obj-slide-box-005"></div>
+          </div>
+        </section>
+      </div> -->
+      <!-- obj slide 006 -->
+      <div class="padding">
+        <section id="obj-slide-006">
+          <p class="text002">지금! 서점 베스트</p>
+          <p class="text001">서점3사 100위 내, 79권을 밀리에서 만나보세요</p>
+          <div id="obj-slide-list-006">
+            <div id="obj-slideBox-006">
+              <img src="./assets/39.jpg" alt="a" class="obj-slide-item-006-1" />
+              <div class="obj-slide-item-006-2"></div>
+              <div class="obj-slide-item-006-3"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 007 -->
+        <div class="row">
+          <div class="col-12 w-75 h-55 cp-1 bg-primary" >abc</div>
+          <div class="col-4 cp-2 bg-primary" >bbb</div>
+          <div class="col-4 cp-2 bg-primary" >col-8</div>
+          <div class="col-4 bp-3 bg-primary" >col-8</div>
+          <div class="col-4 bp-3 bg-primary" >col-8</div>
+          <div class="col-4 p-4 bg-primary">col-4</div>
+        </div>
+      </div>
+      <!-- obj slide 008 -->
+      <!-- obj slide 009 -->
+      <!-- obj slide 010 -->
+      <!-- obj slide 011 link -->
+      <!-- obj slide 012 -->
+      <!-- obj slide 013 link -->
+      <!-- obj slide 014 -->
+      <!-- obj slide 015 link -->
+      <!-- obj slide 016 -->
+      <!-- obj slide 017 -->
+      <!-- obj slide 018 -->
+      <!-- obj slide 019 -->
+      <!-- obj slide 020 -->
+      <!-- obj slide 021 -->
+      <!-- obj slide 022 -->
+      <!-- footer img text -->
+      <!-- footer -->
+    </main>
+    <script src="index.js"></script>
+    <script src="function.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
