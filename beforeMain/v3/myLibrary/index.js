@@ -21,9 +21,9 @@ async function cookieVerify(){
   console.log(data.data.publish);
 
   if(data.data.nickname){
-    userName.innerHTML = `<span class="nameBold">${data.data.nickname}</span>`+" 작가";
+    userName.innerHTML = `<span class="nameBold">${data.data.nickname}</span>`+"작가의 서재";
   }else{
-    userName.innerHTML = `<span class="nameBold">${data.data.name}</span>`;
+    userName.innerHTML = `<span class="nameBold">${data.data.name}</span>`+"의 서재";
   }
 
 }
