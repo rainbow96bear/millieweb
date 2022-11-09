@@ -42,6 +42,7 @@ app.use(
   })
 );
 app.use("/v3", routes);
+
 sequelize
   .sync({ force: false })
   .then(() => {
