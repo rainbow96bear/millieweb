@@ -10,6 +10,7 @@ if(cookieJwt){
 }
 
 const userName = document.getElementById("userName");
+const contentHeader = document.getElementById("contentHeader");
 
 async function cookieVerify(){
   const data = await axios.post("/v3/mainhome/cookieInfo", {cookieJwt});
@@ -22,8 +23,10 @@ async function cookieVerify(){
 
   if(data.data.nickname){
     userName.innerHTML = `<span class="nameBold">${data.data.nickname}</span>`+"작가의 서재";
+    contentHeader.innerHTML = `<img id="reviewWriteBtn" src="file-write.png" alt="리뷰 작성 아이콘">`;
   }else{
     userName.innerHTML = `<span class="nameBold">${data.data.name}</span>`+"의 서재";
+    contentHeader.innerHTML = `<img id="moreSeeBtn" src="more.png" alt="더보기 아이콘">`;
   }
 
 }

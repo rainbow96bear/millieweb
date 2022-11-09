@@ -9,8 +9,26 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <!-- 여기에 다른 분이 만든 헤더 있어야 함 -->
-    <div id="header">헤더 영역</div>
+    <!-- 헤더 가져옴 : 나중에 js도 가져오고 수정해야 할듯 -->    
+    <div id="first_banner">
+      <div id="button_container">
+        <div id="left_button_box">
+          <img
+            id="logo"
+            class="pointer"
+            src="https://d3udu241ivsax2.cloudfront.net/v3/images/common/millie-logo.3884f0c52e69f1f7322c2fd4778f4830.png"
+            alt="" />
+          <div id="search_btn" class="button_text select pointer">
+            <h4>검색</h4>
+          </div>
+          <div id="my_book_btn" class="button_text pointer">
+            <h4>내 서재다</h4>
+          </div>
+        </div>
+        <div id="log_out" class="pointer">로그아웃</div>
+      </div>
+    </div><!--//#first_banner-->
+    <!-- 헤더 가져옴 끝 -->
 
     <div class="all-wrap">
       <div class="header-all-wrap">
@@ -42,159 +60,380 @@
           <div class="user-life-book">
             <!-- 나의 인생책 -->
             <div class="life-book-info">
-              <div class="my-life-book">나의 인생책</div>
-              <div class="my-comment">"<span id="myComment">어쩌구</span>"</div>
-              <div class="my-life-book-title">
-                &lt;<span id="myBookTitle">책이름여기</span>&gt;
+              <div class="my-life-book myt">☆ 나의 인생책</div>
+              <div class="my-comment myt">"<span id="myComment">유저작성내용</span>"</div>
+              <div class="my-life-book-title myt">
+                &lt;<span id="myBookTitle">유저인생책제목</span>&gt;
               </div>
             </div>
-            <div class="life-book-img">인생책이미지</div>
+            <div class="life-book-img" id="myBookImg">
+                <img src="38.jpg" alt="나의 인생책">
+            </div>
           </div>
         </div>
       </div>
       <div class="library-content-wrap">
-        <div class="content-top">
-          <div class="content-top-left">서재 네비</div>
-          <div class="content-top-right">리뷰작성</div>
+        <div class="content-header">
+          <div class="content-header-left">
+            전체 도서(<span id="lifeBookCount">11</span>권)
+          </div>
+          <!-- 작가회원인지 아닌지에 따라 이미지가 다르게 한다. -->
+          <div class="content-header-right" id="contentHeader">
+            <!-- 작가 회원 -->
+            <!-- <img id="reviewWriteBtn" src="file-write.png" alt="책 작성 아이콘"> -->
+
+            <!-- 일반 회원 -->
+            <!-- <img id="moreSeeBtn" src="more.png" alt="더보기 아이콘"> -->
+          </div>
         </div>
-        <div class="content-bottom">
+        <!-- <div class="content-bottom">
           <div class="content-bottom-left">필터</div>
           <div class="content-bottom-right">책필터및기타기능</div>
-        </div>
+        </div> -->
         <!-- 하이 -->
       </div>
-      <div class="library-books">
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
 
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
 
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
-        <div class="library-book">
-          <div class="book-img">이미지</div>
-          <div class="book-title">제목</div>
-          <div class="book-info">...</div>
-          <div class="book-author">지은이,옮긴이</div>
-        </div>
+
+      <div class="content_center">
+        <div class="direction_col">
+          <div class="item_container">
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/37781287/d022459b4948433d9593fb9ce8e26a07.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <!-- <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/42933109/c3940f5426e640f5a1cf6dd518f67b72.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/37781287/d022459b4948433d9593fb9ce8e26a07.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/42933109/c3940f5426e640f5a1cf6dd518f67b72.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/37781287/d022459b4948433d9593fb9ce8e26a07.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/42933109/c3940f5426e640f5a1cf6dd518f67b72.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img_box">
+                <img
+                  src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
+                  alt="" />
+              </div>
+              <div class="book_info">
+                <div class="book_title">책 이름</div>
+                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              </div>
+            </div> -->
+          </div><!--//.item_container end-->
+        </div><!--///direction_col end-->
       </div>
-    </div>
-    <!--//.all-wrap end-->
+
+
+    </div><!--//.all-wrap end-->
     <script src="index.js"></script>
   </body>
 </html>
