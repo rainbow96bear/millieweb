@@ -25,24 +25,12 @@ main {
 #naviBar {
   max-width: 1280px;
   height: 50px;
-
-  /* display: flex;
-  flex-direction: row;
-  align-items: center; */
-  padding: 0 24;
-  margin: 0 200;
-}
-/* #navi-log {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-} */
-  /* display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0 24;
   margin: 0 320;
-} */
+}
 #navi-log {
   display: flex;
   justify-content: flex-start;
@@ -54,11 +42,6 @@ section #naviBar #navi-log .navi-i01 {
   margin-right: 50px;
   cursor: pointer;
 }
-/* #navi-text {
-  flex: 1 1 45%;
-  display: flex;
-  align-items: center;
-} */
 #navi-text {
   flex: 1 2 100%;
   display: flex;
@@ -76,18 +59,16 @@ section #naviBar #navi-text .navi-text {
   font-size: var(--font-L-size);
   cursor: pointer;
 }
-
-/* #navi-logOut {
 #navi-logOut {
   flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-} */
+}
 section #navi-logOut .navi-i02 {
-  /* flex: 0.3; */
-  width: 30px;
-  height: 30px;
+  flex: 0.3;
+  width: 23px;
+  height: 23px;
   cursor: pointer;
 }
 #logOut-btn {
@@ -113,7 +94,6 @@ section #navi-logOut .navi-i02 {
   margin: 0 200;
 }
 #HeadNaviSubtextBox {
-  /* flex: 1; */
   flex: 1;
   padding-left: 278px;
 }
@@ -211,9 +191,6 @@ section #HeadNaviSubtextBox .navi-text03 {
   /* white-space: nowarp;
   scroll-snap-type: x mandatory;
   overflow-x: auto; */
-  white-space: nowarp;
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
 }
 
 .text001 {
@@ -249,7 +226,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   flex: 1 1 33.34%;
   min-height: 245px;
   min-width: 385px;
-  -webkit-user-drag: none;
+  user-select: none;
 }
 #obj-slide-box-001 .obj-slide-item-001 {
   width: 100%;
@@ -353,7 +330,6 @@ section #HeadNaviSubtextBox .navi-text03 {
   height: 165px;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   -webkit-user-drag: none;
 }
 #obj-BoxItem-002 .img002 {
