@@ -1,0 +1,21 @@
+#colorM {
+  margin: 0 200;
+}
+
+#carouselExampleFade,
+.carousel-indicators {
+  width: 100%;
+  height: 388px;
+  padding: 0 100px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 30%;
+}
+
+.carousel-item img {
+  width: 200px;
+  height: 388px;
+  object-fit: contain;
+}

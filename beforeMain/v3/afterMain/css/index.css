@@ -1,0 +1,41 @@
+@import url("./main001.css");
+@import url("./main002.css");
+@import url("./slide001.css");
+@import url("./_variables.scss");
+
+:root {
+  /* color */
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --gray-color: #5d5d5d;
+  /* padding */
+  --padding-L-size: 36px;
+  --padding-M-size: 24px;
+  --padding-S-size: 12px;
+
+  /* avatar Size */
+  --avatar-L-size: 32px;
+  --avatar-M-size: 23px;
+  --avatar-S-size: 15px;
+
+  /* font-size */
+  --font-L-size: 20px;
+  --font-M-size: 16px;
+  --font-S-size: 13px;
+  --font-XS-size: 9px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fafaf6;
+  position: relative;
+}
