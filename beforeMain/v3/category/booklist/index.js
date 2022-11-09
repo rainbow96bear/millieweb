@@ -41,6 +41,7 @@ async function newbooks() {
   const data = await axios.post("/v3/category/booklist/bookAdd", {
     category: category[temp[1]],
   });
+  console.log(data.data);
   for (let i = 0; i < data.data.length; i++) {
     const temp_item = document.createElement("div");
     temp_item.classList.add("item");
@@ -52,8 +53,8 @@ async function newbooks() {
     temp_item.append(temp_book_info);
     const img = document.createElement("img");
     console.log(data.data[i].book_img);
-    img.src = "../../../uploads/" + test.imgFile;
-
+    img.src = "http://localhost:8080/uploads/" + data.data[i].book_img;
+    temp_img_box.append(img);
     const temp_book_title = document.createElement("div");
     temp_book_title.classList.add("book_title");
     temp_book_title.innerText = data.data[i].title;

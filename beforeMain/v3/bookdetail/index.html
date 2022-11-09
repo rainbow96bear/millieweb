@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div>
@@ -114,10 +115,17 @@
             src="bookdetail_img/chracterimg.png"
             alt=""
           />
-          <input class="input_review" placeholder="다양한생각을 남겨주세요" />
-          <button class="review_add">등록</button>
+          <form action="">
+            <input
+              id="review"
+              class="input_review"
+              placeholder="다양한생각을 남겨주세요"
+            />
+            <button id="review_btn" class="review_add">등록</button>
+          </form>
         </div>
       </div>
     </div>
+    <script src="./index.js"></script>
   </body>
 </html>
