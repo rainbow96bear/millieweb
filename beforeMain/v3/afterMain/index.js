@@ -38,24 +38,24 @@ let nowX = 0;
 let endX = 0;
 let listX = 0;
 
-const onClick = (e) => {
+const onClick = e => {
   if (startX - endX !== 0) {
     e.preventDefault();
   }
 };
-const onScrollStart = (e) => {
+const onScrollStart = e => {
   startX = getClientX(e);
   window.addEventListener("mousemove", onScrollMove);
   window.addEventListener("touchmove", onScrollMove);
   window.addEventListener("mouseup", onScrollEnd);
   window.addEventListener("touchend", onScrollEnd);
 };
-const onScrollMove = (e) => {
+const onScrollMove = e => {
   nowX = getClientX(e);
   setTranslateX(listX + nowX - startX);
 };
 
-const getClientX = (e) => {
+const getClientX = e => {
   const isTouches = e.touches ? true : false;
   return isTouches ? e.touches[0].clientX : e.clientX;
 };
@@ -64,7 +64,7 @@ const getTranslateX = () => {
   return parseInt(getComputedStyle(list).transform.split(/[^\-0-9]+/g)[5]);
 };
 
-const setTranslateX = (x) => {
+const setTranslateX = x => {
   list.style.transform = `translateX(${x}px)`;
 };
 
@@ -75,7 +75,7 @@ const bindEvents = () => {
 };
 bindEvents();
 
-const onScrollEnd = (e) => {
+const onScrollEnd = e => {
   endX = getClientX(e);
   listX = getTranslateX();
   if (listX > 0) {
