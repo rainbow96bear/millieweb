@@ -38,3 +38,10 @@ body {
   background-color: #fafaf6;
   position: relative;
 }
+
+.fw1 {
+  font-weight: 900;
+}
+.fw2 {
+  font-weight: 500;
+}

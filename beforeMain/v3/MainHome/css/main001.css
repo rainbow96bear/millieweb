@@ -37,6 +37,17 @@ main {
   justify-content: flex-end;
   align-items: center;
 } */
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 24;
+  margin: 0 320;
+} */
+#navi-log {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 section #naviBar #navi-log .navi-i01 {
   width: 30px;
   height: 30px;
@@ -48,6 +59,12 @@ section #naviBar #navi-log .navi-i01 {
   display: flex;
   align-items: center;
 } */
+#navi-text {
+  flex: 1 2 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 section #naviBar #navi-text .navi-text01 {
   padding: 12 24;
   font-size: var(--font-L-size);
@@ -61,6 +78,7 @@ section #naviBar #navi-text .navi-text {
 }
 
 /* #navi-logOut {
+#navi-logOut {
   flex: 1;
   display: flex;
   justify-content: flex-end;
@@ -96,6 +114,7 @@ section #navi-logOut .navi-i02 {
 }
 #HeadNaviSubtextBox {
   /* flex: 1; */
+  flex: 1;
   padding-left: 278px;
 }
 section #HeadNaviSubtextBox .navi-text02 {
@@ -244,6 +263,8 @@ section #HeadNaviSubtextBox .navi-text03 {
   display: flex;
   align-items: flex-end;
   cursor: grab;
+  border: 1px solid lightgray;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .obj-slide-item-001 img {
   flex: 1;
@@ -324,6 +345,8 @@ section #HeadNaviSubtextBox .navi-text03 {
 
 #obj-BoxItem-002 {
   width: 100%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 15px;
 }
 #obj-BoxItem-002 .img001 {
   width: 100%;
@@ -434,6 +457,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   );
   position: relative;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid lightgray;
   -webkit-user-drag: none;
 }
 #obj-slide-box-003 h4 {
@@ -466,6 +490,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   align-items: center;
 }
 #obj-slide-box-003 .obj-slide-item-002 .abc {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background: linear-gradient(
     90deg,
     rgba(199, 193, 190, 0.734) 0%,

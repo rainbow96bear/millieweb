@@ -14,36 +14,92 @@
   </head>
   <body>
     <section class="flex">
-      <img src="./assets/lo.jpg" alt="a" class="img001" />
-      <img id="preview" />
+      <!-- <img src="./assets/lo.jpg" alt="a" class="img001" /> -->
       <form id="fileadd" enctype="multipart/form-data">
-        <input
-          type="file"
-          id="book_img"
-          name="book_img"
-          placeholder="이미지 추가"
-        />
+        <div id="img001">
+          <svg
+            id="rounD"
+            viewBox="0 0 120 120"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="60"
+              cy="60"
+              r="40"
+              fill="#e0a243"
+              stroke="#000"
+              stroke-width="2.5"
+            />
+            <g class="eyes">
+              <line
+                x1="37"
+                x2="50"
+                y1="46"
+                y2="46"
+                stroke="#000"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="44" cy="55" r="3" fill="#000" />
+              <line
+                x1="70"
+                x2="83"
+                y1="46"
+                y2="46"
+                stroke="#000"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="76" cy="55" r="3" fill="#000" />
+            </g>
+          </svg>
+          <input type="file" id="book_sel" name="book_img" class="book1" />
+          <!-- <div id="popup" class="hide">
+            <div class="content">
+              <input type="file" id="book_sel" name="book_img" class="book1" />
+              <button onclick="closePopup()">확인</button>
+            </div>
+          </div> -->
 
+          <!-- width 200
+          hieght 250 -->
+        </div>
         <input type="text" id="title" placeholder="제목을 입력하세요." />
         <input type="text" id="title_sub" placeholder="부제목을 입력하세요." />
-        <input type="text" id="introduce" placeholder="소개를 입력하세요." />
-        <select name="order" form="login" id="category" onchange="getValue()">
-          <option value="경제경영">경제경영</option>
-          <option value="소설">소설</option>
-          <option value="에세이">에세이</option>
-          <option value="자기">자기 계발</option>
-          <option value="IT">IT</option>
-          <option value="외국어">외국어</option>
-          <option value="라이프스타일">라이프스타일</option>
-          <option value="인문">인문</option>
-          <option value="철학">철학</option>
-          <option value="사회">사회</option>
-          <option value="과학">과학</option>
-          <option value="역사">역사</option>
-          <option value="여행">여행</option>
-          <option value="종교">종교</option>
-          <option value="판타지,무협">판타지,무협</option>
-          <option value="로맨스 BL">로맨스 BL</option>
+        <textarea
+          type="text"
+          id="introduce"
+          placeholder="소개를 입력하세요."
+          cols="70"
+        ></textarea>
+        <!-- <input type="text" id="introduce" placeholder="소개를 입력하세요." /> -->
+        <select
+          type="submit"
+          name="order"
+          form="login"
+          id="category"
+          onchange="getValue()"
+        >
+          <option class="apple" type="submit" value="경제경영">경제경영</option>
+          <option class="apple" type="submit" value="소설">소설</option>
+          <option class="apple" type="submit" value="에세이">에세이</option>
+          <option class="apple" type="submit" value="자기">자기 계발</option>
+          <option class="apple" type="submit" value="IT">IT</option>
+          <option class="apple" type="submit" value="외국어">외국어</option>
+          <option class="apple" type="submit" value="라이프스타일">
+            라이프스타일
+          </option>
+          <option class="apple" type="submit" value="인문">인문</option>
+          <option class="apple" type="submit" value="철학">철학</option>
+          <option class="apple" type="submit" value="사회">사회</option>
+          <option class="apple" type="submit" value="과학">과학</option>
+          <option class="apple" type="submit" value="역사">역사</option>
+          <option class="apple" type="submit" value="여행">여행</option>
+          <option class="apple" type="submit" value="종교">종교</option>
+          <option class="apple" type="submit" value="판타지,무협">
+            판타지,무협
+          </option>
+          <option class="apple" type="submit" value="로맨스BL">로맨스BL</option>
         </select>
         <input type="text" id="publisher" placeholder="출판사를 입력하세요." />
 
