@@ -52,13 +52,12 @@ async function newbooks() {
     temp_item.append(temp_book_info);
     const img = document.createElement("img");
     console.log(data.data[i].book_img);
-    img.src = "../../../uploads/" + data.data[i].book_img;
-
+    img.src = "http://localhost:8080/uploads/" + data.data[i].book_img;
+    temp_img_box.append(img);
     const temp_book_title = document.createElement("div");
     temp_book_title.classList.add("book_title");
     temp_book_title.innerText = data.data[i].title;
     const temp_author_info = document.createElement("div");
-    temp_img_box.append(img);
     temp_author_info.classList.add("author_info");
     temp_book_info.append(temp_book_title);
     temp_book_info.append(temp_author_info);
