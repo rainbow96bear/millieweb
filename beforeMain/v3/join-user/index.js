@@ -3,6 +3,7 @@ const joinBtnElem = document.getElementById("joinBtn");
 const authorJoinBtnElem = document.getElementById("authorJoinBtn");
 
 // 일반 회원가입 엘리먼트 ok
+const userImgElem = document.getElementById("userImg");
 const userNameElem = document.getElementById("userName");
 const userIdElem = document.getElementById("userId");
 const userEmailElem = document.getElementById("userEmail");
@@ -560,9 +561,35 @@ function authorJoinCheck() {
 }
 
 
+const imgView = document.getElementById("imgView");
+
+// 이미지 미리보기 함수
+function setImg(img){
+    // 인풋에 파일이 있으면
+    if(img.files && img.files[0]){
+        let readImg = new FileReader();
+
+
+        readImg.onload = (e) =>{
+            // imgView.style.backgroundImage = e.target.result;
+
+            imgView.setAttribute("src", e.target.result);
+            imgView.style.backgroundSize = "contain";
+
+        };
+        readImg.readAsDataURL(img.files[0]);
+    }
+}
+
+userImgElem.addEventListener("change", (e)=>{
+    setImg(e.target);
+});
+
+
 // 일반 회원가입 버튼 클릭 
 joinBtnElem.onclick = async () => {
     // 값들을 가져온다. -> DB 연결 -> DB에 보낸다.
+    const userImg = userImgElem.value;
     const userName = userNameElem.value;
     const userId = userIdElem.value;
     const userEmail = userEmailElem.value;
@@ -570,10 +597,13 @@ joinBtnElem.onclick = async () => {
     const userPwCheck = userPwCheckElem.value;
     const userBirthday = userBirthdayElem.value;
 
+    // console.log(userImgElem.files[0]);
+
     joinCheck();
 
     // 일반 회원가입 유효성 검사 전부 통과 -> DB에 INSERT
     if (joinCheck()) {
+        // console.log(`userImg : ${userImg}`);
         console.log(`userName : ${userName}`);
         console.log(`userId : ${userId}`);
         console.log(`userEmail : ${userEmail}`);
@@ -582,15 +612,19 @@ joinBtnElem.onclick = async () => {
         console.log(`userBirthday : ${userBirthday}`);
 
 
-        // v3/join/signup 이 된다.
-        const data = await axios.post("/v3/join/signup", {
-            // 이렇게 값을 보내면 상대편에서는 req.body.name로 값을 받을 수 있다.
-            name: userName, userId: userId, email: userEmail,
-            userPw: userPw, birthday: userBirthday
+        // form을 onsubmit
+        let formData = new FormData();
+        formData.append("userImg", userImgElem.files[0]);
+        formData.append("name", userName);
+        formData.append("userId", userId);
+        formData.append("email", userEmail);
+        formData.append("userPw", userPw);
+        formData.append("birthday", userBirthday);
+        console.log(formData);
+        
 
-            // 암호화는 여기서 ㄴㄴ 서버쪽에서 한다.
-            // data를 찍으면 서버에서 보낸 res값이 나온다.
-        });
+        // v3/join/signup
+        const data = await axios.post("/v3/join/signup", formData);
         console.log(data.data.status);
 
         // status가 200일때 띄운다.

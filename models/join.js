@@ -6,7 +6,11 @@ const Sequelize = require("sequelize");
 module.exports = class UserInfo extends Sequelize.Model{
     static init(sequelize){
         return super.init({
-            // 7가지 정보
+            // 8가지 정보
+            userImg : {
+                type : Sequelize.STRING(255),
+                allowNull : true
+            },
             name : {
                 type : Sequelize.STRING(255),
             },

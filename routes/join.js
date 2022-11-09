@@ -2,12 +2,31 @@ const router = require("express").Router();
 
 const crypto = require("crypto-js");
 
+// 이미지 업로드(multer)
+// cb : call back
+const multer = require("multer");
+const storage = multer.diskStorage({
+    destination : function(req, file, cb){
+        cb(null, "./uploads");
+    },
+    filename : function(req, file, cb){
+        cb(null, file.originalname);
+    }
+});
+const upload = multer({storage : storage});
+// 그리고 아래 router.post의 2번째 인자에 upload.single을 추가해준다.
+// 그리고 DB에 저장하는 부분에 req.file.originalname이라고 적어준다.
+
+
+
+
+
 // 구조분해 할당으로 저 안에 있는 것의 UserInfo만 가져온다.
 // models에 만든 UserInfo 클래스..
 const {UserInfo} = require("../models/index.js");
 
 // 일반 회원가입
-router.post("/signup", async (req, res)=>{
+router.post("/signup", upload.single("userImg"), async (req, res)=>{
 
     try{
         console.log(req.body);
@@ -19,6 +38,7 @@ router.post("/signup", async (req, res)=>{
         }else{
             await UserInfo.create({
                 // 컬럼이름 : 값,
+                userImg : req.file.originalname,
                 name : req.body.name,
                 userId : req.body.userId,
                 email : req.body.email,

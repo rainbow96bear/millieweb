@@ -64,6 +64,17 @@ body{
     top: 5px;
     left: 10px;
 }
+.user-img{
+    height: 100px;
+}
+#imgView{
+    width: 60px;
+    height: 60px;
+    margin-top: 25px;
+    margin-left: 10px;
+    border-radius: 50px;
+    border: 1px solid #cacac6;
+}
 
 /* 정규표현식 실패 */
 /* 인풋에 포커스도 주기 */
