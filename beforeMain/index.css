@@ -145,34 +145,57 @@
   overflow: hidden;
   width: 100%;
 }
-.main_slide {
+#main_slide {
   display: flex;
 
   width: fit-content;
   animation: effect1 41s linear infinite;
 }
-.main_slide img {
+
+/* .effect_slide {
+  transform: scale(2);
+} */
+
+.main_slide_sub img:hover {
+  transform: scale(1.3);
+  margin: 30px;
+  /* margin-bottom: 50px; */
+}
+.main_slide_sub2 img:hover {
+  transform: scale(1.3);
+  margin: 30px;
+
+  /* margin-bottom: 50px; */
+}
+.main_slide_sub3 img:hover {
+  transform: scale(1.3);
+  margin: 30px;
+
+  /* margin-bottom: 50px; */
+}
+
+#main_slide img {
   padding: 10 10px;
 }
 
-.main_slide2 {
+#main_slide2 {
   display: flex;
 
   width: fit-content;
   animation: effect2 41s linear infinite;
 }
 
-.main_slide2 img {
+#main_slide2 img {
   padding: 0 10px;
 }
 
-.main_slide3 {
+#main_slide3 {
   display: flex;
 
   width: fit-content;
   animation: effect1 41s linear infinite;
 }
-.main_slide3 img {
+#main_slide3 img {
   padding: 10 10px;
 }
 
@@ -263,6 +286,18 @@
   background-color: #f7f3f2;
   width: 100%;
   height: 650px;
+}
+
+.main_info_four_content {
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+  /* padding: 10px;
+  background-color: #f7f3f2;
+  width: 100%;
+  height: 650px;  */
 }
 
 .millie_pick_title {

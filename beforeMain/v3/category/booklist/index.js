@@ -51,7 +51,8 @@ async function newbooks() {
     temp_item.append(temp_img_box);
     temp_item.append(temp_book_info);
     const img = document.createElement("img");
-    img.src = "http://localhost:8080/uploads/" + data.data[i].book_img;
+    console.log(data.data[i].book_img);
+    img.src = "../../../uploads/" + test.imgFile;
 
     const temp_book_title = document.createElement("div");
     temp_book_title.classList.add("book_title");

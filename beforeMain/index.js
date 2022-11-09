@@ -37,6 +37,8 @@ document.addEventListener("scroll", () => {
   if (window.scrollY > 1100) {
     second_text.classList.add("effect");
     second_text.classList.remove("on");
+    first_text_two.classList.remove("effect");
+    first_text_two.classList.add("on");
   }
 });
 
@@ -44,6 +46,8 @@ document.addEventListener("scroll", () => {
   if (window.scrollY > 1950) {
     third_text.classList.add("effect");
     third_text.classList.remove("on");
+    second_text.classList.remove("effect");
+    second_text.classList.add("on");
   }
 });
 
@@ -95,3 +99,36 @@ document.addEventListener("scroll", () => {
     tenth_text.classList.remove("on");
   }
 });
+
+let imgLoop1 = document.getElementById("main_slide");
+let imgLoop2 = document.getElementById("main_slide2");
+let imgLoop3 = document.getElementById("main_slide3");
+// console.log(imgLoop1.children[5]);
+
+let ani1 = document.getElementsByClassName("main_slide_sub");
+let ani2 = document.getElementsByClassName("main_slide_sub2");
+let ani3 = document.getElementsByClassName("main_sldie_sub3");
+
+console.log(imgLoop1.children);
+
+imgLoop1.addEventListener("mouseover", () => {
+  imgLoop1.style.animationPlayState = "paused";
+});
+imgLoop1.addEventListener("mouseleave", () => {
+  imgLoop1.style.animationPlayState = "running";
+});
+imgLoop2.addEventListener("mouseover", () => {
+  imgLoop2.style.animationPlayState = "paused";
+});
+imgLoop2.addEventListener("mouseleave", () => {
+  imgLoop2.style.animationPlayState = "running";
+});
+imgLoop3.addEventListener("mouseover", () => {
+  imgLoop3.style.animationPlayState = "paused";
+});
+imgLoop3.addEventListener("mouseleave", () => {
+  imgLoop3.style.animationPlayState = "running";
+});
+// for (let i = 0; i < imgLoop1.children.length; ++i) {
+//   imgLoop1.children[i].hover
+// }
