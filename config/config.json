@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "sena5289",
-    "database": "millie",
+    "password": "1234",
+    "database": "newtest",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "sena5289",
-    "database": "millie",
+    "password": "1234",
+    "database": "newtest",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "sena5289",
-    "database": "millie",
+    "password": "1234",
+    "database": "newtest",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
