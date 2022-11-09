@@ -21,7 +21,8 @@
   margin: 0 13px;
   object-fit: contain;
   position: relative;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 #obj-slide-box-004 img:hover {
   width: calc(var(--avatar-L-size) * 8.5);
@@ -29,7 +30,8 @@
   position: relative;
   top: -15px;
   transition: 1s ease-in-out;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
 #obj-slide-box-005 {
@@ -50,7 +52,8 @@
   position: relative;
   top: 7.5px;
   bottom: 7.5px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 #obj-slide-box-005 img:hover {
   width: calc(var(--avatar-L-size) * 8.5);
@@ -59,7 +62,8 @@
   top: -7.5px;
   bottom: -7.5px;
   transition: 1s ease-in-out;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
 #obj-slide-box-006 {
@@ -76,7 +80,8 @@
   margin: 0 13px;
   object-fit: contain;
   position: relative;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 #obj-slide-box-006 img:hover {
   width: calc(var(--avatar-L-size) * 8.5);
@@ -84,7 +89,8 @@
   position: relative;
   bottom: -15px;
   transition: 1s ease-in-out;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
 
 @keyframes effect1 {
