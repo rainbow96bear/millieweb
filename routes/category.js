@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+const fs = require("fs");
 const { BookInfo } = require("../models/index.js");
 
 const category = [
@@ -27,7 +28,6 @@ router.post("/booklist/bookAdd", async (req, res) => {
   res.send(book_info);
 });
 
-const fs = require("fs");
 router.post("/booklist/test", async (req, res) => {
   const booklist = JSON.parse(fs.readFileSync("books.json", "utf-8"));
   switch (req.body.category) {

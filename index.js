@@ -14,7 +14,7 @@ const app = express();
 
 app.set("port", process.env.PORT || 8080);
 
-// app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads"));
 
 app.use("/", express.static(path.join(__dirname, "beforeMain")));
 // app.use("/", express.static(path.join(__dirname, "beforeMain/v3/login")));
