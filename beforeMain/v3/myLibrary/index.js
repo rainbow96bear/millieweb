@@ -32,6 +32,7 @@ contentHeader.onclick = async() => {
   if(data.data.nickname){
     location.href = "../bookAdd";
   }else{
+    // 모달 팝업 띄우기
     alert("하이");
     return;
   }

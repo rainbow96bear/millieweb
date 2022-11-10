@@ -278,6 +278,11 @@ body {
   height: 80%;
   position: relative;
 }
+/* .img{
+  height: fit-content;
+  overflow: auto;
+  background-color: rgb(245,245,245);
+} */
 .img_box img {
   box-shadow: 1px 1px 2px 2px gray;
   width: 157px;
@@ -285,6 +290,11 @@ body {
   bottom: 0;
   left: 0;
   cursor: pointer;
+}
+.img_box img:hover {
+  color: black;
+  /* border: 100px solid black; */
+  opacity: 0.5;
 }
 .book_info {
   margin-top: 7px;
