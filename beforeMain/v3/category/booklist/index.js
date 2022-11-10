@@ -63,6 +63,10 @@ async function newbooks() {
     temp_book_info.append(temp_author_info);
     temp_author_info.innerText = data.data[i].introduce;
     document.getElementById("new_books").append(temp_item);
+
+    temp_item.onclick = () => {
+      location.href = "../../bookdetail?" + data.data[i].title;
+    };
   }
 }
 
