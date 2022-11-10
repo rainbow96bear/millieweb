@@ -74,6 +74,38 @@ body{
     border: 1px solid #cacac6;
 }
 
+/* .name-check-box{
+    display: inline-block;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.name-check{
+    border: 1px solid black;
+    height: 14px;
+} */
+
+.input-design.name{
+    position: relative;
+}
+.name-check{
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    background-color: #B2B1AB;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 60px;
+    height: 20px;
+    top: 15px;
+    text-align: center;
+    line-height: 20px;
+}
 
 /* 정규표현식 실패 */
 /* 인풋에 포커스도 주기 */

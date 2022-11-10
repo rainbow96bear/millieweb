@@ -116,6 +116,8 @@ authorNameElem.addEventListener("focusout", e => {
 });
 
 
+
+
 // 아이디 : 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능
 // 틀리면 #idMsg 보이게 맞으면 안보이게
 function idCheck(ua, id) {

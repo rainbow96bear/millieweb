@@ -2,6 +2,30 @@ const router = require("express").Router();
 
 const crypto = require("crypto-js");
 
+// 구조분해 할당으로 저 안에 있는 것의 UserInfo만 가져온다.
+// models에 만든 UserInfo 클래스..
+const {UserInfo} = require("../models/index.js");
+
+
+router.post("/idCheck", async (req, res)=>{
+    try {
+
+        if(await UserInfo.findOne({where : {userId : req.body.userId}})){
+            console.log("이미있음");
+            res.send({status : 401});
+        }else{
+            console.log("DB에 중복되는 아이디 없음");
+            res.send({status : 200});
+        }
+        
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+
+
+
 // 이미지 업로드(multer)
 // cb : call back
 const multer = require("multer");
@@ -19,9 +43,6 @@ const upload = multer({storage : storage});
 
 
 
-// 구조분해 할당으로 저 안에 있는 것의 UserInfo만 가져온다.
-// models에 만든 UserInfo 클래스..
-const {UserInfo} = require("../models/index.js");
 
 // 일반 회원가입
 router.post("/signup", upload.single("userImg"), async (req, res)=>{
@@ -74,6 +95,8 @@ router.post("/authorSignup", upload.single("userImg"), async (req, res)=>{
         if(await UserInfo.findOne({where : {userId : req.body.userId}})){
             console.log("이미있음");
             res.send({status : 401});
+        }else if(await UserInfo.findOne({where : {nickname : req.body.nickname}})){
+            res.send({status : 402});
         }else{
             await UserInfo.create({
                 // 컬럼이름 : 값,

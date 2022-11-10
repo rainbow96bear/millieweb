@@ -87,7 +87,7 @@ body{
     color: red;
     margin-bottom: 12px;
 }
-.pw2-good-msg{
+.pw2-good-msg, .id-good-msg{
     color: #A451F7;
 }
 

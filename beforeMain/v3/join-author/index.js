@@ -685,6 +685,8 @@ authorJoinBtnElem.onclick = async () => {
             window.location.href = '/';
         } else if (data.data.status == 401) {
             alert("이미 있는 아이디입니다.");
+        } else if (data.data.status == 402) {
+            alert("이미 있는 작가명입니다.");
         }
 
     } else {
