@@ -48,7 +48,7 @@ app.use(
 app.use("/v3", routes);
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("db connected");
   })

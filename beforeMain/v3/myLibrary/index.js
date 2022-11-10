@@ -5,9 +5,22 @@ console.log(cookieJwt);
 
 if(cookieJwt){
   cookieVerify();
+  setProfileImg();
 }else{
   location.href = "http://localhost:8080";
 }
+
+// 이미지 정보를 쿠키에서 가져와 띄움
+async function setProfileImg(){
+  const data = await axios.post("/v3/mainhome/cookieInfo", {cookieJwt});
+
+  const userImgElem = document.getElementById("userImg");
+  userImgElem.setAttribute("src", `http://localhost:8080/uploads/${data.data.userImg}`);
+
+  // src를 data.data.userImg로 가져와서 띄우기만 하면 됨
+}
+
+
 
 // 작가인지 일반 유저인지에 따라 다른 정보를 띄움
 const userName = document.getElementById("userName");

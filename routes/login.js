@@ -19,6 +19,8 @@ router.post("/user", async (req, res) => {
 
             // 유저 이름
             const name = (await UserInfo.findAll({ attributes: ["name"], where: { userId: req.body.id } }))[0].dataValues.name;
+            // 유저 이미지
+            const userImg = (await UserInfo.findAll({ attributes: ["userImg"], where: { userId: req.body.id } }))[0].dataValues.userImg;
 
             // 해당 아이디에 비밀번호가 같음
             if (await UserInfo.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
@@ -27,7 +29,7 @@ router.post("/user", async (req, res) => {
                 // 쿠키에 jwt를 30분간 추가해 준다.
                 res.cookie(
                     "millie_login",
-                    jwt.sign({ id: req.body.id, name: name }, process.env.COOKIE_SECRET),
+                    jwt.sign({ id: req.body.id, name: name, userImg : userImg}, process.env.COOKIE_SECRET),
                     { expires: new Date(Date.now() + 60000 * 30) }
                 );
                 res.send({ status: 200 }); // 로그인 완료.
@@ -55,6 +57,8 @@ router.post("/author", async (req, res) => {
 
             // 유저 이름
             const name = (await UserInfo.findAll({ attributes: ["name"], where: { userId: req.body.id } }))[0].dataValues.name;
+            // 유저 이미지
+            const userImg = (await UserInfo.findAll({ attributes: ["userImg"], where: { userId: req.body.id } }))[0].dataValues.userImg;
             // 작가명, 출판사
             const nickname = (await UserInfo.findAll({ attributes: ["nickname"], where: { userId: req.body.id } }))[0].dataValues.nickname;
             const publish = (await UserInfo.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish;
@@ -63,7 +67,7 @@ router.post("/author", async (req, res) => {
                 res.clearCookie("millie_login");
                 res.cookie(
                     "millie_login",
-                    jwt.sign({ id: req.body.id, name : name, nickname : nickname, publish : publish }, process.env.COOKIE_SECRET),
+                    jwt.sign({ id: req.body.id, name : name, nickname : nickname, publish : publish, userImg : userImg }, process.env.COOKIE_SECRET),
                     { expires: new Date(Date.now() + 60000 * 30) }
                 );
                 res.send({ status: 200 });
