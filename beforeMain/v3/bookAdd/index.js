@@ -4,6 +4,11 @@ const preview = document.getElementById("preview");
 
 const book_img = document.getElementById("book_img");
 
+const cancle = document.getElementById("cancle");
+
+const title_name = document.getElementById("title");
+
+window.addEventListener("focus", reset(), false);
 document.getElementById("fileadd").onsubmit = async (e) => {
   e.preventDefault();
 
@@ -18,7 +23,11 @@ document.getElementById("fileadd").onsubmit = async (e) => {
   formData.append("category", getValue());
   formData.append("publisher", publisher.value);
   const data = await axios.post("/v3/boodAdd/upload", formData);
-  console.log(data);
+  location.href = "/v3/myLibrary";
+};
+
+cancle.onclick = () => {
+  location.href = "/v3/myLibrary";
 };
 
 function getValue() {
@@ -94,7 +103,7 @@ console.log(rounD);
 
   console.log(inputText);
 
-  [...inputText].forEach(item => {
+  [...inputText].forEach((item) => {
     function rotate3d(x, y, z, rad) {
       const value = `rotate3d(${x}, ${y}, ${z}, ${rad}rad)`;
       for (let i = 0; i < face.length; i++) {
