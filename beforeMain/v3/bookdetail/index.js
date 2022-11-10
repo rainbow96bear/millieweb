@@ -40,3 +40,10 @@ async function book_info() {
 }
 
 book_info();
+
+document.getElementById("mybook_btn").onclick = async (e) => {
+  e.preventDefault;
+  const data = await axios.post("/v3/bookdetail/mybook", {
+    book_title: temp_split[1],
+  });
+};

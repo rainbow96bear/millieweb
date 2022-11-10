@@ -1,6 +1,7 @@
 const router = require("express").Router();
+const jwt = require("jsonwebtoken");
 
-const { BookInfo, review } = require("../models/index.js");
+const { BookInfo, review, UserInfo } = require("../models/index.js");
 
 router.post("/member_review", async (req, res) => {
   try {
@@ -20,6 +21,23 @@ router.post("/load_book_info", async (req, res) => {
   });
   console.log(load_book_info);
   res.send(load_book_info);
+});
+
+router.post("/mybook", async (req, res) => {
+  const tempUserInfo = jwt.verify(
+    req.cookies.millie_login,
+    process.env.COOKIE_SECRET
+  );
+
+  console.log(tempUserInfo);
+  const temp_user_Info = await UserInfo.findOne({
+    where: { userId: tempUserInfo.id },
+  });
+  const temp_book_Info = await BookInfo.findOne({
+    where: { title: req.body.book_title },
+  });
+  console.log(temp_user_Info);
+  console.log(temp_book_Info);
 });
 
 module.exports = router;

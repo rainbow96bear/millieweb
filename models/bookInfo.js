@@ -1,4 +1,6 @@
 const Sequelize = require("sequelize");
+const { BookInfo } = require(".");
+const db = require(".");
 
 module.exports = class BookInfo extends Sequelize.Model {
   static init(sequelize) {
