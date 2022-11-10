@@ -569,7 +569,6 @@ function setImg(img){
     if(img.files && img.files[0]){
         let readImg = new FileReader();
 
-
         readImg.onload = (e) =>{
             // imgView.style.backgroundImage = e.target.result;
 
@@ -620,7 +619,7 @@ joinBtnElem.onclick = async () => {
         formData.append("email", userEmail);
         formData.append("userPw", userPw);
         formData.append("birthday", userBirthday);
-        console.log(formData);
+        // console.log(formData);
         
 
         // v3/join/signup

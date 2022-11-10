@@ -19,8 +19,6 @@ const upload = multer({storage : storage});
 
 
 
-
-
 // 구조분해 할당으로 저 안에 있는 것의 UserInfo만 가져온다.
 // models에 만든 UserInfo 클래스..
 const {UserInfo} = require("../models/index.js");
@@ -67,7 +65,7 @@ router.post("/signup", upload.single("userImg"), async (req, res)=>{
 
 
 // 작가 회원가입
-router.post("/authorSignup", async (req, res)=>{
+router.post("/authorSignup", upload.single("userImg"), async (req, res)=>{
 
     try{
         console.log(req.body);
@@ -79,6 +77,7 @@ router.post("/authorSignup", async (req, res)=>{
         }else{
             await UserInfo.create({
                 // 컬럼이름 : 값,
+                userImg : req.file.originalname,
                 name : req.body.name,
                 userId : req.body.userId,
                 email : req.body.email,

@@ -11,6 +11,7 @@ const userPwCheckElem = document.getElementById("userPwCheck");
 const userBirthdayElem = document.getElementById("userBirthday");
 
 // 작가 회원가입 엘리먼트 ok
+const authorImgElem = document.getElementById("authorImg");
 const authorNameElem = document.getElementById("authorName");
 const authorUserIdElem = document.getElementById("authorUserId");
 const authorEmailElem = document.getElementById("authorEmail");
@@ -610,8 +611,31 @@ joinBtnElem.onclick = async () => {
     }
 }
 
+
+// 이미지 미리보기 함수
+function setImg(input){
+    // 인풋에 파일이 있으면
+    if(input.files && input.files[0]){
+        let readImg = new FileReader();
+
+        readImg.onload = (e) =>{
+            // imgView.style.backgroundImage = e.target.result;
+
+            imgView.setAttribute("src", e.target.result);
+            imgView.style.backgroundSize = "contain";
+
+        };
+        readImg.readAsDataURL(input.files[0]);
+    }
+}
+
+authorImgElem.addEventListener("change", (e)=>{
+    setImg(e.target);
+});
+
 // 작가 회원가입 버튼 클릭
 authorJoinBtnElem.onclick = async () => {
+    // const authorImg = authorImgElem.value;
     const authorName = authorNameElem.value;
     const authorUserId = authorUserIdElem.value;
     const authorEmail = authorEmailElem.value;
@@ -625,6 +649,7 @@ authorJoinBtnElem.onclick = async () => {
 
     // 작가 회원가입 유효성 검사 전부 통과 -> DB에 INSERT
     if (authorJoinCheck()) {
+        console.log(`authorImg : ${authorImg}`);
         console.log(`authorName : ${authorName}`);
         console.log(`authorUserId : ${authorUserId}`);
         console.log(`authorEmail : ${authorEmail}`);
@@ -634,18 +659,21 @@ authorJoinBtnElem.onclick = async () => {
         console.log(`nickname : ${nickname}`);
         console.log(`publish : ${publish}`);
 
+        // form data를 만든다.
+        let formData = new FormData();
+        formData.append("userImg", authorImgElem.files[0]);
+        formData.append("name", authorName);
+        formData.append("userId", authorUserId);
+        formData.append("email", authorEmail);
+        formData.append("userPw", authorUserPw);
+        formData.append("birthday", authorBirthday);
+        formData.append("nickname", nickname);
+        formData.append("publish", publish);
+
 
         // 여기에 회원가입 post 추가하면 됨
         // v3/join/authorSignup 이 된다.
-        const data = await axios.post("/v3/join/authorSignup", {
-            // 이렇게 값을 보내면 상대편에서는 req.body.name로 값을 받을 수 있다.
-            name: authorName, userId: authorUserId, email: authorEmail,
-            userPw: authorUserPw, birthday: authorBirthday, nickname: nickname,
-            publish: publish
-
-            // 암호화는 여기서 ㄴㄴ 서버쪽에서 한다.
-            // data를 찍으면 서버에서 보낸 res값이 나온다.
-        });
+        const data = await axios.post("/v3/join/authorSignup", formData);
         console.log(data.data.status);
 
         // status가 200일때 띄운다.
