@@ -41,7 +41,7 @@ contentHeader.onclick = async() => {
 const itemContainerElem = document.getElementById("itemContainer");
 
 // 이 아래 전체를 for문
-for(let i = 0; i<3; i++){
+for(let i = 0; i<5; i++){
   const itemDiv = document.createElement("div");
   itemDiv.classList.add("item");
 

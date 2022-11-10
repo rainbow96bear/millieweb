@@ -74,13 +74,14 @@ body {
   background-image: url("my-library-background3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
+  border-bottom: 2px solid rgb(187, 180, 180);
 }
 
 .library-header-wrap {
   display: inline-block;
   box-sizing: border-box;
   height: 280px;
-  border-bottom: 2px solid rgb(187, 180, 180);
 }
 
 .user-info-wrap {
@@ -159,6 +160,8 @@ body {
   width: 80px;
   height: 100px;
   box-shadow: 0px 1px 5px grey;
+  margin-top: 15px;
+  rotate: 13deg;
 
 }
 
