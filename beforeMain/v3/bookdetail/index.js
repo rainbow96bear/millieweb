@@ -41,6 +41,7 @@ async function book_info() {
 
 book_info();
 
+<<<<<<< HEAD
 
 // 내 서재에 담기
 const mybook = document.getElementById("mybook");
@@ -54,3 +55,11 @@ mybook.onclick = () =>{
   axios.post("/v3/bookdetail/addBook", {book : temp_split[1]});
 
 }
+=======
+document.getElementById("mybook_btn").onclick = async (e) => {
+  e.preventDefault;
+  const data = await axios.post("/v3/bookdetail/mybook", {
+    book_title: temp_split[1],
+  });
+};
+>>>>>>> 7ee119b (221110)
