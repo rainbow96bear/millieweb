@@ -1,6 +1,9 @@
 const router = require("express").Router();
 
-const { BookInfo, review } = require("../models/index.js");
+const { UserInfo, BookInfo, review } = require("../models/index.js");
+
+const jwt = require("jsonwebtoken");
+
 
 router.post("/member_review", async (req, res) => {
   try {
@@ -21,5 +24,41 @@ router.post("/load_book_info", async (req, res) => {
   console.log(load_book_info);
   res.send(load_book_info);
 });
+
+// 내 서재에 담기
+router.post("/addBook", async(req, res)=>{
+
+  // 책 제목
+  console.log(req.body.book);
+
+  // 쿠키 내용에서 이름을 가져옴
+  console.log(req.cookies.millie_login);
+  const userInfo = jwt.verify(req.cookies.millie_login, process.env.COOKIE_SECRET);
+  
+  // 유저 아이디
+  console.log(userInfo.id);
+
+  // DB에서 찾는다.(먼저 다대다 테이블 관계를 맺어준다.)
+  // 아이디와 책을 각각 findOne해준다.
+  const userId = await UserInfo.findOne({
+    where : {userId : userInfo.id}
+  });
+  const bookTitle = await BookInfo.findOne({
+    where : {title : req.body.book}
+  });
+
+  // 생긴 테이블 이름 : userbook
+  
+  console.log(userId, bookTitle);
+  
+  // 컬럼에 값을 집어넣어줌.....
+  // bookTitle.addBookInfo(userId);
+  userId.addUserInfo(bookTitle);
+
+
+
+});
+
+
 
 module.exports = router;

@@ -8,6 +8,10 @@ const dotenv = require("dotenv");
 const routes = require("./routes/index.js");
 const { sequelize } = require("./models/index.js");
 
+
+// const userbook = sequelize.define('userbook', {}, { timestamps: true });
+
+
 dotenv.config();
 
 const app = express();
@@ -44,7 +48,7 @@ app.use(
 app.use("/v3", routes);
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("db connected");
   })

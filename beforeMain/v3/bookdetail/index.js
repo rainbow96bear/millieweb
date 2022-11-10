@@ -40,3 +40,17 @@ async function book_info() {
 }
 
 book_info();
+
+
+// 내 서재에 담기
+const mybook = document.getElementById("mybook");
+
+mybook.onclick = () =>{
+
+  // 유저 이름과 책 이름을 보낸다..(내 서재의 나, 내가 선택한 책)
+  // 유저 이름은 서버쪽에서 req.cookie 해서 받아오기 때문에 여기서 안보낸다.
+  console.log(temp_split[1]);
+  
+  axios.post("/v3/bookdetail/addBook", {book : temp_split[1]});
+
+}

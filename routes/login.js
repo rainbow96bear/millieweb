@@ -23,10 +23,10 @@ router.post("/user", async (req, res) => {
             // 해당 아이디에 비밀번호가 같음
             if (await UserInfo.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
                 // 기존 쿠키를 삭제해준다.
-                res.clearCookie("millie-login");
+                res.clearCookie("millie_login");
                 // 쿠키에 jwt를 30분간 추가해 준다.
                 res.cookie(
-                    "millie-login",
+                    "millie_login",
                     jwt.sign({ id: req.body.id, name: name }, process.env.COOKIE_SECRET),
                     { expires: new Date(Date.now() + 60000 * 30) }
                 );
@@ -60,9 +60,9 @@ router.post("/author", async (req, res) => {
             const publish = (await UserInfo.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish;
 
             if (await UserInfo.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
-                res.clearCookie("millie-login");
+                res.clearCookie("millie_login");
                 res.cookie(
-                    "millie-login",
+                    "millie_login",
                     jwt.sign({ id: req.body.id, name : name, nickname : nickname, publish : publish }, process.env.COOKIE_SECRET),
                     { expires: new Date(Date.now() + 60000 * 30) }
                 );

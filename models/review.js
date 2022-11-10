@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-module.exports = class review extends Sequelize.Model {
+module.exports = class ReviewInfo extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
@@ -10,8 +10,8 @@ module.exports = class review extends Sequelize.Model {
       },
       {
         sequelize,
-        modelName: "Newtest",
-        tableName: "newtest",
+        modelName: "ReviewInfo",
+        tableName: "review_info",
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci",
         timestamps: true,
