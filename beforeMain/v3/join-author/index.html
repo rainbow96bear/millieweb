@@ -22,7 +22,7 @@
             <div id="joinForm">
                 <div class="input-design">
                     <input type="text" name="userName" id="userName" placeholder="이름 입력" autocomplete="off" onkeyup="valueCheck()">
-                    <span>이름</span>
+                    <span>이름*</span>
                 </div>
                 <span class="join-error-msg" id="nameMsg" style="display: none;">한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용
                     불가)</span>
@@ -30,7 +30,7 @@
 
                 <div class="input-design">
                     <input type="text" name="userId" id="userId" placeholder="아이디 입력" autocomplete="off" onkeyup="valueCheck()">
-                    <span>아이디</span>
+                    <span>아이디*</span>
                 </div>
                 <span class="join-error-msg" id="idMsg" style="display: none;">5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용
                     가능합니다.</span>
@@ -38,14 +38,14 @@
 
                 <div class="input-design">
                     <input type="text" name="userEmail" id="userEmail" placeholder="이메일 입력" autocomplete="off" onkeyup="valueCheck()">
-                    <span>이메일</span>
+                    <span>이메일*</span>
                 </div>
                 <span class="join-error-msg" id="mailMsg" style="display: none;">이메일 주소를 다시 확인해주세요.</span>
                 <span class="join-error-msg" id="mailLessMsg" style="display: none;">이메일 주소를 입력해주세요.</span>
 
                 <div class="input-design">
                     <input type="password" name="userPw" id="userPw" placeholder="비밀번호 입력" autocomplete="off" onkeyup="valueCheck();">
-                    <span>비밀번호</span>
+                    <span>비밀번호*</span>
                 </div>
                 <span class="join-error-msg" id="pwMsg" style="display: none;">8~16자의 영문 대 소문자, 숫자, 특수문자를 사용하세요.</span>
                 <span class="join-error-msg" id="pwLessMsg" style="display: none;">비밀번호를 입력해주세요.</span>
@@ -54,7 +54,7 @@
                     <!-- 인풋 데이터 보낼때 확인은 안 보낸다. -->
                     <!-- 변경될때를 인식해서 확인한다. -->
                     <input type="password" id="userPwCheck" placeholder="비밀번호 확인" autocomplete="off" onkeyup="valueCheck()">
-                    <span>비밀번호 확인</span>
+                    <span>비밀번호 확인*</span>
                 </div>
                 <span class="join-error-msg" id="pw2LessMsg" style="display: none;">필수 정보입니다.</span>
                 <span class="join-error-msg" id="pw2Msg" style="display: none;">비밀번호가 일치하지 않습니다.</span>
@@ -64,7 +64,7 @@
                 <div class="input-design">
                     <input type="date" name="userBirthday" id="userBirthday" value="xxx" min="0000-1-1" max="9999-12-31"
                         placeholder="생년월일" autocomplete="off" onkeyup="valueCheck()" onchange="valueCheck()">
-                    <span>생년월일</span>
+                    <span>생년월일*</span>
                 </div>
                 <span class="join-error-msg" id="birthLessMsg" style="display: none;">생년월일을 제대로 입력해주세요.</span>
 
@@ -86,9 +86,14 @@
                 <p><span>작가 회원가입</span><br /></p>
             </div>
             <div id="authorJoinForm">
+                <div class="input-design user-img">
+                    <img id="imgView" src="millie.png"/>
+                    <input type="file" name="authorImg" id="authorImg" placeholder="유저 이미지" autocomplete="off">
+                    <span>프로필 사진</span>
+                </div>
                 <div class="input-design">
                     <input type="text" name="authorName" id="authorName" placeholder="이름 입력" autocomplete="off" onkeyup="authorValueCheck()">
-                    <span>이름</span>
+                    <span>이름*</span>
                 </div>
                 <span class="join-error-msg" id="authorNameMsg" style="display: none;">한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용
                     불가)</span>
@@ -96,7 +101,7 @@
 
                 <div class="input-design">
                     <input type="text" name="authorUserId" id="authorUserId" placeholder="아이디 입력" autocomplete="off" onkeyup="authorValueCheck()">
-                    <span>아이디</span>
+                    <span>아이디*</span>
                 </div>
                 <span class="join-error-msg" id="authorIdMsg" style="display: none;">5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용
                     가능합니다.</span>
@@ -104,7 +109,7 @@
 
                 <div class="input-design">
                     <input type="text" name="authorEmail" id="authorEmail" placeholder="이메일 입력" autocomplete="off" onkeyup="authorValueCheck()">
-                    <span>이메일</span>
+                    <span>이메일*</span>
                 </div>
                 <span class="join-error-msg" id="authorMailMsg" style="display: none;">이메일 주소를 다시 확인해주세요.</span>
                 <span class="join-error-msg" id="authorMailLessMsg" style="display: none;">이메일 주소를 입력해주세요.</span>
@@ -112,7 +117,7 @@
                 <div class="input-design">
                     <input type="password" name="authorUserPw" id="authorUserPw" placeholder="비밀번호 입력"
                         autocomplete="off" onkeyup="authorValueCheck()">
-                    <span>비밀번호</span>
+                    <span>비밀번호*</span>
                 </div>
                 <span class="join-error-msg" id="authorPwMsg" style="display: none;">8~16자의 영문 대 소문자, 숫자, 특수문자를
                     사용하세요.</span>
@@ -121,7 +126,7 @@
                 <div class="input-design">
                     <!-- 인풋 데이터 보낼때 확인은 안 보낸다. -->
                     <input type="password" id="authorUserPwCheck" placeholder="비밀번호 확인" autocomplete="off" onkeyup="authorValueCheck()">
-                    <span>비밀번호 확인</span>
+                    <span>비밀번호 확인*</span>
                 </div>
                 <span class="join-error-msg" id="Apw2LessMsg" style="display: none;">필수 정보입니다.</span>
                 <span class="join-error-msg" id="Apw2Msg" style="display: none;">비밀번호가 일치하지 않습니다.</span>
@@ -130,14 +135,14 @@
                 <div class="input-design">
                     <input type="date" name="authorBirthday" id="authorBirthday" value="xxx" min="0000-1-1"
                         max="9999-12-31" placeholder="생년월일" autocomplete="off" onkeyup="authorValueCheck()">
-                    <span>생년월일</span>
+                    <span>생년월일*</span>
                 </div>
                 <span class="join-error-msg" id="AbirthLessMsg" style="display: none;">생년월일을 제대로 입력해주세요.</span>
 
                 <div style="margin-top: 18px;">
                     <div class="input-design">
                         <input type="text" name="nickname" id="nickname" placeholder="작가명 입력" autocomplete="off" onkeyup="authorValueCheck()">
-                        <span>작가명</span>
+                        <span>작가명*</span>
                     </div>
                     <span class="join-error-msg" id="nickMsg" style="display: none;">한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용
                         불가)</span>
@@ -146,7 +151,7 @@
 
                     <div class="input-design">
                         <input type="text" name="publish" id="publish" placeholder="출판사 입력" autocomplete="off" onkeyup="authorValueCheck()">
-                        <span>출판사</span>
+                        <span>출판사*</span>
                     </div>
                     <span class="join-error-msg" id="pubMsg" style="display: none;">한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용
                         불가)</span>

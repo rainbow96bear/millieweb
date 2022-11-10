@@ -275,7 +275,26 @@ async function cookieVerify() {
 }
 
 // 로그아웃
-document.getElementById("logOut-btn").onclick = async () => {
+// document.getElementById("logoutBtn").onclick = async () => {
+//   if (!cookieJwt) {
+//     alert("비정상적인 접근입니다. 삐뽀삐뽀");
+//     location.href = "https://www.police.go.kr/index.do";
+//     return;
+//   }
+
+//   const data = await axios.post("/v3/mainhome/clearCookie", {
+//     cookieName: tempCookie[0],
+//   });
+
+//   if (data.data.status == 200) {
+//     alert("로그아웃 성공");
+//     location.href = "http://localhost:8080";
+//   } else {
+//     alert("로그아웃 실패");
+//   }
+// };
+
+document.getElementById("logoutBtn").addEventListener("click", async()=>{
   if (!cookieJwt) {
     alert("비정상적인 접근입니다. 삐뽀삐뽀");
     location.href = "https://www.police.go.kr/index.do";
@@ -292,11 +311,19 @@ document.getElementById("logOut-btn").onclick = async () => {
   } else {
     alert("로그아웃 실패");
   }
-};
+});
 
 // 여기서부터 혜림 2022.11.8.
 const myLibraryBtn = document.getElementById("myLibraryBtn");
 
-myLibraryBtn.onclick = () => {
+myLibraryBtn.addEventListener("click", ()=>{
+  alert("하이");
   location.href = "../myLibrary";
-};
+});
+
+// myLibraryBtn.onclick = () => {
+//   alert("하이");
+//   location.href = "/";
+//   // location.href = "../myLibrary";
+// };
+

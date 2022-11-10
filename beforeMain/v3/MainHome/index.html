@@ -17,36 +17,40 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
+    
     <!-- navi bar -->
     <header>
       <!-- main navi bar-->
       <section id="HeadNaviContainer">
-        <div id="naviBar">
-          <div id="navi-log">
-            <img src="./assets/css3-alt.svg" alt="gg" class="navi-i01" />
+          <div id="naviBar">
+              <div id="navi-log">
+                  <img src="./assets/css3-alt.svg" alt="gg" class="navi-i01" />
+              </div>
+              <div id="navi-text">
+                  <span class="navi-text01">투데이</span>
+                  <span class="navi-text">완독지수</span>
+                  <span class="navi-text">검색</span>
+                  <span class="navi-text" id="myLibraryBtn">내서재</span>
+                  <span class="navi-text">관리</span>
+              </div>
+              <div id="navi-logOut">
+                  <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02" />
+                  <button id="logoutBtn">로그아웃</button>
+              </div>
           </div>
-          <div id="navi-text">
-            <span class="navi-text01">투데이</span>
-            <span class="navi-text">완독지수</span>
-            <span class="navi-text">검색</span>
-            <span class="navi-text">내서재</span>
-            <span class="navi-text">관리</span>
-          </div>
-          <div id="navi-logOut">
-            <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02" />
-            <button id="logOut-btn">로그아웃</button>
-          </div>
-        </div>
       </section>
       <!-- sub navi -->
       <section id="HeadNaviSubContainer">
-        <div id="HeadNaviSubtextBox">
-          <span class="navi-text02">NOW</span>
-          <span class="navi-text03">오디오.챗북</span>
-          <span class="navi-text03">스토리</span>
-        </div>
+          <div id="HeadNaviSubtextBox">
+              <span class="navi-text02">NOW</span>
+              <span class="navi-text03">오디오.챗북</span>
+              <span class="navi-text03">스토리</span>
+          </div>
       </section>
     </header>
+
+
+
     <!-- main slide -->
     <section id="mainSlide">
       <div id="ColorSlide">
@@ -1066,9 +1070,12 @@
       <!-- footer img text -->
       <!-- footer -->
     </main>
+
+
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+  
   </body>
 </html>

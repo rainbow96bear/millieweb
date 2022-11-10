@@ -632,9 +632,12 @@ joinBtnElem.onclick = async () => {
             alert("회원가입이 완료되었습니다.");
 
             // 메인 페이지로 리다이렉트
-            window.location.href = '/';
+            // window.location.href = '../login';
+            location.href = "../login";
         } else if (data.data.status == 401) {
             alert("이미 있는 아이디입니다.");
+        }else{
+            alert("회원가입 오류");
         }
 
 
@@ -689,6 +692,7 @@ authorJoinBtnElem.onclick = async () => {
 
             // 메인 페이지로 리다이렉트
             window.location.href = '/';
+            // location.href = '../login';
         } else if (data.data.status == 401) {
             alert("이미 있는 아이디입니다.");
         }
