@@ -52,8 +52,14 @@ router.post("/addBook", async(req, res)=>{
   console.log(userId, bookTitle);
   
   // 컬럼에 값을 집어넣어줌.....
-  // bookTitle.addBookInfo(userId);
+  // 이놈처럼 한방에 값을 넣으면 프라이머리키가 겹쳐서 안되고
+  // 어떤 행위를 할 때마다 따로 이 것을 넣어줘야 한다고 한다.
+  // ex) 유저가 책을 작성할 때 한 번, 유저가 책을 내 서재에 담을 때 한 번..
+  // bookTitle.addBookInfo(userId); 
+  
   userId.addUserInfo(bookTitle);
+
+
 
 
 

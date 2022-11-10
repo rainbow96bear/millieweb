@@ -54,6 +54,21 @@ contentHeader.onclick = async() => {
 // itemContainer에 책 item append로 추가하기
 const itemContainerElem = document.getElementById("itemContainer");
 
+
+// 요청을 보내서
+// 유저 아이디에 해당하는 책을 전부 불러오고
+// 그 책 번호에 맞는 책내용을 전부 찾아와야 함
+// 유저 아이디에 해당하는 책 개수
+
+async function getBookList(){
+  const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.userId;
+  const data = axios.post("/v3/mylibrary/getBooks",{userId : userId});
+  console.log(data.data.cookie);
+
+}
+getBookList();
+
+
 // 이 아래 전체를 for문
 for(let i = 0; i<5; i++){
   const itemDiv = document.createElement("div");

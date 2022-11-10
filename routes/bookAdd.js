@@ -2,7 +2,9 @@ const router = require("express").Router();
 
 const multer = require("multer");
 
-const { BookInfo } = require("../models/index.js");
+const jwt = require("jsonwebtoken");
+
+const { BookInfo, UserInfo } = require("../models/index.js");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -24,6 +26,22 @@ router.post("/upload", upload.single("book_img"), async (req, res) => {
       category: req.body.category,
       publisher: req.body.publisher,
     });
+
+
+    // 왜 db 컬럼에 값이 안 들어가는지 알아내서 해결..
+    // 책 추가 임시..(컬럼에 값을 집어넣어 줌)
+    // title은 req.body.title하면 될듯
+    const bookTitle = await BookInfo.findOne({
+      where : {title : req.body.title}
+    });
+    // 쿠키에서 아이디를 가져옴
+    const userInfo = jwt.verify(req.cookies.millie_login, process.env.COOKIE_SECRET);
+    const userId = await UserInfo.findOne({
+      where : {userId : userInfo.id}
+    });
+    bookTitle.addBookInfo(userId); // 컬럼에 값을 집어넣음
+
+
     res.send({ status: "생성" });
   } catch (err) {
     console.error(err);
