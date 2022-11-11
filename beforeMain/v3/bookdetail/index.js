@@ -1,14 +1,80 @@
+// 로그인 정보를 쿠키에서 가져와 띄움
+let tempCookie = document.cookie.split("=");
+let cookieJwt = tempCookie[1];
+
+// 쿠키가 없으면 리턴
+if(cookieJwt){
+  cookieVerify();
+}else{
+  location.href = "http://localhost:8080";
+}
+
 const review = document.getElementById("review");
-console.log(review.value);
 
 // 리뷰 등록 버튼
 document.getElementById("review_btn").onclick = async (e) => {
+  console.log(review.value);
   e.preventDefault;
+
   const data = await axios.post("/v3/bookdetail/member_review", {
     review_content: review.value,
   });
+
   console.log(data);
 };
+
+
+
+const bookReviewElem = document.getElementById("bookReview");
+
+// 리뷰들을 불러오는 함수
+async function loadReviews(){
+
+  // 일단은 유저 아이디에 맞는 리뷰들만 찾아오도록 한다.
+  const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
+  const reviews = (await axios.post("/v3/bookdetail/getReviews",{userId : userId})).data;
+
+  // 리뷰 개수
+  document.getElementById("reviewCount").innerHTML = reviews.length;
+
+  console.log(reviews[0].review_content);
+  console.log(reviews[0]);
+  // for문 돌려서 화면에 띄움
+
+  for(let i = 0; i<reviews.length; i++){
+    // 여기서부터 
+    const temp = `
+      <div class="review_one">
+        <div class="review_one_first">
+          <img src="bookdetail_img/chracterimg.png" alt="" />
+          <span class="review_id"
+            >${reviews[i].userId}<br />
+            <span class="review_date">${new Date(reviews[i].updatedAt).toLocaleString()}</span>
+          </span>
+          <img class="threedot" src="bookdetail_img/threebtn.png" alt="" />
+        </div>
+        <div class="review_content">
+          <p class="review_content_detail">
+            ${reviews[i].review_content} <br />
+          </p>
+          <p class="review_content_like">
+            이 리뷰가 마음에 드시나요?
+            <img src="bookdetail_img/likebtn.png" alt="" />
+          </p>
+        </div>
+      </div>
+    `;
+
+
+  // }
+
+
+
+}
+loadReviews();
+
+
+
 
 let temp = decodeURI(location.href);
 let temp_split = temp.split("?");
@@ -53,27 +119,23 @@ book_info();
 // 내 서재에 담기
 const mybook = document.getElementById("mybook");
 
-mybook.onclick = () =>{
+mybook.onclick = async() =>{
 
   // 유저 이름과 책 이름을 보낸다..(내 서재의 나, 내가 선택한 책)
   // 유저 이름은 서버쪽에서 req.cookie 해서 받아오기 때문에 여기서 안보낸다.
   console.log(temp_split[1]);
   
-  axios.post("/v3/bookdetail/addBook", {book : temp_split[1]});
+  const data = await axios.post("/v3/bookdetail/addBook", {book : temp_split[1]});
+
+  if(data.data.status == 200){
+    alert("내 서재에 담겼습니다.");
+  }else{
+    alert("어머");
+  }
+
 
 }
 
-// 작가인지 아닌지에 따라 내 서재에 담기 버튼 바꾸기
-// 로그인 정보를 쿠키에서 가져와 띄움
-let tempCookie = document.cookie.split("=");
-let cookieJwt = tempCookie[1];
-
-// 쿠키가 없으면 리턴
-if(cookieJwt){
-  cookieVerify();
-}else{
-  location.href = "http://localhost:8080";
-}
 
 // 작가인지 일반 유저인지에 따라 다른 정보를 띄움
 // const mybook = document.getElementById("mybook");
@@ -87,5 +149,24 @@ async function cookieVerify(){
   }else{
     mybook.innerHTML = `<img src="bookdetail_img/mybookbtn.png" alt="" />내서재에 담기`;
   }
-
 }
+
+
+
+
+document.getElementById("logoBtn").onclick = () =>{
+  location.href = "/";
+}
+document.getElementById("logoutBtn").onclick = async() =>{
+  const data = await axios.post("/v3/mainhome/clearCookie", {
+    cookieName: tempCookie[0],
+  });
+
+  if (data.data.status == 200) {
+    alert("로그아웃 성공");
+    location.href = "http://localhost:8080";
+  } else {
+    alert("로그아웃 실패");
+  }
+}
+

@@ -1,0 +1,90 @@
+#footer {
+  margin: 0 200;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+#footer .footerBox01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+#footer .footerBox:nth-child(2) {
+  margin-top: 20px;
+}
+
+.footerBox01 .ftext01 {
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.footerBox .ftext02 {
+  font-size: 8px;
+  color: darkgrey;
+  cursor: pointer;
+}
+
+.footerBox img {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.icon img {
+  margin: 0 5;
+}
+
+.footerBox {
+  margin-top: 10px;
+  width: fit-content;
+}
+.footerBox span,
+.footerBox img {
+  margin: 0;
+  padding: 0;
+}
+
+.footerItemBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: fit-content;
+}
+
+.footerItemBox .fItem {
+  display: flex;
+  align-items: center;
+  margin: 0 6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.footerItemBox .fItem:first-child {
+  margin: 0 0px;
+}
+
+.footerItemBox .fItem .ftext02 {
+  font-size: 13px;
+  color: gray;
+}
+.footerBox .ftext03 {
+  font-size: 5px;
+  color: gray;
+}
+
+em {
+  cursor: pointer;
+}

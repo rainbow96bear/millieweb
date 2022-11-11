@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Home | 밀리의 서재</title>
+    <title>LoginMainHome</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
@@ -15,42 +15,41 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/index.css" />
+    <script src="/live/p5/p5.js"></script>
+    <script src="/live/p5/addons/p5.sound.js"></script>
+    <script src="/live/p5/empty-example/sketch.js"></script>
   </head>
   <body>
-    
     <!-- navi bar -->
     <header>
       <!-- main navi bar-->
       <section id="HeadNaviContainer">
-          <div id="naviBar">
-              <div id="navi-log">
-                  <img src="./assets/css3-alt.svg" alt="gg" class="navi-i01" />
-              </div>
-              <div id="navi-text">
-                  <span class="navi-text01">투데이</span>
-                  <span class="navi-text">완독지수</span>
-                  <span class="navi-text">검색</span>
-                  <span class="navi-text" id="myLibraryBtn">내서재</span>
-                  <span class="navi-text">관리</span>
-              </div>
-              <div id="navi-logOut">
-                  <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02" />
-                  <button id="logoutBtn">로그아웃</button>
-              </div>
+        <div id="naviBar">
+          <div id="navi-log">
+            <img id="logoBtn" src="./assets/css3-alt.svg" alt="gg" class="navi-i01" />
           </div>
+          <div id="navi-text">
+            <span class="navi-text01">투데이</span>
+            <span class="navi-text">완독지수</span>
+            <span class="navi-text" id="searchBtn">검색</span>
+            <span class="navi-text" id="myLibraryBtn">내서재</span>
+            <span class="navi-text">관리</span>
+          </div>
+          <div id="navi-logOut">
+            <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02" />
+            <button id="logOut-btn">로그아웃</button>
+          </div>
+        </div>
       </section>
       <!-- sub navi -->
       <section id="HeadNaviSubContainer">
-          <div id="HeadNaviSubtextBox">
-              <span class="navi-text02">NOW</span>
-              <span class="navi-text03">오디오.챗북</span>
-              <span class="navi-text03">스토리</span>
-          </div>
+        <div id="HeadNaviSubtextBox">
+          <span class="navi-text02">NOW</span>
+          <span class="navi-text03">오디오.챗북</span>
+          <span class="navi-text03">스토리</span>
+        </div>
       </section>
     </header>
-
-
-
     <!-- main slide -->
     <section id="mainSlide">
       <div id="ColorSlide">
@@ -63,7 +62,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="../MainHome/assets/25.jpg"
+                  src="../MainHome/assets/1.webp"
                   class="d-block w-100"
                   alt="..."
                 />
@@ -115,7 +114,7 @@
     <main>
       <section id="mainUserContainer">
         <div id="mainUserBox">
-          <div id="UserNickName"><span id="nickname" style="font-size: 22px;"></span>님,</div>
+          <div id="UserNickName">유저누구_662356</div>
           <div id="UserBox">
             <div class="UserText">
               독서가 습관이 되는 시작, 나만의 독서 목표를 세워보세요.
@@ -138,42 +137,42 @@
           <div id="obj-slide-box-001" class="list">
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
-                <img src="./assets/02.jpg" alt="a" class="img001" />
+                <img src="./assets/6.webp" alt="a" class="img001" />
               </div>
               <p class="text003">달러구트 꿈 백화점 2</p>
               <p class="text001">이미예 지음</p>
             </div>
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
-                <img src="./assets/02.jpg" alt="a" class="img001" />
+                <img src="./assets/7.webp" alt="a" class="img001" />
               </div>
               <p class="text003">달러구트 꿈 백화점 2</p>
               <p class="text001">이미예 지음</p>
             </div>
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
-                <img src="./assets/02.jpg" alt="a" class="img001" />
+                <img src="./assets/8.webp" alt="a" class="img001" />
               </div>
               <p class="text003">달러구트 꿈 백화점 2</p>
               <p class="text001">이미예 지음</p>
             </div>
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
-                <img src="./assets/02.jpg" alt="a" class="img001" />
+                <img src="./assets/9.webp" alt="a" class="img001" />
               </div>
               <p class="text003">달러구트 꿈 백화점 2</p>
               <p class="text001">이미예 지음</p>
             </div>
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
-                <img src="./assets/02.jpg" alt="a" class="img001" />
+                <img src="./assets/10.webp" alt="a" class="img001" />
               </div>
               <p class="text003">달러구트 꿈 백화점 2</p>
               <p class="text001">이미예 지음</p>
             </div>
             <div id="obj-BoxItem-001">
               <div class="obj-slide-item-001">
-                <img src="./assets/02.jpg" alt="a" class="img001" />
+                <img src="./assets/11.webp" alt="a" class="img001" />
               </div>
               <p class="text003">달러구트 꿈 백화점 2</p>
               <p class="text001">이미예 지음</p>
@@ -197,16 +196,6 @@
           <div id="obj-slide-list-002" class="list">
             <div id="obj-slide-box-002">
               <div id="obj-BoxItem-002">
-                <img src="./assets/03.jpg" alt="a" class="img001" />
-              </div>
-              <div id="obj-BoxItem-002-1">
-                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
-                <p class="text005">#승우_티저#오연서#이수혁</p>
-                <p class="text006">영상 바로가기 ></p>
-              </div>
-            </div>
-            <div id="obj-slide-box-002">
-              <div id="obj-BoxItem-002">
                 <img src="./assets/11.jpg" alt="a" class="img002" />
               </div>
             </div>
@@ -222,7 +211,7 @@
             </div>
             <div id="obj-slide-box-002">
               <div id="obj-BoxItem-002">
-                <img src="./assets/03.jpg" alt="a" class="img001" />
+                <img src="./assets/40.jpg" alt="a" class="img001" />
               </div>
               <div id="obj-BoxItem-002-1">
                 <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
@@ -232,7 +221,7 @@
             </div>
             <div id="obj-slide-box-002">
               <div id="obj-BoxItem-002">
-                <img src="./assets/03.jpg" alt="a" class="img001" />
+                <img src="./assets/41.jpg" alt="a" class="img001" />
               </div>
               <div id="obj-BoxItem-002-1">
                 <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
@@ -242,17 +231,7 @@
             </div>
             <div id="obj-slide-box-002">
               <div id="obj-BoxItem-002">
-                <img src="./assets/03.jpg" alt="a" class="img001" />
-              </div>
-              <div id="obj-BoxItem-002-1">
-                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
-                <p class="text005">#승우_티저#오연서#이수혁</p>
-                <p class="text006">영상 바로가기 ></p>
-              </div>
-            </div>
-            <div id="obj-slide-box-002">
-              <div id="obj-BoxItem-002">
-                <img src="./assets/03.jpg" alt="a" class="img001" />
+                <img src="./assets/42.jpg" alt="a" class="img001" />
               </div>
               <div id="obj-BoxItem-002-1">
                 <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
@@ -279,7 +258,7 @@
             <div id="obj-slide-box-003">
               <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
               <div class="obj-slide-item-001">
-                <img src="./assets/05.jpg" alt="a" class="img001" />
+                <img src="./assets/1.webp" alt="a" class="img001" />
               </div>
               <div class="obj-slide-item-002">
                 <div class="abc">
@@ -293,7 +272,7 @@
             <div id="obj-slide-box-003">
               <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
               <div class="obj-slide-item-001">
-                <img src="./assets/05.jpg" alt="a" class="img001" />
+                <img src="./assets/2.webp" alt="a" class="img001" />
               </div>
               <div class="obj-slide-item-002">
                 <div class="abc">
@@ -307,7 +286,7 @@
             <div id="obj-slide-box-003">
               <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
               <div class="obj-slide-item-001">
-                <img src="./assets/05.jpg" alt="a" class="img001" />
+                <img src="./assets/3.webp" alt="a" class="img001" />
               </div>
               <div class="obj-slide-item-002">
                 <div class="abc">
@@ -321,7 +300,7 @@
             <div id="obj-slide-box-003">
               <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
               <div class="obj-slide-item-001">
-                <img src="./assets/05.jpg" alt="a" class="img001" />
+                <img src="./assets/4.webp" alt="a" class="img001" />
               </div>
               <div class="obj-slide-item-002">
                 <div class="abc">
@@ -335,7 +314,7 @@
             <div id="obj-slide-box-003">
               <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
               <div class="obj-slide-item-001">
-                <img src="./assets/05.jpg" alt="a" class="img001" />
+                <img src="./assets/5.webp" alt="a" class="img001" />
               </div>
               <div class="obj-slide-item-002">
                 <div class="abc">
@@ -390,68 +369,68 @@
               <img src="./assets/35.jpg" alt="a" />
             </div>
             <div id="obj-slide-box-005" class="loop animate2">
-              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
               <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
               <img src="./assets/23.jpg" alt="a" />
               <img src="./assets/24.jpg" alt="a" />
-              <img src="./assets/25.jpg" alt="a" />
               <img src="./assets/26.jpg" alt="a" />
               <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
               <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
               <img src="./assets/29.jpg" alt="a" />
               <img src="./assets/30.jpg" alt="a" />
               <img src="./assets/31.jpg" alt="a" />
-              <img src="./assets/32.jpg" alt="a" />
-              <img src="./assets/33.jpg" alt="a" />
-              <img src="./assets/34.jpg" alt="a" />
-              <img src="./assets/35.jpg" alt="a" />
               <img src="./assets/21.jpg" alt="a" />
-              <img src="./assets/22.jpg" alt="a" />
-              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
               <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
               <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
               <img src="./assets/26.jpg" alt="a" />
               <img src="./assets/27.jpg" alt="a" />
-              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
               <img src="./assets/29.jpg" alt="a" />
               <img src="./assets/30.jpg" alt="a" />
-              <img src="./assets/31.jpg" alt="a" />
-              <img src="./assets/32.jpg" alt="a" />
               <img src="./assets/33.jpg" alt="a" />
-              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
               <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
             </div>
             <div id="obj-slide-box-006" class="loop animate3">
-              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
               <img src="./assets/22.jpg" alt="a" />
               <img src="./assets/23.jpg" alt="a" />
-              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
               <img src="./assets/25.jpg" alt="a" />
               <img src="./assets/26.jpg" alt="a" />
               <img src="./assets/27.jpg" alt="a" />
-              <img src="./assets/28.jpg" alt="a" />
               <img src="./assets/29.jpg" alt="a" />
-              <img src="./assets/30.jpg" alt="a" />
-              <img src="./assets/31.jpg" alt="a" />
-              <img src="./assets/32.jpg" alt="a" />
-              <img src="./assets/33.jpg" alt="a" />
-              <img src="./assets/34.jpg" alt="a" />
-              <img src="./assets/35.jpg" alt="a" />
-              <img src="./assets/21.jpg" alt="a" />
-              <img src="./assets/22.jpg" alt="a" />
-              <img src="./assets/23.jpg" alt="a" />
               <img src="./assets/24.jpg" alt="a" />
-              <img src="./assets/25.jpg" alt="a" />
-              <img src="./assets/26.jpg" alt="a" />
-              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
               <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
               <img src="./assets/29.jpg" alt="a" />
               <img src="./assets/30.jpg" alt="a" />
-              <img src="./assets/31.jpg" alt="a" />
               <img src="./assets/32.jpg" alt="a" />
-              <img src="./assets/33.jpg" alt="a" />
               <img src="./assets/34.jpg" alt="a" />
-              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
             </div>
           </div>
         </section>
@@ -602,7 +581,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 2화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -628,7 +607,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 3화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -656,7 +635,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 4화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -682,7 +661,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 5화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -708,7 +687,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 6화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -736,7 +715,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 7화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -762,7 +741,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 8화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -788,7 +767,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 9화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -816,7 +795,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 10화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -842,7 +821,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 11화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -868,7 +847,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 12화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -896,7 +875,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 13화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -922,7 +901,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 14화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -948,7 +927,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 15화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -976,7 +955,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 16화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -1002,7 +981,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 17화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -1028,7 +1007,7 @@
                         <div class="t01">NEW</div>
                         <div class="t02">UP</div>
                       </div>
-                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t03">호텔 이야기 18화</li>
                       <li class="t04">임경선</li>
                     </ul>
                     <ul class="flex2">
@@ -1069,13 +1048,81 @@
       <!-- obj slide 022 -->
       <!-- footer img text -->
       <!-- footer -->
+      <div class="padding">
+        <section id="footer">
+          <div class="footerBox01">
+            <span class="ftext01"> (주) 밀리의 서재</span>
+            <div class="icon">
+              <img src="./assets/github.svg" alt="a" />
+              <img src="./assets/tiktok.svg" alt="a" />
+              <img src="./assets/instagram.svg" alt="a" />
+              <img src="./assets/css3-alt.svg" alt="a" />
+              <img src="./assets/twitter.svg" alt="a" />
+            </div>
+          </div>
+          <div class="footerBox">
+            <span class="ftext02"> 사업자 정보 펼쳐보기 </span>
+            <img src="./assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="footerBox">
+            <div class="footerItemBox">
+              <div class="fItem">
+                <span class="ftext02"> 이용약관 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 개인정보처리방침 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 청소년보호정책 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 고객센터 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 환불신청 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> B2B 문의 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 콘텐츠 제휴문의 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 저작권/도서오류 신고 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 뷰어 다운로드 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 종료 예정 도서 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 회사소개 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="footerBox">
+            <span class="ftext03"
+              >Copylight e 2022 밀리의 서재 All Rights Reserved</span
+            >
+          </div>
+        </section>
+      </div>
     </main>
-
-
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
-  
   </body>
 </html>

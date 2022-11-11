@@ -615,6 +615,7 @@ joinBtnElem.onclick = async () => {
 
         // form을 onsubmit
         let formData = new FormData();
+        
         formData.append("userImg", userImgElem.files[0]);
         formData.append("name", userName);
         formData.append("userId", userId);

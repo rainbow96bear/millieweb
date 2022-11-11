@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>밀리의 서재</title>
     <link rel="stylesheet" href="./index.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -11,10 +11,11 @@
     <div>
       <div class="mainbar">
         <img
+          id="logoBtn"
           class="mainbar_img"
           src="bookdetail_img/millieicon.png"
           alt=""
-        /><button class="logoutbtn">로그아웃</button>
+        /><button class="logoutbtn" id="logoutBtn">로그아웃</button>
       </div>
       <div style="border-top: thin solid lightgray; margin-top: 2px"></div>
     </div>
@@ -58,10 +59,10 @@
         </div>
       </div>
 
-      <div class="book_review">
+      <div class="book_review" id="bookReview">
         <div class="book_review_side">
           <p>
-            <strong>한 줄 리뷰 <span class="review_count">1061</span></strong>
+            <strong>한 줄 리뷰 <span class="review_count" id="reviewCount">1061</span></strong>
           </p>
           <img
             class="character_img_one"

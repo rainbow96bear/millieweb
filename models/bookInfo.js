@@ -32,8 +32,11 @@ module.exports = class BookInfo extends Sequelize.Model {
     );
   }
   static associate(db) {
-    // 책이 여러 유저를 가짐
-    db.BookInfo.belongsToMany(db.UserInfo, {
+
+
+
+    // 책과 유저를 상호 연결시킴
+    db.BookInfo.belongsToMany(db.User_Info, {
       through : "userbook",     // 생길 테이블 이름
       as : "BookInfo",          // 사용할 메서드명(addBookInfo), 어디서 사용? : 
       foreignKey : "bookTitle", // 생길 컬럼명

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { UserInfo } = require("../models/index.js");
+const { User_Info } = require("../models/index.js");
 
 const crypto = require("crypto-js");
 
@@ -9,21 +9,21 @@ const jwt = require("jsonwebtoken");
 router.post("/user", async (req, res) => {
     try {
         // 아이디 DB에 있음
-        if (await UserInfo.findOne({ where: { userId: req.body.id } })) {
+        if (await User_Info.findOne({ where: { userId: req.body.id } })) {
 
             // 만약 출판사가 있으면 작가 회원이므로 리턴
-            if (!((await UserInfo.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish == "")) {
+            if (!((await User_Info.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish == "")) {
                 res.send({ status: 401 });
                 return;
             }
 
             // 유저 이름
-            const name = (await UserInfo.findAll({ attributes: ["name"], where: { userId: req.body.id } }))[0].dataValues.name;
+            const name = (await User_Info.findAll({ attributes: ["name"], where: { userId: req.body.id } }))[0].dataValues.name;
             // 유저 이미지
-            const userImg = (await UserInfo.findAll({ attributes: ["userImg"], where: { userId: req.body.id } }))[0].dataValues.userImg;
+            const userImg = (await User_Info.findAll({ attributes: ["userImg"], where: { userId: req.body.id } }))[0].dataValues.userImg;
 
             // 해당 아이디에 비밀번호가 같음
-            if (await UserInfo.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
+            if (await User_Info.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
                 // 기존 쿠키를 삭제해준다.
                 res.clearCookie("millie_login");
                 // 쿠키에 jwt를 30분간 추가해 준다.
@@ -49,21 +49,21 @@ router.post("/user", async (req, res) => {
 // 작가회원 로그인
 router.post("/author", async (req, res) => {
     try {
-        if (await UserInfo.findOne({ where: { userId: req.body.id } })) {
-            if ((await UserInfo.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish == "") {
+        if (await User_Info.findOne({ where: { userId: req.body.id } })) {
+            if ((await User_Info.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish == "") {
                 res.send({ status: 401 });
                 return;
             }
 
             // 유저 이름
-            const name = (await UserInfo.findAll({ attributes: ["name"], where: { userId: req.body.id } }))[0].dataValues.name;
+            const name = (await User_Info.findAll({ attributes: ["name"], where: { userId: req.body.id } }))[0].dataValues.name;
             // 유저 이미지
-            const userImg = (await UserInfo.findAll({ attributes: ["userImg"], where: { userId: req.body.id } }))[0].dataValues.userImg;
+            const userImg = (await User_Info.findAll({ attributes: ["userImg"], where: { userId: req.body.id } }))[0].dataValues.userImg;
             // 작가명, 출판사
-            const nickname = (await UserInfo.findAll({ attributes: ["nickname"], where: { userId: req.body.id } }))[0].dataValues.nickname;
-            const publish = (await UserInfo.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish;
+            const nickname = (await User_Info.findAll({ attributes: ["nickname"], where: { userId: req.body.id } }))[0].dataValues.nickname;
+            const publish = (await User_Info.findAll({ attributes: ["publish"], where: { userId: req.body.id } }))[0].dataValues.publish;
 
-            if (await UserInfo.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
+            if (await User_Info.findOne({ where: { userId: req.body.id, userPw: crypto.SHA256(req.body.pw).toString() } })) {
                 res.clearCookie("millie_login");
                 res.cookie(
                     "millie_login",

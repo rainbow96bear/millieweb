@@ -298,14 +298,17 @@ button[id*="btn"]:focus {
   display: flex;
   justify-content: space-between;
   margin: 10 8;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px;
+  border-radius: 15px;
+  cursor: grab;
 }
 #box2-item02 {
   position: relative;
-  top: -70px;
+  top: -95px;
   flex: 1 1 35%;
   border-radius: 15px;
   margin: 11px;
-  height: 72px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background: linear-gradient(
     90deg,
@@ -372,7 +375,9 @@ button[id*="btn"]:focus {
 .flex3 {
   display: flex;
   justify-content: space-between;
-  padding: 6 0;
+  padding: 10px;
+  width: 384px;
+  height: 72px;
 }
 .flex3 .t05 {
   padding: 10px;
@@ -401,19 +406,26 @@ button[id*="btn"]:focus {
 .on {
   display: flex;
   transition: 0.5s;
-  opacity: 100%;
 }
 .off {
   opacity: 0%;
   display: none;
 }
 
-.mon {
-  background-color: red;
+/* .mon {
+
+} */
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
-.tue {
-  background-color: blue;
-}
-.mon {
-  background-color: green;
+
+.off.opacity {
+  animation: opacity 0.5s linear;
 }

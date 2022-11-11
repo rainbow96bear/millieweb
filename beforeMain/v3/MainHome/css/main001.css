@@ -5,7 +5,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: whitesmoke;
+  background-color: #FAFAF6;
   z-index: 100;
 }
 
@@ -119,8 +119,8 @@ section #HeadNaviSubtextBox .navi-text03 {
 #ColorSlide {
   background: linear-gradient(
     90deg,
-    rgb(213, 223, 233) 0%,
-    rgb(217, 207, 228) 100%
+    rgb(218, 229, 239) 100%,
+    rgb(217, 207, 228) 0%
   );
   height: 388px;
   cursor: pointer;
@@ -228,6 +228,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   min-width: 385px;
   user-select: none;
 }
+
 #obj-slide-box-001 .obj-slide-item-001 {
   width: 100%;
   height: 245px;
@@ -242,7 +243,41 @@ section #HeadNaviSubtextBox .navi-text03 {
   cursor: grab;
   border: 1px solid lightgray;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-user-drag: none;
 }
+
+#obj-slide-box-001 :nth-child(2) .obj-slide-item-001 {
+  background: linear-gradient(
+    30deg,
+    rgb(213, 223, 233) 0%,
+    rgb(217, 207, 228) 100%
+  );
+  position: relative;
+}
+
+#obj-slide-box-001 :nth-child(3) .obj-slide-item-001 {
+  background: linear-gradient(
+    45deg,
+    rgb(213, 223, 233) 0%,
+    rgb(217, 207, 228) 100%
+  );
+}
+#obj-slide-box-001 :nth-child(4) .obj-slide-item-001 {
+  background: linear-gradient(
+    60deg,
+    rgb(213, 223, 233) 0%,
+    rgb(217, 207, 228) 100%
+  );
+}
+
+#obj-slide-box-001 :nth-child(5) .obj-slide-item-001 {
+  background: linear-gradient(
+    -90deg,
+    rgb(213, 223, 233) 0%,
+    rgb(217, 207, 228) 100%
+  );
+}
+
 .obj-slide-item-001 img {
   flex: 1;
   height: 90%;
@@ -331,12 +366,23 @@ section #HeadNaviSubtextBox .navi-text03 {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   -webkit-user-drag: none;
+  fill: #9a6b31;
 }
 #obj-BoxItem-002 .img002 {
   width: 100%;
   height: 296px;
   border-radius: 15px;
   -webkit-user-drag: none;
+}
+
+#obj-slide-list-002 :nth-child(3) #obj-BoxItem-002-1 {
+  background-color: #f1a55a;
+}
+#obj-slide-list-002 :nth-child(4) #obj-BoxItem-002-1 {
+  background-color: #8a4c44;
+}
+#obj-slide-list-002 :nth-child(5) #obj-BoxItem-002-1 {
+  background-color: #9a6b31;
 }
 
 #obj-BoxItem-002-1 {
@@ -423,7 +469,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  min-height: 466px;
+  max-height: 466px;
   min-width: 327px;
   border-radius: 13px;
   background: linear-gradient(
@@ -436,6 +482,15 @@ section #HeadNaviSubtextBox .navi-text03 {
   border: 1px solid lightgray;
   -webkit-user-drag: none;
 }
+
+#obj-slide-003 :nth-child(3) .list :nth-child(1) {
+  background: linear-gradient(
+    90deg,
+    rgb(69, 102, 136) 0%,
+    rgb(96, 47, 147) 100%
+  );
+}
+
 #obj-slide-box-003 h4 {
   margin: 24px;
   height: 56px;
@@ -515,4 +570,14 @@ section #HeadNaviSubtextBox .navi-text03 {
   height: var(--avatar-M-size);
   color: var(--gray-color);
   cursor: pointer;
+}
+
+section {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+img {
+  opacity: 0;
+  transition: all 0.5s;
 }

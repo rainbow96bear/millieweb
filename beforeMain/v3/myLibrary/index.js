@@ -1,7 +1,6 @@
 // 로그인 정보를 쿠키에서 가져와 띄움
 let tempCookie = document.cookie.split("=");
 let cookieJwt = tempCookie[1];
-console.log(cookieJwt);
 
 if(cookieJwt){
   cookieVerify();
@@ -60,42 +59,87 @@ const itemContainerElem = document.getElementById("itemContainer");
 // 그 책 번호에 맞는 책내용을 전부 찾아와야 함
 // 유저 아이디에 해당하는 책 개수
 
+// 유저의 책 정보를 불러옴
 async function getBookList(){
-  const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.userId;
-  const data = axios.post("/v3/mylibrary/getBooks",{userId : userId});
-  console.log(data.data.cookie);
+  const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
+
+  const data = await axios.post("/v3/mylibrary/getBooks",{userId : userId});
+
+  // 책들 정보가 들어있는 배열
+  const books = data.data.UserInfo;
+  console.log(books); 
+
+  // 전체 도서 개수
+  document.getElementById("lifeBookCount").innerHTML = books.length;
+
+  // 이 아래 전체를 for문
+  for(let i = 0; i<books.length; i++){
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("item");
+
+    const imgBoxDiv = document.createElement("div");
+    imgBoxDiv.classList.add("img_box");
+    const bookInfoDiv = document.createElement("div");
+    bookInfoDiv.classList.add("book_info");
+
+    const imgElem = document.createElement("img");
+    imgElem.setAttribute("src", `http://localhost:8080/uploads/${books[i].book_img}`);
+    imgElem.setAttribute("alt", "책 이미지");
+
+    const bookTitleDiv = document.createElement("div");
+    bookTitleDiv.classList.add("book_title");
+    bookTitleDiv.innerHTML = `${books[i].title}`;
+    const authorInfoDiv = document.createElement("div");
+    authorInfoDiv.classList.add("author_info");
+    // authorInfoDiv.innerHTML = `${books[i].작가명}`; // 작가명 없음
+
+    // 책의 작가 정보
+    const data = await axios.post("/v3/bookdetail/load_book_info", {
+      title: books[i].title,
+    });
+    data.data.BookInfo.forEach(element => {
+      if(element.nickname){ // 작가명이 있으면 가져와서 넣어줌
+        authorInfoDiv.innerHTML = `${element.nickname}`;
+      }
+    });
+
+    bookInfoDiv.append(bookTitleDiv);
+    bookInfoDiv.append(authorInfoDiv);
+    imgBoxDiv.append(imgElem);
+    itemDiv.append(imgBoxDiv);
+    itemDiv.append(bookInfoDiv);
+    itemContainerElem.append(itemDiv);
+
+    imgElem.onclick = () =>{
+      location.href = `../../../v3/bookdetail?${books[i].title}`;
+    }
+
+  }
 
 }
 getBookList();
 
 
-// 이 아래 전체를 for문
-for(let i = 0; i<5; i++){
-  const itemDiv = document.createElement("div");
-  itemDiv.classList.add("item");
 
-  const imgBoxDiv = document.createElement("div");
-  imgBoxDiv.classList.add("img_box");
-  const bookInfoDiv = document.createElement("div");
-  bookInfoDiv.classList.add("book_info");
 
-  const imgElem = document.createElement("img");
-  imgElem.setAttribute("src", "https://cover.millie.co.kr/service/cover/37781287/d022459b4948433d9593fb9ce8e26a07.jpg?w=145&q=80");
-  imgElem.setAttribute("alt", "책 이미지");
 
-  const bookTitleDiv = document.createElement("div");
-  bookTitleDiv.classList.add("book_title");
-  bookTitleDiv.innerHTML = `책 이름`;
-  const authorInfoDiv = document.createElement("div");
-  authorInfoDiv.classList.add("author_info");
-  authorInfoDiv.innerHTML = `작가작가작가작가작가작가작가작가작가작가작가작가`;
-
-  bookInfoDiv.append(bookTitleDiv);
-  bookInfoDiv.append(authorInfoDiv);
-  imgBoxDiv.append(imgElem);
-  itemDiv.append(imgBoxDiv);
-  itemDiv.append(bookInfoDiv);
-  itemContainerElem.append(itemDiv);
+document.getElementById("logo").onclick = () =>{
+  location.href = "/";
 }
-
-
+document.getElementById("search_btn").onclick = () =>{
+  location.href = "../category";
+}
+document.getElementById("my_book_btn").onclick = () =>{
+  location.href = "../myLibrary";
+}
+document.getElementById("log_out").onclick = async() =>{
+  const data = await axios.post("/v3/mainhome/clearCookie", {
+    cookieName: tempCookie[0],
+  });
+  if (data.data.status == 200) {
+    alert("로그아웃 성공");
+    location.href = "/";
+  } else {
+    alert("로그아웃 실패");
+  }
+}

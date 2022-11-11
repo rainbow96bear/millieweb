@@ -2,6 +2,7 @@
 @import url("./main002.css");
 @import url("./slide001.css");
 @import url("./_variables.scss");
+@import url("./foot.css");
 
 :root {
   /* color */

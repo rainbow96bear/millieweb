@@ -3,6 +3,7 @@
   justify-content: space-between;
   margin-bottom: 15px;
   margin-left: 300px;
+  cursor: pointer;
 }
 
 .logoutbtn {
@@ -13,6 +14,7 @@
   color: white;
   margin-right: 30px;
   margin-right: 300px;
+  cursor: pointer;
 }
 
 .mybook {
@@ -25,6 +27,8 @@
   border-color: black;
 
   margin-left: 50px;
+
+  cursor: pointer;
 }
 
 .bookdetail_main {
@@ -119,6 +123,7 @@
   background-color: gray;
   border-radius: 10px;
   border-color: white;
+  cursor: pointer;
 }
 
 .mainbar_img {

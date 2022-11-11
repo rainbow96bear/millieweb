@@ -4,7 +4,7 @@ const multer = require("multer");
 
 const jwt = require("jsonwebtoken");
 
-const { BookInfo, UserInfo } = require("../models/index.js");
+const { BookInfo, User_Info } = require("../models/index.js");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -36,7 +36,7 @@ router.post("/upload", upload.single("book_img"), async (req, res) => {
     });
     // 쿠키에서 아이디를 가져옴
     const userInfo = jwt.verify(req.cookies.millie_login, process.env.COOKIE_SECRET);
-    const userId = await UserInfo.findOne({
+    const userId = await User_Info.findOne({
       where : {userId : userInfo.id}
     });
     bookTitle.addBookInfo(userId); // 컬럼에 값을 집어넣음

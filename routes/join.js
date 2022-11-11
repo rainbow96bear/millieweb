@@ -2,15 +2,15 @@ const router = require("express").Router();
 
 const crypto = require("crypto-js");
 
-// 구조분해 할당으로 저 안에 있는 것의 UserInfo만 가져온다.
-// models에 만든 UserInfo 클래스..
-const {UserInfo} = require("../models/index.js");
+// 구조분해 할당으로 저 안에 있는 것의 User_Info만 가져온다.
+// models에 만든 User_Info 클래스..
+const {User_Info} = require("../models/index.js");
 
 
 router.post("/idCheck", async (req, res)=>{
     try {
 
-        if(await UserInfo.findOne({where : {userId : req.body.userId}})){
+        if(await User_Info.findOne({where : {userId : req.body.userId}})){
             console.log("이미있음");
             res.send({status : 401});
         }else{
@@ -51,11 +51,11 @@ router.post("/signup", upload.single("userImg"), async (req, res)=>{
         console.log(req.body);
         // 로그인 아이디를 db에서 찾아서(findOne, findAll) 있으면 에러
         // DB에서 꺼내올 시간이 필요해 await사용
-        if(await UserInfo.findOne({where : {userId : req.body.userId}})){
+        if(await User_Info.findOne({where : {userId : req.body.userId}})){
             console.log("이미있음");
             res.send({status : 401});
         }else{
-            await UserInfo.create({
+            await User_Info.create({
                 // 컬럼이름 : 값,
                 userImg : req.file.originalname,
                 name : req.body.name,
@@ -92,13 +92,13 @@ router.post("/authorSignup", upload.single("userImg"), async (req, res)=>{
         console.log(req.body);
         // 로그인 아이디를 db에서 찾아서(findOne, findAll) 있으면 에러
         // DB에서 꺼내올 시간이 필요해 await사용
-        if(await UserInfo.findOne({where : {userId : req.body.userId}})){
+        if(await User_Info.findOne({where : {userId : req.body.userId}})){
             console.log("이미있음");
             res.send({status : 401});
-        }else if(await UserInfo.findOne({where : {nickname : req.body.nickname}})){
+        }else if(await User_Info.findOne({where : {nickname : req.body.nickname}})){
             res.send({status : 402});
         }else{
-            await UserInfo.create({
+            await User_Info.create({
                 // 컬럼이름 : 값,
                 userImg : req.file.originalname,
                 name : req.body.name,
