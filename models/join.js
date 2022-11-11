@@ -16,6 +16,7 @@ module.exports = class UserInfo extends Sequelize.Model {
             },
             userId: {
                 type: Sequelize.STRING(255),
+                unique:true
             },
             email: {
                 type: Sequelize.STRING(255),
@@ -52,6 +53,7 @@ module.exports = class UserInfo extends Sequelize.Model {
             as: "UserInfo",        // 메서드명(addBookInfo)
             foreignKey: "userId",   // 생길 컬럼명
             // timestamps: true
+            sourceKey : "userId"    // userId를 불러오겠다(위에서 unique설정 해줘야함)
         });
     }
 }

@@ -56,12 +56,8 @@ router.post("/addBook", async(req, res)=>{
   // 어떤 행위를 할 때마다 따로 이 것을 넣어줘야 한다고 한다.
   // ex) 유저가 책을 작성할 때 한 번, 유저가 책을 내 서재에 담을 때 한 번..
   // bookTitle.addBookInfo(userId); 
-  
+
   userId.addUserInfo(bookTitle);
-
-
-
-
 
 });
 
