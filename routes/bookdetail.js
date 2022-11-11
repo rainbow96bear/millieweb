@@ -1,9 +1,13 @@
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 
+<<<<<<< HEAD
 const { UserInfo, BookInfo, review } = require("../models/index.js");
 
 const jwt = require("jsonwebtoken");
+=======
+const { BookInfo, review, UserInfo } = require("../models/index.js");
+>>>>>>> 346a3280546795c0c252a4717e9343fd9480f03c
 
 router.post("/member_review", async (req, res) => {
   try {
@@ -25,6 +29,7 @@ router.post("/load_book_info", async (req, res) => {
   res.send(load_book_info);
 });
 
+<<<<<<< HEAD
 // 내 서재에 담기
 router.post("/addBook", async (req, res) => {
   // 책 제목
@@ -33,10 +38,15 @@ router.post("/addBook", async (req, res) => {
   // 쿠키 내용에서 이름을 가져옴
   console.log(req.cookies.millie_login);
   const userInfo = jwt.verify(
+=======
+router.post("/mybook", async (req, res) => {
+  const tempUserInfo = jwt.verify(
+>>>>>>> 346a3280546795c0c252a4717e9343fd9480f03c
     req.cookies.millie_login,
     process.env.COOKIE_SECRET
   );
 
+<<<<<<< HEAD
   // 유저 아이디
   console.log(userInfo.id);
 
@@ -60,6 +70,17 @@ router.post("/addBook", async (req, res) => {
   // bookTitle.addBookInfo(userId);
 
   userId.addUserInfo(bookTitle);
+=======
+  console.log(tempUserInfo);
+  const temp_user_Info = await UserInfo.findOne({
+    where: { userId: tempUserInfo.id },
+  });
+  const temp_book_Info = await BookInfo.findOne({
+    where: { title: req.body.book_title },
+  });
+  console.log(temp_user_Info);
+  console.log(temp_book_Info);
+>>>>>>> 346a3280546795c0c252a4717e9343fd9480f03c
 });
 
 module.exports = router;

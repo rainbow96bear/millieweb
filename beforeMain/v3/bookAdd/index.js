@@ -8,7 +8,10 @@ const cancle = document.getElementById("cancle");
 
 const title_name = document.getElementById("title");
 
+<<<<<<< HEAD
 // window.addEventListener("focus", reset(), false);
+=======
+>>>>>>> 346a3280546795c0c252a4717e9343fd9480f03c
 document.getElementById("fileadd").onsubmit = async (e) => {
   e.preventDefault();
 

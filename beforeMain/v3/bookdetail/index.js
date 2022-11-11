@@ -42,6 +42,7 @@ async function book_info() {
 book_info();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // 내 서재에 담기
 const mybook = document.getElementById("mybook");
@@ -56,10 +57,15 @@ mybook.onclick = () =>{
 
 }
 =======
+=======
+>>>>>>> 346a3280546795c0c252a4717e9343fd9480f03c
 document.getElementById("mybook_btn").onclick = async (e) => {
   e.preventDefault;
   const data = await axios.post("/v3/bookdetail/mybook", {
     book_title: temp_split[1],
   });
 };
+<<<<<<< HEAD
 >>>>>>> 7ee119b (221110)
+=======
+>>>>>>> 346a3280546795c0c252a4717e9343fd9480f03c
