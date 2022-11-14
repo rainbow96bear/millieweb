@@ -23,7 +23,10 @@ const category = [
 ];
 
 router.post("/booklist/bookAdd", async (req, res) => {
-  const book_info = await BookInfo.findAll();
+  const book_info = await BookInfo.findAll({
+    where : {category : req.body.category},
+    order: [['createdAt', 'DESC']]
+  });
   console.log(book_info);
   res.send(book_info);
 });

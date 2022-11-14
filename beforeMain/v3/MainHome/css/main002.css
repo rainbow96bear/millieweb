@@ -147,6 +147,7 @@ ul {
   height: 600px;
   justify-content: space-between;
   margin: 10px 0 10px 10px;
+  
 
 }
 .accordion{
@@ -520,3 +521,5 @@ button[id*="btn"]:focus {
 .off.opacity {
   animation: opacity 0.5s linear;
 }
+
+

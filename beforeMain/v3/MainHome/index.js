@@ -28,11 +28,14 @@ imgLoop3.addEventListener("mouseleave", () => {
 
 // mouse scroll
 const list = document.querySelectorAll(".list");
-const listScrollWidth = list.scrollWidth;
-const listClientWidth = list.clientWidth;
+
 
 // console.log(list);
 [...list].forEach(item => {
+
+const listScrollWidth = item.scrollWidth;
+const listClientWidth = item.clientWidth;
+
   let startX = 0;
   let nowX = 0;
   let endX = 0;
