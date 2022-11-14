@@ -47,20 +47,22 @@
           >
           <!-- <span class="buttondetail">더보기 </span> -->
         </div>
-      </div>
-      <div class="book_button">
-        <div class="category">
-          <div class="category_title">카테고리</div>
-          <div id="category_content" class="category_content">소설</div>
-        </div>
-        <div class="publish">
-          <div class="publish_title">출판사</div>
-          <div id="publish_content" class="publish_content">1984BOOKS</div>
+        <div class="book_button">
+          <div class="category">
+            <div class="category_title">카테고리</div>
+            <div id="category_content" class="category_content">소설</div>
+          </div>
+          <div class="publish">
+            <div class="publish_title">출판사</div>
+            <div id="publish_content" class="publish_content">1984BOOKS</div>
+          </div>
         </div>
       </div>
 
+
       <div class="book_review" id="bookReview">
-        <div class="book_review_side">
+
+        <!-- <div class="book_review_side">
           <p>
             <strong>한 줄 리뷰 <span class="review_count" id="reviewCount">1061</span></strong>
           </p>
@@ -69,8 +71,10 @@
             src="bookdetail_img/reviewbtn.png"
             alt=""
           />
-        </div>
-        <div class="review_one">
+        </div> -->
+
+        
+        <!-- <div class="review_one">
           <div class="review_one_first">
             <img src="bookdetail_img/chracterimg.png" alt="" />
             <span class="review_id"
@@ -109,21 +113,22 @@
               <img src="bookdetail_img/likebtn.png" alt="" />
             </p>
           </div>
-        </div>
+        </div> -->
+
         <div class="review_coment">
           <img
             class="character_img_two"
             src="bookdetail_img/chracterimg.png"
             alt=""
           />
-
           <input
             id="review"
             class="input_review"
             placeholder="다양한생각을 남겨주세요"
           />
-          <button id="review_btn" class="review_add">등록</button>
+          <button id="review_btn" class="review_add" onkeyup="if(window.event.keyCode==13){reviewBtn.onclick()};">등록</button>
         </div>
+
       </div>
     </div>
     <script src="./index.js"></script>

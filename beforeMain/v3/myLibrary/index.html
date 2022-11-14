@@ -1,176 +1,211 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>내 서재 | 밀리의 서재</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="millie.png" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <!-- 헤더 가져옴 : 나중에 js도 가져오고 수정해야 할듯 -->    
-    <div id="first_banner">
-      <div id="button_container">
-        <div id="left_button_box">
-          <img
-            id="logo"
-            class="pointer"
-            src="https://d3udu241ivsax2.cloudfront.net/v3/images/common/millie-logo.3884f0c52e69f1f7322c2fd4778f4830.png"
-            alt="" />
-          <div id="search_btn" class="button_text pointer">
-            <h4>검색</h4>
-          </div>
-          <div id="my_book_btn" class="button_text select pointer">
-            <h4>내 서재</h4>
-          </div>
-        </div>
-        <div id="log_out" class="pointer">로그아웃</div>
-      </div>
-    </div><!--//#first_banner-->
-    <!-- 헤더 가져옴 끝 -->
 
-    <div class="all-wrap">
-      <div class="header-all-wrap">
-        <div class="library-header-wrap">
-          <div class="user-info-wrap">
-            <div class="user-info">
-              <div class="user-img">
-                <img
-                  id="userImg"
-                  src="millie.png"
-                  alt="회원 이미지"
-                  style="width: 60px; height: 60px; border-radius: 50px"
-                />
-              </div>
-              <div class="user-name" id="userName">
-                <span class="nameBold"></span>
-              </div>
-              <!-- <div class="user-name"><span id="userName">여기에이름넣어</span>의 서재</div> -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 서재 | 밀리의 서재</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="millie.png" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <!-- 헤더 가져옴 : 나중에 js도 가져오고 수정해야 할듯 -->
+  <div id="first_banner">
+    <div id="button_container">
+      <div id="left_button_box">
+        <img id="logo" class="pointer"
+          src="https://d3udu241ivsax2.cloudfront.net/v3/images/common/millie-logo.3884f0c52e69f1f7322c2fd4778f4830.png"
+          alt="" />
+        <div id="search_btn" class="button_text pointer">
+          <h4>검색</h4>
+        </div>
+        <div id="my_book_btn" class="button_text select pointer">
+          <h4>내 서재</h4>
+        </div>
+      </div>
+      <div id="log_out" class="pointer">로그아웃</div>
+    </div>
+  </div>
+  <!--//#first_banner-->
+  <!-- 헤더 가져옴 끝 -->
+
+
+
+
+  <div class="all-wrap">
+    <div class="header-all-wrap">
+      <div class="library-header-wrap">
+        <div class="user-info-wrap">
+          <div class="user-info">
+            <div class="user-img">
+              <img id="userImg" src="millie.png" alt="회원 이미지" style="width: 60px; height: 60px; border-radius: 50px" />
             </div>
-            <!-- <div class="other-info">...</div> -->
-            <div class="other-info">
-              <img
-                id="otherInfoBar"
-                src="other-info-bar.png"
-                alt="다른 정보 더보기"
-                style="width: 25px; heigit: 25px"
-              />
+            <div class="user-name" id="userName">
+              <span class="nameBold"></span>
+            </div>
+            <!-- <div class="user-name"><span id="userName">여기에이름넣어</span>의 서재</div> -->
+          </div>
+          <!-- <div class="other-info">...</div> -->
+          <div class="other-info">
+            <img id="otherInfoBar" src="other-info-bar.png" alt="다른 정보 더보기" style="width: 25px; heigit: 25px" />
+          </div>
+        </div>
+        <div class="user-life-book">
+          <!-- 나의 인생책 -->
+          <div class="life-book-info">
+            <div class="my-life-book myt">☆ 나의 인생책</div>
+            <div class="my-comment myt">"<span id="myComment">유저작성내용</span>"</div>
+            <div class="my-life-book-title myt">
+              &lt;<span id="myBookTitle">유저인생책제목</span>&gt;
             </div>
           </div>
-          <div class="user-life-book">
-            <!-- 나의 인생책 -->
-            <div class="life-book-info">
-              <div class="my-life-book myt">☆ 나의 인생책</div>
-              <div class="my-comment myt">"<span id="myComment">유저작성내용</span>"</div>
-              <div class="my-life-book-title myt">
-                &lt;<span id="myBookTitle">유저인생책제목</span>&gt;
-              </div>
-            </div>
-            <div class="life-book-img" id="myBookImg">
-                <img src="38.jpg" alt="나의 인생책">
-            </div>
+          <div class="life-book-img" id="myBookImg">
+            <img src="38.jpg" alt="나의 인생책">
           </div>
         </div>
       </div>
-      <div class="library-content-wrap">
-        <div class="content-header">
-          <div class="content-header-left">
-            전체 도서(<span id="lifeBookCount">11</span>권)
-          </div>
-          <!-- 작가회원인지 아닌지에 따라 이미지가 다르게 한다. -->
-          <div class="content-header-right" id="contentHeader">
-            <!-- 작가 회원 -->
-            <!-- <img id="reviewWriteBtn" src="file-write.png" alt="책 작성 아이콘"> -->
-            <!-- 일반 회원 -->
-            <!-- <img id="moreSeeBtn" src="more.png" alt="더보기 아이콘"> -->
-          </div>
+    </div>
+    <div class="library-content-wrap">
+      <div class="content-header">
+        <div class="content-header-left">
+          전체 도서(<span id="lifeBookCount">11</span>권)
         </div>
-        <!-- <div class="content-bottom">
+        <!-- 작가회원인지 아닌지에 따라 이미지가 다르게 한다. -->
+        <div class="content-header-right" id="contentHeader">
+          <!-- 작가 회원 -->
+          <!-- <img id="reviewWriteBtn" src="file-write.png" alt="책 작성 아이콘"> -->
+          <!-- 일반 회원 -->
+          <!-- <img id="moreSeeBtn" src="more.png" alt="더보기 아이콘"> -->
+        </div>
+      </div>
+      <!-- <div class="content-bottom">
           <div class="content-bottom-left">필터</div>
           <div class="content-bottom-right">책필터및기타기능</div>
         </div> -->
-        <!-- 하이 -->
+      <!-- 하이 -->
+    </div>
+
+    <!-- 유저 더보기 모달 팝업창 -->
+    <div id="modal-container">
+      <div class="modal-background">
+        <div class="modal" id="modal">
+          <h2>I'm a 혜림</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, similique!</p>
+        </div>
       </div>
+    </div>
+
+    <div class="content_center">
+      <div class="direction_col">
+        <div class="item_container" id="itemContainer">
 
 
-
-      <div class="content_center">
-        <div class="direction_col">
-          <div class="item_container" id="itemContainer">
-
-
-            
-            <!-- <div class="item">
-              <div class="img_box">
-                <div class="img">
-                  <img
+          <!-- <div class="item">
+            <div class="img_box">
+              <div class="img">
+                <img
                   src="https://cover.millie.co.kr/service/cover/179506514/56b8b9f7dcd0407180d6f4a00a882432.jpg?w=145&q=80"
-                  alt=""
-                  />
-                </div>
-              </div>
-              <div class="book_info">
-                <div class="book_title">책 이름</div>
-                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+                  alt="" />
               </div>
             </div>
-            <div class="item">
-              <div class="img_box">
-                <img
-                  src="https://cover.millie.co.kr/service/cover/37781287/d022459b4948433d9593fb9ce8e26a07.jpg?w=145&q=80"
-                  alt=""
-                />
-              </div>
-              <div class="book_info">
-                <div class="book_title">책 이름</div>
-                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
-              </div>
+            <div class="book_info">
+              <div class="book_title">책 이름</div>
+              <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
+              <img class="book-delete-btn" src="book-delete.png" />
             </div>
-            <div class="item">
-              <div class="img_box">
-                <img
-                  src="https://cover.millie.co.kr/service/cover/42933109/c3940f5426e640f5a1cf6dd518f67b72.jpg?w=145&q=80"
-                  alt=""
-                />
-              </div>
-              <div class="book_info">
-                <div class="book_title">책 이름</div>
-                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="img_box">
-                <img
-                  src="https://cover.millie.co.kr/service/cover/37781287/d022459b4948433d9593fb9ce8e26a07.jpg?w=145&q=80"
-                  alt=""
-                />
-              </div>
-              <div class="book_info">
-                <div class="book_title">책 이름</div>
-                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="img_box">
-                <img
-                  src="https://cover.millie.co.kr/service/cover/42933109/c3940f5426e640f5a1cf6dd518f67b72.jpg?w=145&q=80"
-                  alt=""
-                />
-              </div>
-              <div class="book_info">
-                <div class="book_title">책 이름</div>
-                <div class="author_info">작가asdf asdf asdf asd fasd fasdf</div>
-              </div>
-            </div> -->
+          </div> -->
 
 
-          </div><!--//.item_container end-->
-        </div><!--///direction_col end-->
+        </div>
+        <!--//.item_container end-->
+      </div>
+      <!--///direction_col end-->
+    </div>
+
+
+  </div>
+  <!--//.all-wrap end-->
+
+
+
+      <!-- footer -->
+      <div class="padding">
+        <section id="footer">
+          <div class="footerBox01">
+            <span class="ftext01"> (주) 밀리의 서재</span>
+            <div class="icon">
+              <img src="../MainHome/assets/github.svg" alt="a" />
+              <img src="../MainHome/assets/tiktok.svg" alt="a" />
+              <img src="../MainHome/assets/instagram.svg" alt="a" />
+              <img src="../MainHome/assets/css3-alt.svg" alt="a" />
+              <img src="../MainHome/assets/twitter.svg" alt="a" />
+            </div>
+          </div>
+          <div class="footerBox">
+            <span class="ftext02"> 사업자 정보 펼쳐보기 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="footerBox">
+            <div class="footerItemBox">
+              <div class="fItem">
+                <span class="ftext02"> 이용약관 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 개인정보처리방침 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 청소년보호정책 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 고객센터 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 환불신청 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> B2B 문의 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 콘텐츠 제휴문의 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 저작권/도서오류 신고 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 뷰어 다운로드 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 종료 예정 도서 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 회사소개 </span>
+                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="footerBox">
+            <span class="ftext03"
+              >Copylight e 2022 밀리의 서재 All Rights Reserved</span
+            >
+          </div>
+        </section>
       </div>
 
 
-    </div><!--//.all-wrap end-->
-    <script src="index.js"></script>
-  </body>
+
+  <script src="index.js"></script>
+</body>
+
 </html>

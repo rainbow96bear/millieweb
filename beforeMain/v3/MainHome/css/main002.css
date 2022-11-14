@@ -118,13 +118,13 @@ ul {
   }
 }
 #obj-slide-box-004.animate1 {
-  animation: effect1 25s linear infinite;
+  animation: effect1 30s linear infinite;
 }
 #obj-slide-box-005.animate2 {
-  animation: effect2 25s linear infinite;
+  animation: effect2 30s linear infinite;
 }
 #obj-slide-box-006.animate3 {
-  animation: effect1 25s linear infinite;
+  animation: effect1 30s linear infinite;
 }
 
 /* obj-slide-006 */
@@ -138,6 +138,93 @@ ul {
 #obj-slide-006 .text002 {
   margin-bottom: 1px;
 }
+
+.accordion-wrap{
+  display: flex;
+  align-items: center;
+  /* border: 1px solid black; */
+  /* height: 400px; */
+  height: 600px;
+  justify-content: space-between;
+  margin: 10px 0 10px 10px;
+
+}
+.accordion{
+  /* background-color: rgb(245,245,245); */
+  height: 600px;
+  width: 370px;
+}
+.ac{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* border: 1px solid rgb(151, 151, 151); */
+  border-radius: 10px;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  cursor: pointer;
+  margin-bottom: 7px;
+  /* width: 500px; */
+}
+.ac>div{
+  width: 200px;
+}
+.ac>div>span{
+  display: block;
+}
+.accordion div img:first-child{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.accordion div img:last-child{
+  width: 20px;
+  height: 20px;
+}
+
+
+.bc{
+  /* height: 403px; */
+  height: 420px;
+  border-radius: 10px;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  display: block;
+  margin-bottom: 7px;
+  display: none;
+}
+.small{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+}
+.small>div{
+  width: 200px;
+}
+.small>div>span{
+  display: block;
+}
+.big{
+  text-align: center;
+}
+.big>img{
+  width: 340px !important;
+  height: 340px !important;
+}
+
+.ac.on, .bc.on{
+  display: block;
+}
+.ac.off, .bc.off{
+  display: none;
+}
+
+#accordion1, #accordion5, #accordion9{
+  display: none;
+}
+
+
 
 #obj-slide-list-006 {
   width: fit-content;
@@ -155,12 +242,13 @@ ul {
   width: fit-content;
 }
 
+
 input[id*="answer"] {
   display: none;
 }
 input[id*="answer"] + label {
   display: block;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   border-bottom: 0;
   cursor: grab;
@@ -207,9 +295,12 @@ input[id*="answer"] + label div p img {
   width: 100%;
 }
 
+
+
+
 .paddingbox {
   margin: 20px;
-  padding: 30px;
+  padding: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
 }

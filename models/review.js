@@ -19,12 +19,19 @@ module.exports = class ReviewInfo extends Sequelize.Model {
       }
     );
   }
-  associate(db){
+  associate(db) {
+    // 댓글들을 책에 연결시켜줌
+    db.ReviewInfo.belongsTo(db.BookInfo, {
+      foreignKey: "title", // 생성 컬럼 이름
+      targetKey: "title",
+    });
+
+
 
     // 댓글들을 유저에 연결시켜줌
     db.ReviewInfo.belongsTo(db.User_Info, {
-      foreignKey : "userId", // 생성 컬럼 이름
-      targetKey : "userId",  
+      foreignKey: "userId", // 생성 컬럼 이름
+      targetKey: "userId",
     });
 
 

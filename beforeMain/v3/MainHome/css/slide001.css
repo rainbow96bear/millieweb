@@ -16,6 +16,7 @@
 
 .carousel-item img {
   width: 200px;
-  height: 388px;
+  height: 350px;
   object-fit: contain;
+  margin-top: 19px;
 }

@@ -299,6 +299,7 @@ body {
 .book_info {
   margin-top: 7px;
   text-align: left;
+  position: relative;
 }
 .book_title {
   width: 145px;
@@ -313,4 +314,367 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+.book-delete-btn{
+  position: absolute;
+  width: 25px;
+  height: 23px;
+  bottom: 20px;
+  right: -7px;
+  cursor: pointer;
+  color: #888888;
+}
+
+
+
+
+
+
+
+
+
+
+/* modal style */
+#modal-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: table;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/* hidden 처리 */
+	transform: scale(0);
+}
+#modal-container .modal-background {
+	display: table-cell;
+	background: rgba(0, 0, 0, 0.6);
+	text-align: center;
+	vertical-align: middle;
+}
+#modal-container .modal-background .modal {
+	background: #fff;
+	padding: 50px;
+	display: inline-block;
+	border-radius: 3px;
+	position: relative;
+}
+#modal-container .modal-background .modal h2 {
+	font-size: 25px;
+	line-height: 25px;
+	margin-bottom: 15px;
+	
+}
+#modal-container .modal-background .modal p {
+	font-size: 18px;
+	line-height: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * ------------------------------
+ * Unfolding Animation
+ * ------------------------------
+ */
+ #modal-container.one {
+	/*transform: scaleX(0) scaleY(1);*/
+	animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.one .modal-background .modal {
+	/* 초기 display: none 처럼 크기를 0 으로 하여 보여주지 않음*/
+	transform: scale(0);
+	/* 0.5 초 동안 애니메이션을 실행, 단 0.8초 지연시켜 0.8초 후에 애니메이션을 실행 */
+	animation: zoomIn .5s .8s  cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.one.out {
+	transform: scale(1);
+	animation: unfoldOut 1s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.one.out .modal-background .modal {
+	animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+/* Dimmed showing */
+@keyframes unfoldIn {
+	0% {
+		transform: scaleX(0) scaleY(0.005);
+	}
+	50% {
+		/* 0.5 초간 세로 크기는 작은상태로 가로 너비만 확대  */
+		transform: scaleX(1) scaleY(0.005);
+	}
+	100% {
+		/* 0.5 초간 세로 크기를 확대 */
+		transform: scaleY(1) scaleX(1);
+	}
+}
+/* Show modal content  */
+@keyframes zoomIn {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+/* Hide modal content */
+@keyframes zoomOut {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+	}
+}
+/* Dimmed hiding */
+@keyframes unfoldOut {
+	0% {
+		transform: scale(1)
+	}
+	50% {
+		transform: scaleX(1) scaleY(0.005);
+	}
+	100% {
+		transform: scaleX(0) scaleY(0.005);
+	}
+}
+
+
+
+
+
+/*
+ * ------------------------------
+ * Revealing Animation
+ * ------------------------------
+ */
+ #modal-container.two {
+	transform: scale(1);
+}
+#modal-container.two .modal-background {
+	background: transparent;
+	animation: fadeIn .5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two .modal-background .modal {
+	/* 콘텐츠를 초기에 보여주지 않음 */
+	opacity: 0;
+	animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.content.two {
+	/* 콘텐츠 크기를 줄임 */
+	animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out {
+	/* 전체 모달 컨테이너를 숨김 처리(다른 애니메이션이 모두 끝난 0.5초 후에 처리하기 위해 0.5초 지연시킴 */
+	animation: quickScaleDown 0s .5s linear forwards;
+}
+#modal-container.two.out .modal-background {
+	animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#modal-container.two.out .modal-background .modal {
+	animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.content.two.out {
+	animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+/* Dimmed showing */
+@keyframes fadeIn {
+	0% {
+		background: transparent;
+	}
+	100% {
+		background: rgba(0, 0, 0, .7);
+	}
+}
+/* Show modal content from bottom to top */
+@keyframes scaleUp {
+	0% {
+		/* 모달 콘텐츠를 하단에 위치시킴 */
+		transform: scale(.8) translateY(1000px);
+		opacity: 0;
+	}
+	100% {
+		/* 모달 콘텐츠를 본래 위치로 돌려놓음 */
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+}
+/* Shrink content */
+@keyframes scaleBack {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(.8);
+	}
+}
+/* Hide modal container*/
+@keyframes quickScaleDown {
+	0% {
+		transform: scale(1);
+	}
+	99.9% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+/* Dimmed hiding */
+@keyframes fadeOut {
+	0% {
+		background: rgba(0, 0, 0, .7);
+	}
+	100% {
+		background: transparent;
+	}
+}
+/* modal content from top to bottom */
+@keyframes scaleDown {
+	0% {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(.8) translateY(1000px);
+		opacity: 0;
+	}
+}
+
+@keyframes scaleBack {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(.85);
+	}
+}
+@keyframes scaleForward {
+	0% {
+		transform: scale(0.85);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer {
+  margin: 0 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+#footer .footerBox01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+#footer .footerBox:nth-child(2) {
+  margin-top: 20px;
+}
+
+.footerBox01 .ftext01 {
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.footerBox .ftext02 {
+  font-size: 8px;
+  color: darkgrey;
+  cursor: pointer;
+}
+
+.footerBox img {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.icon img {
+  margin: 0 5;
+}
+
+.footerBox {
+  margin-top: 10px;
+  width: fit-content;
+}
+.footerBox span,
+.footerBox img {
+  margin: 0;
+  padding: 0;
+}
+
+.footerItemBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: fit-content;
+}
+
+.footerItemBox .fItem {
+  display: flex;
+  align-items: center;
+  margin: 0 6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.footerItemBox .fItem:first-child {
+  margin: 0 0px;
+}
+
+.footerItemBox .fItem .ftext02 {
+  font-size: 13px;
+  color: gray;
+}
+.footerBox .ftext03 {
+  font-size: 5px;
+  color: gray;
+}
+
+em {
+  cursor: pointer;
 }

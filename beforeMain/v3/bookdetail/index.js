@@ -2,6 +2,11 @@
 let tempCookie = document.cookie.split("=");
 let cookieJwt = tempCookie[1];
 
+// 책 이름을 가져옴
+let temp = decodeURI(location.href);
+let temp_split = temp.split("?");
+console.log(temp_split[1]);
+
 // 쿠키가 없으면 리턴
 if(cookieJwt){
   cookieVerify();
@@ -9,64 +14,129 @@ if(cookieJwt){
   location.href = "http://localhost:8080";
 }
 
-const review = document.getElementById("review");
-
-// 리뷰 등록 버튼
-document.getElementById("review_btn").onclick = async (e) => {
-  console.log(review.value);
-  e.preventDefault;
-
-  const data = await axios.post("/v3/bookdetail/member_review", {
-    review_content: review.value,
-  });
-
-  console.log(data);
-};
-
-
 
 const bookReviewElem = document.getElementById("bookReview");
-
 // 리뷰들을 불러오는 함수
 async function loadReviews(){
+  bookReviewElem.innerHTML = `
+    <div class="book_review_side">
+      <p>
+        <strong>한 줄 리뷰 <span class="review_count" id="reviewCount">1061</span></strong>
+      </p>
+      <img
+        class="character_img_one"
+        src="bookdetail_img/reviewbtn.png"
+        alt=""
+      />
+    </div>
+    <div id="review_box"></div>
+  `;
 
-  // 일단은 유저 아이디에 맞는 리뷰들만 찾아오도록 한다.
-  const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
-  const reviews = (await axios.post("/v3/bookdetail/getReviews",{userId : userId})).data;
+  // 일단은 유저 아이디에 맞는 리뷰들만 찾아오도록 해야겠다.
+  // 해당 책의 리뷰를 가져옴
+  // const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
+  // const reviews = (await axios.post("/v3/bookdetail/getReviews",{userId : userId})).data;
+  const reviews = (await axios.post("/v3/bookdetail/getReviews",{bookTitle : temp_split[1]})).data;
 
   // 리뷰 개수
   document.getElementById("reviewCount").innerHTML = reviews.length;
 
-  console.log(reviews[0].review_content);
-  console.log(reviews[0]);
+  // console.log(reviews[0].review_content);
+  // console.log(reviews[0]);
+
+  const reviewInput = `
+      <div class="review_coment">
+      <img
+        class="character_img_two"
+        src="bookdetail_img/chracterimg.png"
+        alt=""
+      />
+      <input
+        id="review"
+        class="input_review"
+        placeholder="다양한생각을 남겨주세요"
+      />
+      <button id="review_btn" class="review_add" onkeyup="if(window.event.keyCode==13){reviewBtn.onclick()};">등록</button>
+    </div>
+  `;
+ bookReviewElem.innerHTML += reviewInput;
+
   // for문 돌려서 화면에 띄움
+  console.log(reviews);
+  reviews.forEach((item) => {
+    const temp_review_one = document.createElement("div");
+    const temp_review_one_first = document.createElement("div");
+    const temp_profile_img = document.createElement("img");
+    const temp_review_id = document.createElement("span");
+    const temp_review_date = document.createElement("span");
+    const temp_threedot = document.createElement("img");
+    const temp_review_content = document.createElement("div");
+    const temp_review_content_detail = document.createElement("p");
+    const temp_review_content_like = document.createElement("p");
+    const temp_content_like_img = document.createElement("img");
+    temp_review_one.classList.add("review_one");
+    temp_review_one_first.classList.add("review_one_first");
+    temp_review_id.classList.add("review_id");
+    temp_review_date.classList.add("review_date");
+    temp_threedot.classList.add("threedot");
+    temp_threedot.onclick = async () => {
+      const data = await axios.post("/v3/bookdetail/delete", {
+        // 누가 쓴건지 어떠한 내용인지 어디 책인지 정보 보내기
+        userId: item.userId,
+        review_content: item.review_content,
+        bookTitle: temp_split[1],
+      });
+      // temp_threedot.parentElement.remove();
+      loadReviews();
+    };
+    temp_review_content.classList.add("review_content");
+    temp_review_content_detail.classList.add("review_content_detail");
+    temp_profile_img.src = "bookdetail_img/chracterimg.png";
+    temp_review_id.innerHTML = item.userId + "<br />";
+    temp_review_date.innerText = new Date(item.updatedAt).toLocaleString();
+    temp_threedot.src = "bookdetail_img/threebtn.png";
+    temp_review_content_detail.innerText = item.review_content;
 
-  for(let i = 0; i<reviews.length; i++){
-    // 여기서부터 
-    const temp = `
-      <div class="review_one">
-        <div class="review_one_first">
-          <img src="bookdetail_img/chracterimg.png" alt="" />
-          <span class="review_id"
-            >${reviews[i].userId}<br />
-            <span class="review_date">${new Date(reviews[i].updatedAt).toLocaleString()}</span>
-          </span>
-          <img class="threedot" src="bookdetail_img/threebtn.png" alt="" />
-        </div>
-        <div class="review_content">
-          <p class="review_content_detail">
-            ${reviews[i].review_content} <br />
-          </p>
-          <p class="review_content_like">
-            이 리뷰가 마음에 드시나요?
-            <img src="bookdetail_img/likebtn.png" alt="" />
-          </p>
-        </div>
-      </div>
-    `;
+    temp_review_one_first.append(temp_profile_img);
+    temp_review_one_first.append(temp_review_id);
+    temp_review_one_first.append(temp_threedot);
+    temp_review_id.append(temp_review_date);
+    temp_review_content.append(temp_review_content_detail);
+    temp_review_content.append(temp_review_content_like);
+    temp_review_content_like.append(temp_content_like_img);
+    temp_content_like_img.src = "bookdetail_img/likebtn.png";
+    temp_review_one.append(temp_review_one_first);
+    temp_review_one.append(temp_review_content);
+    document.getElementById("review_box").prepend(temp_review_one);
+
+  });
+
+  // 리뷰 등록 버튼
+  const review = document.getElementById("review");
+  const reviewBtn = document.getElementById("review_btn");
+  reviewBtn.onclick = async (e) => {
+    e.preventDefault;
+
+    if(!review.value){
+      alert("댓글을 입력해주세요.");
+      return;
+    }
+
+    const data = await axios.post("/v3/bookdetail/member_review", {
+      review_content: review.value,
+      bookTitle : temp_split[1]
+    });
+
+    console.log(data.data.status);
+    if(data.data.status == 200){
+      loadReviews();
+    }else{
+      return;
+    }
+  };
 
 
-  // }
+  // 리뷰 삭제
 
 
 
@@ -74,11 +144,19 @@ async function loadReviews(){
 loadReviews();
 
 
+function reviewDelete(userId, content, title){
+  alert("하이");
+  console.log(userId, content, title);
+  alert("하이");
+
+}
 
 
-let temp = decodeURI(location.href);
-let temp_split = temp.split("?");
-console.log(temp_split[1]);
+
+
+
+
+
 
 async function book_info() {
   const data = await axios.post("/v3/bookdetail/load_book_info", {

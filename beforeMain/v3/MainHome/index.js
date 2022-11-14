@@ -130,7 +130,14 @@ const listClientWidth = list.clientWidth;
 document.getElementById("btn01").onclick = function () {
   myFunction1();
 };
+myFunction1();
+document.getElementById("btn01").style.backgroundColor = "black";
+document.getElementById("btn01").style.color = "white";
+//     background-color: black;
+// color: white;
 function myFunction1() {
+  document.getElementById("btn01").style.backgroundColor = "black";
+  document.getElementById("btn01").style.color = "white";
   document.getElementById("mon").classList.remove("off");
   document.getElementById("tue").classList.remove("on");
   document.getElementById("wed").classList.remove("on");
@@ -150,6 +157,9 @@ document.getElementById("btn02").onclick = function () {
   myFunction2();
 };
 function myFunction2() {
+  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn01").style.color = "black";
+
   document.getElementById("tue").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
   document.getElementById("wed").classList.remove("on");
@@ -169,6 +179,9 @@ document.getElementById("btn03").onclick = function () {
   myFunction3();
 };
 function myFunction3() {
+  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn01").style.color = "black";
+  
   document.getElementById("wed").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
   document.getElementById("tue").classList.remove("on");
@@ -187,6 +200,9 @@ document.getElementById("btn04").onclick = function () {
   myFunction4();
 };
 function myFunction4() {
+  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn01").style.color = "black";
+  
   document.getElementById("thu").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
   document.getElementById("tue").classList.remove("on");
@@ -205,6 +221,9 @@ document.getElementById("btn05").onclick = function () {
   myFunction5();
 };
 function myFunction5() {
+  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn01").style.color = "black";
+  
   document.getElementById("fri").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
   document.getElementById("tue").classList.remove("on");
@@ -223,6 +242,9 @@ document.getElementById("ctn06").onclick = function () {
   myFunction6();
 };
 function myFunction6() {
+  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn01").style.color = "black";
+  
   document.getElementById("sat").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
   document.getElementById("tue").classList.remove("on");
@@ -370,4 +392,119 @@ document.getElementById("searchBtn").onclick = () =>{
 }
 document.getElementById("myLibraryBtn").onclick = () =>{
   location.href = "../myLibrary";
+}
+
+
+// accordion
+// ac를 클릭하면 나머지 bc들을 닫고 내 bc를 염
+const accordion1 = document.getElementById("accordion1");
+const accordion12 = document.getElementById("accordion12");
+const accordion2 = document.getElementById("accordion2");
+const accordion22 = document.getElementById("accordion22");
+const accordion3 = document.getElementById("accordion3");
+const accordion32 = document.getElementById("accordion32");
+accordion1.onclick = () =>{
+  accordion2.style.display = "flex";
+  accordion3.style.display = "flex";
+
+  accordion22.classList.remove("on");
+  accordion32.classList.remove("on");
+
+  accordion1.style.display = "none";
+  accordion12.classList.add("on");
+}
+accordion2.onclick = () =>{
+  accordion1.style.display = "flex";
+  accordion3.style.display = "flex";
+
+  accordion12.classList.remove("on");
+  accordion32.classList.remove("on");
+
+  accordion2.style.display = "none";
+  accordion22.classList.add("on");
+}
+accordion3.onclick = () =>{
+  accordion1.style.display = "flex";
+  accordion2.style.display = "flex";
+
+  accordion12.classList.remove("on");
+  accordion22.classList.remove("on");
+  accordion3.style.display = "none";
+  accordion32.classList.add("on");
+}
+const accordion4 = document.getElementById("accordion4");
+const accordion42 = document.getElementById("accordion42");
+const accordion5 = document.getElementById("accordion5");
+const accordion52 = document.getElementById("accordion52");
+const accordion6 = document.getElementById("accordion6");
+const accordion62 = document.getElementById("accordion62");
+accordion4.onclick = () =>{
+  accordion5.style.display = "flex";
+  accordion6.style.display = "flex";
+
+  accordion52.classList.remove("on");
+  accordion62.classList.remove("on");
+
+  accordion4.style.display = "none";
+  accordion42.classList.add("on");
+}
+accordion5.onclick = () =>{
+  accordion4.style.display = "flex";
+  accordion6.style.display = "flex";
+
+  accordion42.classList.remove("on");
+  accordion62.classList.remove("on");
+
+  accordion5.style.display = "none";
+  accordion52.classList.add("on");
+}
+accordion6.onclick = () =>{
+  accordion4.style.display = "flex";
+  accordion5.style.display = "flex";
+
+  accordion42.classList.remove("on");
+  accordion52.classList.remove("on");
+  accordion6.style.display = "none";
+  accordion62.classList.add("on");
+}
+const accordion7 = document.getElementById("accordion7");
+const accordion72 = document.getElementById("accordion72");
+const accordion8 = document.getElementById("accordion8");
+const accordion82 = document.getElementById("accordion82");
+const accordion9 = document.getElementById("accordion9");
+const accordion92 = document.getElementById("accordion92");
+accordion7.onclick = () =>{
+  accordion8.style.display = "flex";
+  accordion9.style.display = "flex";
+
+  accordion82.classList.remove("on");
+  accordion92.classList.remove("on");
+
+  accordion7.style.display = "none";
+  accordion72.classList.add("on");
+}
+accordion8.onclick = () =>{
+  accordion7.style.display = "flex";
+  accordion9.style.display = "flex";
+
+  accordion72.classList.remove("on");
+  accordion92.classList.remove("on");
+
+  accordion8.style.display = "none";
+  accordion82.classList.add("on");
+}
+accordion9.onclick = () =>{
+  accordion7.style.display = "flex";
+  accordion8.style.display = "flex";
+
+  accordion72.classList.remove("on");
+  accordion82.classList.remove("on");
+  accordion9.style.display = "none";
+  accordion92.classList.add("on");
+}
+
+
+document.getElementById("obj-btn-box1-007").onload = function(){
+  // 
+  alert("하이");
 }

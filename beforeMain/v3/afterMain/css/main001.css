@@ -116,11 +116,7 @@ section #HeadNaviSubtextBox .navi-text03 {
   margin-top: 112px;
 }
 #ColorSlide {
-  background: linear-gradient(
-    90deg,
-    rgb(213, 223, 233) 0%,
-    rgb(217, 207, 228) 100%
-  );
+  background: linear-gradient( 90deg, rgb(114 114 114) 100%, rgb(96 96 96) 0% );
   height: 388px;
   cursor: pointer;
 }

@@ -38,30 +38,42 @@ async function cookieVerify(){
 
 }
 
+
+// 모달 팝업창
+const modalContainer = document.getElementById("modal-container");
+
 // 작가 책 작성, 유저 더보기 클릭
 contentHeader.onclick = async() => {
   const data = await axios.post("/v3/mainhome/cookieInfo", {cookieJwt});
   if(data.data.nickname){
     location.href = "../bookAdd";
   }else{
-    // 모달 팝업 띄우기
-    alert("하이");
+    // 유저 더보기 클릭
+    modalContainer.classList.add("one");
+    modalContainer.classList.remove("out");
+    
     return;
   }
 };
 
+// 모달 팝업창 클릭
+modalContainer.onclick = () =>{
+  modalContainer.classList.add("out");
+  modalContainer.classList.remove("one");
+}
+
+
+
+
 // itemContainer에 책 item append로 추가하기
 const itemContainerElem = document.getElementById("itemContainer");
-
-
-// 요청을 보내서
-// 유저 아이디에 해당하는 책을 전부 불러오고
-// 그 책 번호에 맞는 책내용을 전부 찾아와야 함
-// 유저 아이디에 해당하는 책 개수
+// modal에 책 item append로 추가하기
+const modalElem = document.getElementById("modal");
 
 // 유저의 책 정보를 불러옴
 async function getBookList(){
   const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
+  const nickname = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.nickname;
 
   const data = await axios.post("/v3/mylibrary/getBooks",{userId : userId});
 
@@ -71,6 +83,9 @@ async function getBookList(){
 
   // 전체 도서 개수
   document.getElementById("lifeBookCount").innerHTML = books.length;
+
+  // 비워준다...
+  itemContainerElem.innerHTML = "";
 
   // 이 아래 전체를 for문
   for(let i = 0; i<books.length; i++){
@@ -91,6 +106,11 @@ async function getBookList(){
     bookTitleDiv.innerHTML = `${books[i].title}`;
     const authorInfoDiv = document.createElement("div");
     authorInfoDiv.classList.add("author_info");
+
+    const bookDeleteImg = document.createElement("img");
+    bookDeleteImg.classList.add("book-delete-btn");
+    bookDeleteImg.setAttribute("src", "book-delete.png");
+
     // authorInfoDiv.innerHTML = `${books[i].작가명}`; // 작가명 없음
 
     // 책의 작가 정보
@@ -105,14 +125,31 @@ async function getBookList(){
 
     bookInfoDiv.append(bookTitleDiv);
     bookInfoDiv.append(authorInfoDiv);
+    bookInfoDiv.append(bookDeleteImg);
     imgBoxDiv.append(imgElem);
     itemDiv.append(imgBoxDiv);
     itemDiv.append(bookInfoDiv);
     itemContainerElem.append(itemDiv);
+    // modalElem.append(itemDiv);
 
     imgElem.onclick = () =>{
       location.href = `../../../v3/bookdetail?${books[i].title}`;
     }
+
+    bookDeleteImg.onclick = async () =>{
+      const data = await axios.post("/v3/mylibrary/deleteBook", {title : books[i].title, nickname : nickname});
+      // console.log(data.data);
+      
+      if(data.data.status == 200 || data.data.status == 202){
+        // alert(`내 서재에서 ${books[i].title}를 삭제했습니다.`);
+        getBookList();
+      }else{
+        alert(data.data.status+"에러");
+      }
+
+    }
+
+
 
   }
 

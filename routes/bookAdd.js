@@ -27,7 +27,6 @@ router.post("/upload", upload.single("book_img"), async (req, res) => {
       publisher: req.body.publisher,
     });
 
-
     // 왜 db 컬럼에 값이 안 들어가는지 알아내서 해결..
     // 책 추가 임시..(컬럼에 값을 집어넣어 줌)
     // title은 req.body.title하면 될듯
@@ -40,7 +39,6 @@ router.post("/upload", upload.single("book_img"), async (req, res) => {
       where : {userId : userInfo.id}
     });
     bookTitle.addBookInfo(userId); // 컬럼에 값을 집어넣음
-
 
     res.send({ status: "생성" });
   } catch (err) {

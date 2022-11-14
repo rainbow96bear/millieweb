@@ -12,14 +12,18 @@ router.post("/member_review", async (req, res) => {
     console.log(req.body);
     
     // 리뷰 
-    await ReviewInfo.create({
-      review_content: req.body.review_content,
-      // userId : userId
-    });
+    // const temp = await ReviewInfo.create({
+    //   review_content: req.body.review_content,
+    //   // userId : userId
+    // });
 
     // 해당 리뷰(리뷰내용)를 찾아옴
-    const review = await ReviewInfo.findOne({
-      where : {review_content : req.body.review_content}
+    // const review = await ReviewInfo.findOne({
+    //   where : {review_content : req.body.review_content}
+    // });
+    // 찾아오는 것을 생성하는 것으로 바꿈 : 그래야 생성한 것을 넣어서 만들 수 있음
+    const review = await ReviewInfo.create({
+      review_content: req.body.review_content,
     });
 
     // 유저 아이디를 가져옴
@@ -29,8 +33,14 @@ router.post("/member_review", async (req, res) => {
       where : {userId : userInfo.id}
     });
 
-    // 컬럼에 값을 집어넣음(리뷰에 userId를..)
+    const bookTitle = await BookInfo.findOne({
+      where : {title : req.body.bookTitle}
+    });
+
+    // 컬럼에 값을 집어넣음(리뷰에 userId와 bookTitle을..)
     userId.addUserReviews(review);
+    bookTitle.addBookReviews(review);
+
     res.send({ status: 200 });
 
   } catch (err) {
@@ -43,14 +53,32 @@ router.post("/member_review", async (req, res) => {
 
 // 리뷰 정보 불러오기
 router.post("/getReviews", async (req, res)=>{
-  console.log(req.body.userId);
+  // console.log(req.body.userId);
+  console.log(req.body.bookTitle);
 
-  const reviews = await ReviewInfo.findAll();
+  const reviews = await ReviewInfo.findAll({
+    where : {title : req.body.bookTitle},
+    order: [['createdAt', 'DESC']]
+  });
   // console.log(reviews[0].dataValues);
   // console.log(reviews[1].dataValues);
 
   res.send(reviews);
 });
+
+
+// 리뷰 삭제
+router.post("/delete", async (req, res) => {
+  const reviews = await ReviewInfo.destroy({
+    where: {
+      title: req.body.bookTitle,
+      userId: req.body.userId,
+      review_content: req.body.review_content,
+    },
+  });
+  res.send("asdf");
+});
+
 
 
 // 책 정보 불러오기
@@ -103,6 +131,8 @@ router.post("/addBook", async(req, res)=>{
   res.send({status : 200});
 
 });
+
+
 
 
 

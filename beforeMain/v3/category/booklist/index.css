@@ -5,7 +5,7 @@ body {
 }
 #root {
   width: 100%;
-  height: 100%;
+  height: 220%;
 }
 .firstLine {
   width: 100%;
@@ -20,9 +20,70 @@ body {
   position: static;
   background-color: white;
 }
+
+
+#first_banner {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+#button_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+.button_text {
+  margin: 0px 30px;
+}
+.button_text h4 {
+  font-weight: normal;
+  margin: 0px;
+}
+.button_text.select h4 {
+  font-weight: bold;
+  margin: 0px;
+}
+#log_out {
+  font-size: 13px;
+  font-weight: 1000;
+  color: white;
+  background-color: rgb(60, 60, 60);
+  padding: 8px 18px;
+  border-radius: 5px;
+}
+.pointer:hover {
+  cursor: pointer;
+}
+#left_button_box {
+  display: flex;
+}
+#logo {
+  height: 20px;
+  margin-right: 30px;
+}
+
+
+
 #secondBanner {
   padding: 15px 0;
   background-color: linen;
+}
+#secondBannerTitle {
+  margin: 0px;
+  margin-right: 5px;
+}
+.content_case{
+  display: flex;
+}
+.content_case img{
+  cursor: pointer;
 }
 .arrow_img {
   width: 25px;
@@ -54,6 +115,7 @@ body {
   width: 145px;
   position: absolute;
   bottom: 0;
+  cursor: pointer;
 }
 .book_info {
   margin-top: 7px;
@@ -77,6 +139,96 @@ body {
   display: flex;
   justify-content: space-between;
 }
-#secondBannerTitle {
-  margin: 0px;
+
+
+
+#footer {
+  margin: 0 200;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+#footer .footerBox01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+#footer .footerBox:nth-child(2) {
+  margin-top: 20px;
+}
+
+.footerBox01 .ftext01 {
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.footerBox .ftext02 {
+  font-size: 8px;
+  color: darkgrey;
+  cursor: pointer;
+}
+
+.footerBox img {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.icon img {
+  margin: 0 5;
+}
+
+.footerBox {
+  margin-top: 10px;
+  width: fit-content;
+}
+.footerBox span,
+.footerBox img {
+  margin: 0;
+  padding: 0;
+}
+
+.footerItemBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: fit-content;
+}
+
+.footerItemBox .fItem {
+  display: flex;
+  align-items: center;
+  margin: 0 6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.footerItemBox .fItem:first-child {
+  margin: 0 0px;
+}
+
+.footerItemBox .fItem .ftext02 {
+  font-size: 13px;
+  color: gray;
+}
+.footerBox .ftext03 {
+  font-size: 5px;
+  color: gray;
+}
+
+em {
+  cursor: pointer;
 }

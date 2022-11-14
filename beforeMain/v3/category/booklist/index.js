@@ -118,3 +118,16 @@ async function makeList(bannerName, category) {
   temp_banner.append(temp_col);
   root.append(temp_banner);
 }
+
+
+
+
+
+logo.onclick = () => {
+  location.href = "../../MainHome";
+};
+search_btn.onclick = () => {};
+my_book_btn.onclick = () => {
+  // alert("나중에 내 서재로 이동하도록 할 겁니다.");
+  location.href = "../../myLibrary";
+};

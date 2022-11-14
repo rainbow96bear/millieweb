@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .mainbar {
   display: flex;
   justify-content: space-between;
@@ -24,7 +30,7 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  border-color: black;
+  border-color: #F3E7E7;
 
   margin-left: 50px;
 
@@ -37,12 +43,12 @@
 }
 
 .bookdetail {
+  box-sizing: border-box;
   display: flex;
-  padding-top: 50px;
   border-style: solid;
-  border-color: beige;
-  padding-left: 30px;
-  padding-bottom: 20px;
+  border-color: rgb(245,245,245);
+  width: 1280px;
+  padding: 50px 30px 40px 30px;
 }
 
 .bookname_title {
@@ -59,7 +65,8 @@
   width: 1280px;
   height: 150px;
   border-style: solid;
-  border-color: beige;
+  border-color: rgb(245,245,245);
+  position: relative;
 }
 
 .bookdetail-info {
@@ -67,13 +74,17 @@
   padding-left: 30px;
   padding-right: 30px;
 }
+.bookdetail-info h4{
+  margin-bottom: 5px;
+}
+
 .bookdetail-info-title {
   margin-bottom: 3px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .bookdetail-info-content {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .buttondetail {
@@ -86,17 +97,16 @@
 .book_review {
   border-style: solid;
   width: 1280px;
-  height: 400px;
-  border-color: beige;
+  /* height: 400px; */
+  border-color: rgb(245,245,245);
 }
 
 .book_review_side {
-  margin-left: 20px;
-  margin-right: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  margin: 20px;
   display: flex;
-
   align-items: center;
-
   width: 1240px;
 }
 
@@ -114,11 +124,12 @@
 
 .input_review {
   width: 500px;
+  padding: 0px 10px;
 }
 
 .review_add {
   color: white;
-  margin-left: 20px;
+  margin-left: 5px;
   width: 70px;
   background-color: gray;
   border-radius: 10px;
@@ -136,6 +147,7 @@
 
 .review_id {
   font-size: 12px;
+  width: 300px;
 }
 
 .review_count {
@@ -143,7 +155,9 @@
 }
 
 .threedot {
-  margin-left: 1140px;
+  margin-left: 865px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .review_content {
@@ -162,6 +176,7 @@
 
 .review_coment {
   display: flex;
+  margin-bottom: 13px;
 }
 
 .character_img_two {
@@ -177,7 +192,9 @@
   align-items: center;
   height: 50px;
   justify-content: space-around;
+  margin: 10px;
 }
+
 .publish {
   width: 150px;
   background-color: rgb(243, 231, 231);
@@ -185,15 +202,19 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-
   height: 50px;
   justify-content: space-around;
+  margin: 10px;
 }
 
 .book_button {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  /* margin-right: 10px; */
   width: 400px;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 20px 0 20px;
 }
 
 .category_title {
