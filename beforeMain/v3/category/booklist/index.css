@@ -133,6 +133,7 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  max-height: 20px;
 }
 .title_case {
   width: 1000px;

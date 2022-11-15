@@ -16,6 +16,7 @@ module.exports = class ReviewInfo extends Sequelize.Model {
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci",
         timestamps: true,
+        paranoid : true
       }
     );
   }

@@ -63,8 +63,9 @@ router.post("/signup", upload.single("userImg"), async (req, res)=>{
                 email : req.body.email,
                 userPw : crypto.SHA256(req.body.userPw).toString(),
                 birthday : req.body.birthday,
-                nickname : "",
-                publish : "",
+                nickname : null,
+                publish : null,
+                money : 100000,
 
             });
             console.log("하이");
@@ -108,6 +109,7 @@ router.post("/authorSignup", upload.single("userImg"), async (req, res)=>{
                 birthday : req.body.birthday,
                 nickname : req.body.nickname,
                 publish : req.body.publish,
+                money : 0,
 
             });
             console.log("하이");

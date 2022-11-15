@@ -49,7 +49,7 @@
           </div>
           <!-- <div class="other-info">...</div> -->
           <div class="other-info">
-            <img id="otherInfoBar" src="other-info-bar.png" alt="다른 정보 더보기" style="width: 25px; heigit: 25px" />
+            <img id="otherInfoBar" src="other-info-bar.png" alt="다른 정보 더보기" style="width: 25px; height : 25px;" />
           </div>
         </div>
         <div class="user-life-book">
@@ -91,8 +91,18 @@
     <div id="modal-container">
       <div class="modal-background">
         <div class="modal" id="modal">
-          <h2>I'm a 혜림</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, similique!</p>
+          <!-- <h2 id="modalUserName"></h2> -->
+          <p>시간이 된다면 나의 인생책을 설정할 수 있도록 할겁니다~~</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 유저 더보기 모달 팝업창 -->
+    <div id="modal-container2">
+      <div class="modal-background">
+        <div class="modal" id="modal">
+          <!-- <h2 id="modalUserName"></h2> -->
+          <p id="nowMoney">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, similique!</p>
         </div>
       </div>
     </div>
@@ -130,78 +140,76 @@
 
 
 
-      <!-- footer -->
-      <div class="padding">
-        <section id="footer">
-          <div class="footerBox01">
-            <span class="ftext01"> (주) 밀리의 서재</span>
-            <div class="icon">
-              <img src="../MainHome/assets/github.svg" alt="a" />
-              <img src="../MainHome/assets/tiktok.svg" alt="a" />
-              <img src="../MainHome/assets/instagram.svg" alt="a" />
-              <img src="../MainHome/assets/css3-alt.svg" alt="a" />
-              <img src="../MainHome/assets/twitter.svg" alt="a" />
-            </div>
-          </div>
-          <div class="footerBox">
-            <span class="ftext02"> 사업자 정보 펼쳐보기 </span>
+  <!-- footer -->
+  <div class="padding">
+    <section id="footer">
+      <div class="footerBox01">
+        <span class="ftext01"> (주) 밀리의 서재</span>
+        <div class="icon">
+          <img src="../MainHome/assets/github.svg" alt="a" />
+          <img src="../MainHome/assets/tiktok.svg" alt="a" />
+          <img src="../MainHome/assets/instagram.svg" alt="a" />
+          <img src="../MainHome/assets/css3-alt.svg" alt="a" />
+          <img src="../MainHome/assets/twitter.svg" alt="a" />
+        </div>
+      </div>
+      <div class="footerBox">
+        <span class="ftext02"> 사업자 정보 펼쳐보기 </span>
+        <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+      </div>
+      <div class="footerBox">
+        <div class="footerItemBox">
+          <div class="fItem">
+            <span class="ftext02"> 이용약관 </span>
             <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
           </div>
-          <div class="footerBox">
-            <div class="footerItemBox">
-              <div class="fItem">
-                <span class="ftext02"> 이용약관 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 개인정보처리방침 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 청소년보호정책 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 고객센터 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 환불신청 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> B2B 문의 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 콘텐츠 제휴문의 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 저작권/도서오류 신고 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 뷰어 다운로드 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 종료 예정 도서 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-              <div class="fItem">
-                <span class="ftext02"> 회사소개 </span>
-                <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
-              </div>
-            </div>
+          <div class="fItem">
+            <span class="ftext02"> 개인정보처리방침 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
           </div>
-          <div class="footerBox">
-            <span class="ftext03"
-              >Copylight e 2022 밀리의 서재 All Rights Reserved</span
-            >
+          <div class="fItem">
+            <span class="ftext02"> 청소년보호정책 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
           </div>
-        </section>
+          <div class="fItem">
+            <span class="ftext02"> 고객센터 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> 환불신청 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> B2B 문의 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> 콘텐츠 제휴문의 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> 저작권/도서오류 신고 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> 뷰어 다운로드 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> 종료 예정 도서 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="fItem">
+            <span class="ftext02"> 회사소개 </span>
+            <img src="../MainHome/assets/angle-right-solid.svg" alt="" />
+          </div>
+        </div>
       </div>
+      <div class="footerBox">
+        <span class="ftext03">Copylight e 2022 밀리의 서재 All Rights Reserved</span>
+      </div>
+    </section>
+  </div>
 
 
 

@@ -8,16 +8,16 @@ let temp_split = temp.split("?");
 console.log(temp_split[1]);
 
 // 쿠키가 없으면 리턴
-if(cookieJwt){
+if (cookieJwt) {
   cookieVerify();
-}else{
+} else {
   location.href = "http://localhost:8080";
 }
 
 
 const bookReviewElem = document.getElementById("bookReview");
 // 리뷰들을 불러오는 함수
-async function loadReviews(){
+async function loadReviews() {
   bookReviewElem.innerHTML = `
     <div class="book_review_side">
       <p>
@@ -36,7 +36,7 @@ async function loadReviews(){
   // 해당 책의 리뷰를 가져옴
   // const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
   // const reviews = (await axios.post("/v3/bookdetail/getReviews",{userId : userId})).data;
-  const reviews = (await axios.post("/v3/bookdetail/getReviews",{bookTitle : temp_split[1]})).data;
+  const reviews = (await axios.post("/v3/bookdetail/getReviews", { bookTitle: temp_split[1] })).data;
 
   // 리뷰 개수
   document.getElementById("reviewCount").innerHTML = reviews.length;
@@ -59,11 +59,11 @@ async function loadReviews(){
       <button id="review_btn" class="review_add" onkeyup="if(window.event.keyCode==13){reviewBtn.onclick()};">등록</button>
     </div>
   `;
- bookReviewElem.innerHTML += reviewInput;
+  bookReviewElem.innerHTML += reviewInput;
 
   // for문 돌려서 화면에 띄움
   console.log(reviews);
-  reviews.forEach((item) => {
+  reviews.forEach((item, idx) => {
     const temp_review_one = document.createElement("div");
     const temp_review_one_first = document.createElement("div");
     const temp_profile_img = document.createElement("img");
@@ -82,10 +82,23 @@ async function loadReviews(){
     temp_threedot.onclick = async () => {
       const data = await axios.post("/v3/bookdetail/delete", {
         // 누가 쓴건지 어떠한 내용인지 어디 책인지 정보 보내기
+        // id : idx+1,
         userId: item.userId,
         review_content: item.review_content,
         bookTitle: temp_split[1],
       });
+      if(data.data.status==200){
+        if(data.data.delCount == 1){
+          alert("댓글이 삭제되었습니다.");
+        }else{
+          alert(data.data.delCount+"개의 동일한 댓글이 삭제되었습니다.");
+        }
+        
+      }else if(data.data.status==400){
+        alert("본인이 작성한 댓글만 지울 수 있습니다.");
+      }else if(data.data.status==401){
+        alert("리뷰 삭제 에러");
+      }
       // temp_threedot.parentElement.remove();
       loadReviews();
     };
@@ -117,20 +130,22 @@ async function loadReviews(){
   reviewBtn.onclick = async (e) => {
     e.preventDefault;
 
-    if(!review.value){
+    if (!review.value) {
       alert("댓글을 입력해주세요.");
       return;
     }
 
     const data = await axios.post("/v3/bookdetail/member_review", {
       review_content: review.value,
-      bookTitle : temp_split[1]
+      bookTitle: temp_split[1]
     });
 
     console.log(data.data.status);
-    if(data.data.status == 200){
+    if (data.data.status == 200) {
+      // await loadReviews();
       loadReviews();
-    }else{
+
+    } else {
       return;
     }
   };
@@ -144,7 +159,7 @@ async function loadReviews(){
 loadReviews();
 
 
-function reviewDelete(userId, content, title){
+function reviewDelete(userId, content, title) {
   alert("하이");
   console.log(userId, content, title);
   alert("하이");
@@ -180,14 +195,20 @@ async function book_info() {
   let publish_content = document.getElementById("publish_content");
   // publish_content.innerText = data.data.category;
 
+  let nickname = 0;
   data.data.BookInfo.forEach(element => {
     // 작가명이 있으면 가져와서 넣어줌
-    if(element.nickname){
+    if (element.nickname) {
+      nickname = element.nickname;
       author_name.innerText = element.nickname + " 지음";
       publish_content.innerText = element.publish;
     }
   });
-
+  if (!nickname) {
+    // alert("하이");
+    author_name.innerHTML = "작자미상";
+    publish_content.innerHTML = "예림출판사";
+  }
 
 }
 
@@ -197,17 +218,39 @@ book_info();
 // 내 서재에 담기
 const mybook = document.getElementById("mybook");
 
-mybook.onclick = async() =>{
+mybook.onclick = async () => {
 
   // 유저 이름과 책 이름을 보낸다..(내 서재의 나, 내가 선택한 책)
   // 유저 이름은 서버쪽에서 req.cookie 해서 받아오기 때문에 여기서 안보낸다.
   console.log(temp_split[1]);
-  
-  const data = await axios.post("/v3/bookdetail/addBook", {book : temp_split[1]});
 
-  if(data.data.status == 200){
-    alert("내 서재에 담겼습니다.");
-  }else{
+  const priceInfo = await axios.post("/v3/bookdetail/priceInfo", { book: temp_split[1] });
+  const userMoney = priceInfo.data.userMoney;
+  const bookPrice = priceInfo.data.bookPrice;
+
+  const data = await axios.post("/v3/bookdetail/addBook", { book: temp_split[1], money : userMoney, price : bookPrice});
+
+  // 유저 돈 가져옴
+  if (userMoney < bookPrice) {
+    alert(`현재 ${userMoney}원 있습니다. ${bookPrice - userMoney}원이 부족합니다.`);
+    return;
+  } else if (userMoney >= bookPrice) {
+    const buyCheck = confirm(`현재 ${userMoney}원 있습니다. ${bookPrice}원을 내고 구매하시겠습니까?`);
+    if (buyCheck) {
+
+
+
+
+
+      
+      alert("내 서재에 담겼습니다.");
+    } else if (!buyCheck) {
+      alert("구매를 취소하였습니다.");
+      return;
+    }
+  }
+
+  if (data.data.status == 400) {
     alert("어머");
   }
 
@@ -218,13 +261,13 @@ mybook.onclick = async() =>{
 // 작가인지 일반 유저인지에 따라 다른 정보를 띄움
 // const mybook = document.getElementById("mybook");
 
-async function cookieVerify(){
-  const data = await axios.post("/v3/mainhome/cookieInfo", {cookieJwt});
+async function cookieVerify() {
+  const data = await axios.post("/v3/mainhome/cookieInfo", { cookieJwt });
 
-  if(data.data.nickname){
+  if (data.data.nickname) {
     // mybook.innerHTML = ``;
     mybook.remove();
-  }else{
+  } else {
     mybook.innerHTML = `<img src="bookdetail_img/mybookbtn.png" alt="" />내서재에 담기`;
   }
 }
@@ -232,10 +275,10 @@ async function cookieVerify(){
 
 
 
-document.getElementById("logoBtn").onclick = () =>{
+document.getElementById("logoBtn").onclick = () => {
   location.href = "/";
 }
-document.getElementById("logoutBtn").onclick = async() =>{
+document.getElementById("logoutBtn").onclick = async () => {
   const data = await axios.post("/v3/mainhome/clearCookie", {
     cookieName: tempCookie[0],
   });

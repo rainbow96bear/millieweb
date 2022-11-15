@@ -6,7 +6,7 @@ const Sequelize = require("sequelize");
 module.exports = class User_Info extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
-            // 8가지 정보
+            // 9가지 정보
             userImg: {
                 type: Sequelize.STRING(255),
                 allowNull: true
@@ -16,7 +16,7 @@ module.exports = class User_Info extends Sequelize.Model {
             },
             userId: {
                 type: Sequelize.STRING(255),
-                unique:true
+                unique: true
             },
             email: {
                 type: Sequelize.STRING(255),
@@ -35,6 +35,10 @@ module.exports = class User_Info extends Sequelize.Model {
                 type: Sequelize.STRING(255),
                 allowNull: true
             },
+            money: {
+                type: Sequelize.INTEGER,
+                allowNull: true
+            }
 
         }, {
             sequelize,
@@ -52,7 +56,7 @@ module.exports = class User_Info extends Sequelize.Model {
         // 유저가 댓글들을 가짐 : 댓글에 유저 아이디를 추가해준다.
         db.User_Info.hasMany(db.ReviewInfo, {
             as: "UserReviews",      // 메서드명
-            sourceKey : "userId",   // 위에서 userId를 불러오겠다
+            sourceKey: "userId",   // 위에서 userId를 불러오겠다
             foreignKey: "userId",   // 생성 컬럼 이름
         });
 
@@ -64,7 +68,8 @@ module.exports = class User_Info extends Sequelize.Model {
             as: "UserInfo",        // 메서드명(addBookInfo)
             foreignKey: "userId",   // 생길 컬럼명
             // timestamps: true
-            sourceKey : "userId"    // userId를 불러오겠다(위에서 unique설정 해줘야함)
+            sourceKey: "userId",    // userId를 불러오겠다(위에서 unique설정 해줘야함)
+            onDelete: "cascade",    // 삭제할때 양쪽에 꼭 필요함
         });
     }
 }

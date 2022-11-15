@@ -130,17 +130,21 @@ const listClientWidth = item.clientWidth;
 //   });
 // });
 
+
+// 처음에 켜둠(수요일 버튼)
+document.getElementById("btn03").style.backgroundColor = "black";
+document.getElementById("btn03").style.color = "white";
+//     background-color: black;
+// color: white;
+
+
 document.getElementById("btn01").onclick = function () {
   myFunction1();
 };
-myFunction1();
-document.getElementById("btn01").style.backgroundColor = "black";
-document.getElementById("btn01").style.color = "white";
-//     background-color: black;
-// color: white;
 function myFunction1() {
-  document.getElementById("btn01").style.backgroundColor = "black";
-  document.getElementById("btn01").style.color = "white";
+  document.getElementById("btn03").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn03").style.color = "black";
+
   document.getElementById("mon").classList.remove("off");
   document.getElementById("tue").classList.remove("on");
   document.getElementById("wed").classList.remove("on");
@@ -160,8 +164,8 @@ document.getElementById("btn02").onclick = function () {
   myFunction2();
 };
 function myFunction2() {
-  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
-  document.getElementById("btn01").style.color = "black";
+  document.getElementById("btn03").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn03").style.color = "black";
 
   document.getElementById("tue").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
@@ -181,9 +185,10 @@ function myFunction2() {
 document.getElementById("btn03").onclick = function () {
   myFunction3();
 };
+myFunction3();
 function myFunction3() {
-  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
-  document.getElementById("btn01").style.color = "black";
+  document.getElementById("btn03").style.backgroundColor = "black";
+  document.getElementById("btn03").style.color = "white";
   
   document.getElementById("wed").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
@@ -203,8 +208,8 @@ document.getElementById("btn04").onclick = function () {
   myFunction4();
 };
 function myFunction4() {
-  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
-  document.getElementById("btn01").style.color = "black";
+  document.getElementById("btn03").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn03").style.color = "black";
   
   document.getElementById("thu").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
@@ -224,8 +229,8 @@ document.getElementById("btn05").onclick = function () {
   myFunction5();
 };
 function myFunction5() {
-  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
-  document.getElementById("btn01").style.color = "black";
+  document.getElementById("btn03").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn03").style.color = "black";
   
   document.getElementById("fri").classList.remove("off");
   document.getElementById("mon").classList.remove("on");
@@ -245,8 +250,8 @@ document.getElementById("ctn06").onclick = function () {
   myFunction6();
 };
 function myFunction6() {
-  document.getElementById("btn01").style.backgroundColor = "#F0F0F0";
-  document.getElementById("btn01").style.color = "black";
+  document.getElementById("btn03").style.backgroundColor = "#F0F0F0";
+  document.getElementById("btn03").style.color = "black";
   
   document.getElementById("sat").classList.remove("off");
   document.getElementById("mon").classList.remove("on");

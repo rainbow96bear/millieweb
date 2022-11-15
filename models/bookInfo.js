@@ -20,6 +20,10 @@ module.exports = class BookInfo extends Sequelize.Model {
         category: {
           type: Sequelize.STRING(255),
         },
+        price: {
+          type: Sequelize.INTEGER,
+
+        }
       },
       {
         sequelize,
@@ -46,7 +50,8 @@ module.exports = class BookInfo extends Sequelize.Model {
       through: "userbook",     // 생길 테이블 이름
       as: "BookInfo",          // 사용할 메서드명(addBookInfo), 어디서 사용? : 
       foreignKey: "bookTitle", // 생길 컬럼명
-      sourceKey: "title"         // title과 그의 속성을 그대로 가져와 사용함
+      sourceKey: "title",         // title과 그의 속성을 그대로 가져와 사용함
+      onDelete : "cascade",   // 삭제할때
       // timestamps : true
     });
   }

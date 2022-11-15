@@ -20,6 +20,8 @@ async function setProfileImg(){
 }
 
 
+// 마이 라이브러리 모달에 현재 금액을 넣어줌
+const nowMoney = document.getElementById("nowMoney");
 
 // 작가인지 일반 유저인지에 따라 다른 정보를 띄움
 const userName = document.getElementById("userName");
@@ -32,6 +34,7 @@ async function cookieVerify(){
     userName.innerHTML = `<span class="nameBold">${data.data.nickname}</span>`+"작가의 서재";
     contentHeader.innerHTML = `<img id="writeBtn" src="file-write.png" alt="리뷰 작성 아이콘">`;
   }else{
+    nowMoney.innerHTML = `현재 소지 금액은 ${data.data.money}원 입니다.`;
     userName.innerHTML = `<span class="nameBold">${data.data.name}</span>`+"의 서재";
     contentHeader.innerHTML = `<img id="moreSeeBtn" src="more.png" alt="더보기 아이콘">`;
   }
@@ -41,6 +44,7 @@ async function cookieVerify(){
 
 // 모달 팝업창
 const modalContainer = document.getElementById("modal-container");
+const modalContainer2 = document.getElementById("modal-container2");
 
 // 작가 책 작성, 유저 더보기 클릭
 contentHeader.onclick = async() => {
@@ -56,13 +60,23 @@ contentHeader.onclick = async() => {
   }
 };
 
+
+
 // 모달 팝업창 클릭
 modalContainer.onclick = () =>{
   modalContainer.classList.add("out");
   modalContainer.classList.remove("one");
 }
 
-
+// 모달2(마이 라이브러리 위쪽 아이콘)
+document.getElementById("otherInfoBar").onclick = () =>{
+  modalContainer2.classList.add("two");
+  modalContainer2.classList.remove("out");
+}
+modalContainer2.onclick = () =>{
+  modalContainer2.classList.add("out");
+  modalContainer2.classList.remove("two");
+}
 
 
 // itemContainer에 책 item append로 추가하기
@@ -117,11 +131,16 @@ async function getBookList(){
     const data = await axios.post("/v3/bookdetail/load_book_info", {
       title: books[i].title,
     });
+    let nickname2 = "";
     data.data.BookInfo.forEach(element => {
       if(element.nickname){ // 작가명이 있으면 가져와서 넣어줌
+        nickname2 = element.nickname;
         authorInfoDiv.innerHTML = `${element.nickname}`;
       }
     });
+    if(nickname2==""){
+      authorInfoDiv.innerHTML = `작자미상`;
+    }
 
     bookInfoDiv.append(bookTitleDiv);
     bookInfoDiv.append(authorInfoDiv);

@@ -335,7 +335,7 @@ body {
 
 
 /* modal style */
-#modal-container {
+#modal-container, #modal-container2 {
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -346,26 +346,26 @@ body {
 	/* hidden 처리 */
 	transform: scale(0);
 }
-#modal-container .modal-background {
+#modal-container .modal-background, #modal-container2 .modal-background {
 	display: table-cell;
 	background: rgba(0, 0, 0, 0.6);
 	text-align: center;
 	vertical-align: middle;
 }
-#modal-container .modal-background .modal {
+#modal-container .modal-background .modal, #modal-container2 .modal-background .modal {
 	background: #fff;
 	padding: 50px;
 	display: inline-block;
 	border-radius: 3px;
 	position: relative;
 }
-#modal-container .modal-background .modal h2 {
+#modal-container .modal-background .modal h2, #modal-container2 .modal-background .modal h2 {
 	font-size: 25px;
 	line-height: 25px;
 	margin-bottom: 15px;
 	
 }
-#modal-container .modal-background .modal p {
+#modal-container .modal-background .modal p, #modal-container2 .modal-background .modal p {
 	font-size: 18px;
 	line-height: 22px;
 }
@@ -392,21 +392,21 @@ body {
  * Unfolding Animation
  * ------------------------------
  */
- #modal-container.one {
+ #modal-container.one, #modal-container2.one {
 	/*transform: scaleX(0) scaleY(1);*/
 	animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one .modal-background .modal {
+#modal-container.one .modal-background .modal, #modal-container2.one .modal-background .modal {
 	/* 초기 display: none 처럼 크기를 0 으로 하여 보여주지 않음*/
 	transform: scale(0);
 	/* 0.5 초 동안 애니메이션을 실행, 단 0.8초 지연시켜 0.8초 후에 애니메이션을 실행 */
 	animation: zoomIn .5s .8s  cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one.out {
+#modal-container.one.out, #modal-container2.one.out {
 	transform: scale(1);
 	animation: unfoldOut 1s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one.out .modal-background .modal {
+#modal-container.one.out .modal-background .modal, #modal-container2.one.out .modal-background .modal {
 	animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 /* Dimmed showing */
@@ -463,14 +463,14 @@ body {
  * Revealing Animation
  * ------------------------------
  */
- #modal-container.two {
+ #modal-container.two, #modal-container2.two {
 	transform: scale(1);
 }
-#modal-container.two .modal-background {
+#modal-container.two .modal-background, #modal-container2.two .modal-background {
 	background: transparent;
 	animation: fadeIn .5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.two .modal-background .modal {
+#modal-container.two .modal-background .modal, #modal-container2.two .modal-background .modal {
 	/* 콘텐츠를 초기에 보여주지 않음 */
 	opacity: 0;
 	animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
@@ -479,14 +479,14 @@ body {
 	/* 콘텐츠 크기를 줄임 */
 	animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.two.out {
+#modal-container.two.out, #modal-container2.two.out {
 	/* 전체 모달 컨테이너를 숨김 처리(다른 애니메이션이 모두 끝난 0.5초 후에 처리하기 위해 0.5초 지연시킴 */
 	animation: quickScaleDown 0s .5s linear forwards;
 }
-#modal-container.two.out .modal-background {
+#modal-container.two.out .modal-background, #modal-container2.two.out .modal-background {
 	animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.two.out .modal-background .modal {
+#modal-container.two.out .modal-background .modal, #modal-container2.two.out .modal-background .modal {
 	animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 .content.two.out {

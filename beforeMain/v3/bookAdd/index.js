@@ -8,25 +8,35 @@ const cancle = document.getElementById("cancle");
 
 const title_name = document.getElementById("title");
 
-// window.addEventListener("focus", reset(), false);
-document.getElementById("fileadd").onsubmit = async (e) => {
+saveBtn.onclick = () =>{
+  document.getElementById("fileadd").onsubmit = async (e) => {
+    e.preventDefault();
+  
+    // const { book_img, title, title_sub, introduce, publisher } = e.target;
+    const { book_img, title, title_sub, introduce, price } = e.target;
+    let formData = new FormData();
+  
+    formData.append("book_img", book_img.files[0]);
+  
+    formData.append("title", title.value);
+    formData.append("title_sub", title_sub.value);
+    formData.append("introduce", introduce.value);
+    formData.append("category", getValue());
+    // formData.append("publisher", publisher.value);
+    formData.append("price", price.value);
+    const data = await axios.post("/v3/boodAdd/upload", formData);
+    if (data.data.status == 200) {
+      alert("책을 등록하였습니다.");
+    } else {
+      alert("에러");
+    }
+    location.href = "/v3/myLibrary";
+  };
+}
+
+
+cancle.onclick = (e) => {
   e.preventDefault();
-
-  const { book_img, title, title_sub, introduce, publisher } = e.target;
-  let formData = new FormData();
-
-  formData.append("book_img", book_img.files[0]);
-
-  formData.append("title", title.value);
-  formData.append("title_sub", title_sub.value);
-  formData.append("introduce", introduce.value);
-  formData.append("category", getValue());
-  formData.append("publisher", publisher.value);
-  const data = await axios.post("/v3/boodAdd/upload", formData);
-  location.href = "/v3/myLibrary";
-};
-
-cancle.onclick = () => {
   location.href = "/v3/myLibrary";
 };
 
@@ -39,20 +49,20 @@ const fileBtn = document.getElementById("book_sel");
 const fileBtn1 = document.getElementsByClassName("book1")[0];
 console.log(fileBtn1);
 
-fileBtn.addEventListener("click", () => {
-  function showPopup(hasFilter) {
-    const popup = document.querySelector("#popup");
+// fileBtn.addEventListener("click", () => {
+//   function showPopup(hasFilter) {
+//     const popup = document.querySelector("#popup");
 
-    if (hasFilter) {
-      popup.classList.add("has-filter");
-    } else {
-      popup.classList.remove("has-filter");
-    }
+//     if (hasFilter) {
+//       popup.classList.add("has-filter");
+//     } else {
+//       popup.classList.remove("has-filter");
+//     }
 
-    popup.classList.remove("hide");
-  }
-  showPopup();
-});
+//     popup.classList.remove("hide");
+//   }
+//   showPopup();
+// });
 
 function closePopup() {
   const popup = document.querySelector("#popup");
@@ -64,19 +74,21 @@ function closePopup() {
 const itTitle = document.querySelector("#title");
 const ittitleSub = document.querySelector("#title_sub");
 const itIntroduce = document.querySelector("#introduce");
-const itPublisher = document.querySelector("#publisher");
+// const itPublisher = document.querySelector("#publisher");
+const itPrice = document.querySelector("#price");
 const itrounD = document.querySelector("#rounD");
 
 const title = itTitle.getBoundingClientRect();
 const titleSub = ittitleSub.getBoundingClientRect();
 const introduce = itIntroduce.getBoundingClientRect();
-const publisher = itPublisher.getBoundingClientRect();
+// const publisher = itPublisher.getBoundingClientRect();
+const price = itPrice.getBoundingClientRect();
 const rounD = itrounD.getBoundingClientRect();
 
 console.log(title);
 console.log(titleSub);
 console.log(introduce);
-console.log(publisher);
+console.log(price);
 console.log(rounD);
 
 // const y = Math.atan2(-distCaret, Math.abs(distInput) * 3);
@@ -89,6 +101,7 @@ console.log(rounD);
 // console.log(rect);
 
 (function () {
+  // const roun = asdasd;
   const rounD = document.querySelector("#rounD");
   const face = document.querySelectorAll(".eyes");
   const inputText = document.querySelectorAll('input[type="text"]');
@@ -100,7 +113,7 @@ console.log(rounD);
   const fauxInput = document.createElement("div");
   const span = document.createElement("span");
   let timer = null;
-
+  // console.log(roun);
   console.log(inputText);
 
   [...inputText].forEach((item) => {

@@ -63,10 +63,11 @@
 
 .book_info {
   width: 1280px;
-  height: 150px;
+  height: fit-content;
   border-style: solid;
   border-color: rgb(245,245,245);
   position: relative;
+  padding-bottom: 80px;
 }
 
 .bookdetail-info {

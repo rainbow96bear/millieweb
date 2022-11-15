@@ -1,3 +1,14 @@
+let tempCookie = document.cookie.split("=");
+let cookieJwt = tempCookie[1];
+// 만약 쿠키가 있으면 쿠키정보 가져오는 함수 실행
+if (cookieJwt) {
+  // cookieVerify();
+} else {
+  // 쿠키 없으면 로그인 전 메인으로 보냄
+  location.href = "http://localhost:8080";
+}
+
+
 const root = document.getElementById("root");
 const firstBannerTitle = document.getElementById("firstBannerTitle");
 const secondBannerTitle = document.getElementById("secondBannerTitle");
@@ -126,8 +137,22 @@ async function makeList(bannerName, category) {
 logo.onclick = () => {
   location.href = "../../MainHome";
 };
-search_btn.onclick = () => {};
+search_btn.onclick = () => {
+  location.href = "../../category";
+};
 my_book_btn.onclick = () => {
   // alert("나중에 내 서재로 이동하도록 할 겁니다.");
   location.href = "../../myLibrary";
+};
+document.getElementById("log_out").onclick = async () => {
+  const data = await axios.post("/v3/mainhome/clearCookie", {
+    cookieName: tempCookie[0],
+  });
+
+  if (data.data.status == 200) {
+    alert("로그아웃 성공");
+    location.href = "http://localhost:8080";
+  } else {
+    alert("로그아웃 실패");
+  }
 };
