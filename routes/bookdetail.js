@@ -164,7 +164,7 @@ router.post("/addBook", async (req, res) => {
     // 유저이름과 북 인포가 같으면 이미 내 서재에 있다는 send를 해준다.
 
 
-    if (req.body.money > req.body.price) {
+    if (req.body.money >= req.body.price) {
       // 해당 유저의 돈 정보를 업데이트 해준다.
       const userMoney = await User_Info.update({
         money: +req.body.money - +req.body.price,

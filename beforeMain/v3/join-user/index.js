@@ -632,6 +632,7 @@ joinBtnElem.onclick = async () => {
         // status가 200일때 띄운다.
         if (data.data.status == 200) {
             alert("회원가입이 완료되었습니다.");
+            alert("100,000 포인트가 지급되었습니다.");
 
             // 메인 페이지로 리다이렉트
             // window.location.href = '../login';

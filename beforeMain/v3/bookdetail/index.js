@@ -80,36 +80,47 @@ async function loadReviews() {
     temp_review_date.classList.add("review_date");
     temp_threedot.classList.add("threedot");
     temp_threedot.onclick = async () => {
-      const data = await axios.post("/v3/bookdetail/delete", {
-        // 누가 쓴건지 어떠한 내용인지 어디 책인지 정보 보내기
-        // id : idx+1,
-        userId: item.userId,
-        review_content: item.review_content,
-        bookTitle: temp_split[1],
-      });
-      if(data.data.status==200){
-        if(data.data.delCount == 1){
-          alert("댓글이 삭제되었습니다.");
-        }else{
-          alert(data.data.delCount+"개의 동일한 댓글이 삭제되었습니다.");
+      const realDelete = confirm("댓글을 삭제하시겠습니까?");
+      if (realDelete) {
+        const data = await axios.post("/v3/bookdetail/delete", {
+          // 누가 쓴건지 어떠한 내용인지 어디 책인지 정보 보내기
+          // id : idx+1,
+          userId: item.userId,
+          review_content: item.review_content,
+          bookTitle: temp_split[1],
+        });
+        if (data.data.status == 200) {
+
+          if (data.data.delCount == 1) {
+            alert("댓글이 삭제되었습니다.");
+
+          } else {
+            alert(data.data.delCount + "개의 동일한 댓글이 삭제되었습니다.");
+          }
+
+        } else if (data.data.status == 400) {
+          alert("본인이 작성한 댓글만 지울 수 있습니다.");
+        } else if (data.data.status == 401) {
+          alert("리뷰 삭제 에러");
         }
-        
-      }else if(data.data.status==400){
-        alert("본인이 작성한 댓글만 지울 수 있습니다.");
-      }else if(data.data.status==401){
-        alert("리뷰 삭제 에러");
+        // temp_threedot.parentElement.remove();
+        loadReviews();
+
+      } else {
+        // alert("댓글 삭제를 취소하였습니다.");
+        return;
       }
-      // temp_threedot.parentElement.remove();
-      loadReviews();
     };
     temp_review_content.classList.add("review_content");
     temp_review_content_detail.classList.add("review_content_detail");
     temp_profile_img.src = "bookdetail_img/chracterimg.png";
     temp_review_id.innerHTML = item.userId + "<br />";
     temp_review_date.innerText = new Date(item.updatedAt).toLocaleString();
-    temp_threedot.src = "bookdetail_img/threebtn.png";
+    temp_threedot.src = "bookdetail_img/threebtn2.png";
+    temp_threedot.style.marginTop = "auto";
+    temp_threedot.style.width = "20px";
+    temp_threedot.style.height = "20px";
     temp_review_content_detail.innerText = item.review_content;
-
     temp_review_one_first.append(temp_profile_img);
     temp_review_one_first.append(temp_review_id);
     temp_review_one_first.append(temp_threedot);
@@ -117,7 +128,9 @@ async function loadReviews() {
     temp_review_content.append(temp_review_content_detail);
     temp_review_content.append(temp_review_content_like);
     temp_review_content_like.append(temp_content_like_img);
-    temp_content_like_img.src = "bookdetail_img/likebtn.png";
+    // temp_content_like_img.src = "bookdetail_img/likebtn.png";
+    temp_content_like_img.src = "";
+    temp_review_one.style.marginBottom = "10px";
     temp_review_one.append(temp_review_one_first);
     temp_review_one.append(temp_review_content);
     document.getElementById("review_box").prepend(temp_review_one);
@@ -228,8 +241,6 @@ mybook.onclick = async () => {
   const userMoney = priceInfo.data.userMoney;
   const bookPrice = priceInfo.data.bookPrice;
 
-  const data = await axios.post("/v3/bookdetail/addBook", { book: temp_split[1], money : userMoney, price : bookPrice});
-
   // 유저 돈 가져옴
   if (userMoney < bookPrice) {
     alert(`현재 ${userMoney.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원 있습니다. ${(bookPrice - userMoney).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원이 부족합니다.`);
@@ -239,15 +250,19 @@ mybook.onclick = async () => {
     if (buyCheck) {
 
       // 만약 이미 내 서재에 있으면 res send를 이미 있습니다로 보내기
+      const data = await axios.post("/v3/bookdetail/addBook", { book: temp_split[1], money: userMoney, price: bookPrice });
 
-      
-      alert("내 서재에 담겼습니다.");
+      if (data.data.status == 200) {
+        alert("내 서재에 담겼습니다.");
+      } else {
+        alert(`${data.data.status}에러 발생`);
+      }
+
     } else if (!buyCheck) {
       alert("구매를 취소하였습니다.");
       return;
     }
   }
-
   if (data.data.status == 400) {
     alert("어머");
   }

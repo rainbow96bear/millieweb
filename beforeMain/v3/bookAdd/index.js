@@ -8,6 +8,21 @@ const cancle = document.getElementById("cancle");
 
 const title_name = document.getElementById("title");
 
+// 특수문자 검증 함수
+function regExp(str){  
+  var reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
+  //특수문자 검증
+  if(reg.test(str)){
+    //특수문자 제거후 리턴
+    return str.replace(reg, "");    
+  } else {
+    //특수문자가 없으므로 본래 문자 리턴
+    return str;
+  }  
+}
+
+
+
 saveBtn.onclick = () =>{
   document.getElementById("fileadd").onsubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +38,10 @@ saveBtn.onclick = () =>{
     formData.append("introduce", introduce.value);
     formData.append("category", getValue());
     // formData.append("publisher", publisher.value);
-    formData.append("price", price.value);
+
+    // formData.append("price", price.value);
+    formData.append("price", regExp(price.value));
+
     const data = await axios.post("/v3/boodAdd/upload", formData);
     if (data.data.status == 200) {
       alert("책을 등록하였습니다.");
