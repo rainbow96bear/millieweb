@@ -48,7 +48,6 @@ async function loadReviews() {
 
   // console.log(reviews[0].review_content);
   // console.log(reviews[0]);
-
   const reviewInput = `
       <div class="review_coment">
       <img
