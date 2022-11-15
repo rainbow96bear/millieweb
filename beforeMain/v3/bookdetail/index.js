@@ -232,15 +232,13 @@ mybook.onclick = async () => {
 
   // 유저 돈 가져옴
   if (userMoney < bookPrice) {
-    alert(`현재 ${userMoney}원 있습니다. ${bookPrice - userMoney}원이 부족합니다.`);
+    alert(`현재 ${userMoney.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원 있습니다. ${(bookPrice - userMoney).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원이 부족합니다.`);
     return;
   } else if (userMoney >= bookPrice) {
-    const buyCheck = confirm(`현재 ${userMoney}원 있습니다. ${bookPrice}원을 내고 구매하시겠습니까?`);
+    const buyCheck = confirm(`현재 ${userMoney.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원 있습니다. ${bookPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원을 내고 구매하시겠습니까?`);
     if (buyCheck) {
 
-
-
-
+      // 만약 이미 내 서재에 있으면 res send를 이미 있습니다로 보내기
 
       
       alert("내 서재에 담겼습니다.");

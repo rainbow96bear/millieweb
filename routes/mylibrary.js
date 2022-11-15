@@ -4,6 +4,13 @@ const { User_Info, BookInfo } = require("../models/index.js");
 
 const jwt = require("jsonwebtoken");
 
+
+router.post("/getUserMoney", async(req,res)=>{
+    const userMoney = (await User_Info.findAll({ attributes: ["money"], where: { userId: req.body.id } }))[0].dataValues.money;
+    res.send({money : userMoney});
+});
+
+
 router.post("/getBooks", async (req, res) => {
     console.log(req.body.userId);
     const userId = req.body.userId;

@@ -60,16 +60,30 @@ contentHeader.onclick = async() => {
   }
 };
 
-
-
-// 모달 팝업창 클릭
+// 모달 팝업창(아래) 클릭
 modalContainer.onclick = () =>{
   modalContainer.classList.add("out");
   modalContainer.classList.remove("one");
 }
 
-// 모달2(마이 라이브러리 위쪽 아이콘)
-document.getElementById("otherInfoBar").onclick = () =>{
+// 모달2(마이 라이브러리 위쪽 아이콘) 클릭
+document.getElementById("otherInfoBar").onclick = async() =>{
+
+  const userInfo = await axios.post("/v3/mainhome/cookieInfo", {cookieJwt});
+  console.log(userInfo.data.id); // efforthye
+
+  const moneyInfo = await axios.post("/v3/mylibrary/getUserMoney", {id : userInfo.data.id});
+  console.log(moneyInfo);
+
+  nowMoney.innerHTML = `현재 소지 금액은 ${moneyInfo.data.money.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원 입니다.`;
+
+  // 서버쪽에 유저머니 불러오는 코드
+  //             // 유저 머니
+  // const userMoney = (await User_Info.findAll({ attributes: ["money"], where: { userId: req.body.id } }))[0].dataValues.money;
+
+
+
+
   modalContainer2.classList.add("two");
   modalContainer2.classList.remove("out");
 }
