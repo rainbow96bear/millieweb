@@ -5,6 +5,17 @@ const { User_Info, BookInfo, ReviewInfo } = require("../models/index.js");
 const jwt = require("jsonwebtoken");
 
 
+// 유저 아이디로 유저 이미지 구해오기
+router.post("/getUserImg", async(req,res)=>{
+  const userInfo = await User_Info.findOne({
+    where : {userId : req.body.id}
+  });
+  const userImg = userInfo.dataValues.userImg;
+
+  res.send({userImg : userImg});
+});
+
+
 // 리뷰 등록
 router.post("/member_review", async (req, res) => {
   try {

@@ -15,9 +15,12 @@ if (cookieJwt) {
 }
 
 
+
 const bookReviewElem = document.getElementById("bookReview");
 // 리뷰들을 불러오는 함수
 async function loadReviews() {
+  const userInfo = await axios.post("/v3/mainhome/cookieInfo", { cookieJwt });
+  console.log(userInfo.data.userImg);
   bookReviewElem.innerHTML = `
     <div class="book_review_side">
       <p>
@@ -27,6 +30,7 @@ async function loadReviews() {
         class="character_img_one"
         src="bookdetail_img/reviewbtn.png"
         alt=""
+        
       />
     </div>
     <div id="review_box"></div>
@@ -37,6 +41,7 @@ async function loadReviews() {
   // const userId = (await axios.post("/v3/mainhome/cookieInfo", {cookieJwt})).data.id;
   // const reviews = (await axios.post("/v3/bookdetail/getReviews",{userId : userId})).data;
   const reviews = (await axios.post("/v3/bookdetail/getReviews", { bookTitle: temp_split[1] })).data;
+  // console.log(reviews[0].userId); // 유저 아이디~~에 해당하는 유저 이미지 가져오기
 
   // 리뷰 개수
   document.getElementById("reviewCount").innerHTML = reviews.length;
@@ -48,22 +53,28 @@ async function loadReviews() {
       <div class="review_coment">
       <img
         class="character_img_two"
-        src="bookdetail_img/chracterimg.png"
+        src="${"http://localhost:8080/uploads/" + userInfo.data.userImg}"
         alt=""
       />
       <input
         id="review"
         class="input_review"
-        placeholder="다양한생각을 남겨주세요"
+        placeholder="다양한 생각을 남겨주세요."
       />
       <button id="review_btn" class="review_add" onkeyup="if(window.event.keyCode==13){reviewBtn.onclick()};">등록</button>
     </div>
   `;
   bookReviewElem.innerHTML += reviewInput;
 
+
+
+
   // for문 돌려서 화면에 띄움
   console.log(reviews);
-  reviews.forEach((item, idx) => {
+  reviews.forEach( async(item, idx) => {
+    const userImg = await axios.post("/v3/bookdetail/getUserImg", { id : reviews[idx].userId });
+
+
     const temp_review_one = document.createElement("div");
     const temp_review_one_first = document.createElement("div");
     const temp_profile_img = document.createElement("img");
@@ -111,9 +122,18 @@ async function loadReviews() {
         return;
       }
     };
+
+    // console.log(userImg.data.userImg);
+
     temp_review_content.classList.add("review_content");
     temp_review_content_detail.classList.add("review_content_detail");
-    temp_profile_img.src = "bookdetail_img/chracterimg.png";
+    temp_review_content_detail.style.marginLeft = "10px";
+    temp_profile_img.src = `http://localhost:8080/uploads/${userImg.data.userImg}`;
+    temp_profile_img.style.width = "30px";
+    temp_profile_img.style.height = "30px";
+    temp_profile_img.style.borderRadius = "30px";
+    temp_profile_img.style.marginRight = "10px";
+
     temp_review_id.innerHTML = item.userId + "<br />";
     temp_review_date.innerText = new Date(item.updatedAt).toLocaleString();
     temp_threedot.src = "bookdetail_img/threebtn2.png";
